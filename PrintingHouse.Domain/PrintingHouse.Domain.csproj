@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>c5488144-d4b2-40ba-b5d9-74a9aae3f9b0</ProjectGuid>
+    <ProjectGuid>{C5488144-D4B2-40BA-B5D9-74A9AAE3F9B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PrintingHouse.Domain</RootNamespace>
@@ -30,24 +30,44 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookAssembly\AssemblyDepartment.cs" />
+    <Compile Include="BookAssembly\AssemblyDirector.cs" />
+    <Compile Include="BookAssembly\AssemblyReport.cs" />
+    <Compile Include="BookAssembly\Binding.cs" />
+    <Compile Include="BookAssembly\HardCover.cs" />
+    <Compile Include="BookAssembly\IAssemblyDepartment.cs" />
+    <Compile Include="BookAssembly\ICalcCost.cs" />
+    <Compile Include="BookAssembly\Lamination.cs" />
+    <Compile Include="BookAssembly\Packaging.cs" />
+    <Compile Include="BookAssembly\Perfect.cs" />
+    <Compile Include="BookAssembly\Perforation.cs" />
+    <Compile Include="BookAssembly\SaddleStitching.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Enums\BindingType.cs" />
+    <Compile Include="Enums\ColorsType.cs" />
+    <Compile Include="Enums\IssueFormatType.cs" />
+    <Compile Include="Enums\LaminationType.cs" />
+    <Compile Include="Enums\PaperFormat.cs" />
+    <Compile Include="Enums\PaperFullType.cs" />
+    <Compile Include="Enums\PaperType.cs" />
+    <Compile Include="Enums\PaperUnit.cs" />
+    <Compile Include="Enums\PerforationType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="Concrete\" />
+    <Folder Include="Entities\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
