@@ -48,8 +48,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CorosetPlamag_84_108_InternalBlock.cs" />
+    <Compile Include="MiyConspectCreation.cs" />
+    <Compile Include="Rapida74_5_60_90_Cover.cs" />
+    <Compile Include="Rapida74_5_60_90_IB.cs" />
+    <Compile Include="Rapida74_5_70_100_Cover.cs" />
+    <Compile Include="Rapida74_5_70_100_CoverMagazine.cs" />
+    <Compile Include="Rapida74_5_70_100_Insert.cs" />
+    <Compile Include="Rapida74_5_70_100_InternalBlock.cs" />
+    <Compile Include="TestBookCreation.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZirkonForta660_60_90_8_InternalBlock.cs" />
+    <Compile Include="ZirkonForta660_60_90_InternalBlock - Copy.cs" />
+    <Compile Include="ZirkonForta660_70_90_InternalBlock.cs" />
+    <Compile Include="ZirkonForta660_84_108_Cover.cs" />
+    <Compile Include="ZirkonForta660_84_108_IB_Magazine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

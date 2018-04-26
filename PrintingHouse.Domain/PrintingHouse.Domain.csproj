@@ -40,34 +40,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookAssembly\AssemblyDepartment.cs" />
-    <Compile Include="BookAssembly\AssemblyDirector.cs" />
-    <Compile Include="BookAssembly\AssemblyReport.cs" />
-    <Compile Include="BookAssembly\Binding.cs" />
-    <Compile Include="BookAssembly\HardCover.cs" />
-    <Compile Include="BookAssembly\IAssemblyDepartment.cs" />
-    <Compile Include="BookAssembly\ICalcCost.cs" />
-    <Compile Include="BookAssembly\Lamination.cs" />
-    <Compile Include="BookAssembly\Packaging.cs" />
-    <Compile Include="BookAssembly\Perfect.cs" />
-    <Compile Include="BookAssembly\Perforation.cs" />
-    <Compile Include="BookAssembly\SaddleStitching.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Enums\BindingType.cs" />
-    <Compile Include="Enums\ColorsType.cs" />
-    <Compile Include="Enums\IssueFormatType.cs" />
-    <Compile Include="Enums\LaminationType.cs" />
-    <Compile Include="Enums\PaperFormat.cs" />
-    <Compile Include="Enums\PaperFullType.cs" />
-    <Compile Include="Enums\PaperType.cs" />
-    <Compile Include="Enums\PaperUnit.cs" />
-    <Compile Include="Enums\PerforationType.cs" />
+    <Compile Include="Entities\Book.cs" />
+    <Compile Include="Concrete\BookAssembly\AssemblyDepartment.cs" />
+    <Compile Include="Concrete\BookAssembly\AssemblyDirector.cs" />
+    <Compile Include="Concrete\BookAssembly\AssemblyReport.cs" />
+    <Compile Include="Concrete\Binding\AbstractBinding.cs" />
+    <Compile Include="Concrete\Binding\HardCover.cs" />
+    <Compile Include="Abstract\IAssemblyDepartment.cs" />
+    <Compile Include="Concrete\BookAssembly\Lamination.cs" />
+    <Compile Include="Concrete\BookAssembly\Packaging.cs" />
+    <Compile Include="Concrete\Binding\Perfect.cs" />
+    <Compile Include="Concrete\BookAssembly\Perforation.cs" />
+    <Compile Include="Concrete\Binding\SaddleStitching.cs" />
+    <Compile Include="Entities\BookComponents\BookAssembly.cs" />
+    <Compile Include="Entities\BookComponents\BookPart.cs" />
+    <Compile Include="Entities\BookCostOfPolygraphy.cs" />
+    <Compile Include="Entities\Enums\BindingType.cs" />
+    <Compile Include="Entities\Enums\ColorsType.cs" />
+    <Compile Include="Entities\Enums\IssueFormatType.cs" />
+    <Compile Include="Entities\Enums\LaminationType.cs" />
+    <Compile Include="Entities\Enums\PaperFormat.cs" />
+    <Compile Include="Entities\Enums\PaperFullType.cs" />
+    <Compile Include="Entities\Enums\PaperType.cs" />
+    <Compile Include="Entities\Enums\PaperUnit.cs" />
+    <Compile Include="Entities\Enums\PerforationType.cs" />
+    <Compile Include="Entities\IssueParams\IssueColor.cs" />
+    <Compile Include="Entities\IssueParams\IssueFormat.cs" />
+    <Compile Include="Entities\Paper\AbstractPaper.cs" />
+    <Compile Include="Entities\Paper\PaperInKg.cs" />
+    <Compile Include="Entities\Paper\PaperInSheets.cs" />
+    <Compile Include="Entities\PriceLists\CorosetPressPriceList.cs" />
+    <Compile Include="Entities\PriceLists\Price.cs" />
+    <Compile Include="Entities\PriceLists\RapidaPressPriceList.cs" />
+    <Compile Include="Entities\PriceLists\ShinoharaPressPriceList.cs" />
+    <Compile Include="Entities\PriceLists\ZirkonPressPriceList.cs" />
+    <Compile Include="Entities\PrintingPresses\CorosetPlamag.cs" />
+    <Compile Include="Entities\PrintingPresses\PressReport.cs" />
+    <Compile Include="Entities\PrintingPresses\PrintingPress.cs" />
+    <Compile Include="Entities\PrintingPresses\Rapida74_5.cs" />
+    <Compile Include="Entities\PrintingPresses\Roland.cs" />
+    <Compile Include="Entities\PrintingPresses\RolledPress.cs" />
+    <Compile Include="Entities\PrintingPresses\SheetPress.cs" />
+    <Compile Include="Entities\PrintingPresses\Shinohara.cs" />
+    <Compile Include="Entities\PrintingPresses\Shinohara52_2.cs" />
+    <Compile Include="Entities\PrintingPresses\ZeroColorPress.cs" />
+    <Compile Include="Entities\PrintingPresses\ZirkonForta660.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\SheetSizeInSM.cs" />
+    <Compile Include="Concrete\Tasks\TaskToBind.cs" />
+    <Compile Include="Concrete\Tasks\TaskToLamination.cs" />
+    <Compile Include="Concrete\Tasks\TaskToPackage.cs" />
+    <Compile Include="Concrete\Tasks\TaskToPerforation.cs" />
+    <Compile Include="Concrete\Tasks\TaskToPrint.cs" />
+    <Compile Include="Concrete\TypographyManagement\DirectorOfTypography.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
