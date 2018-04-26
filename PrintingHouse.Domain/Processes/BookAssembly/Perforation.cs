@@ -33,17 +33,17 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 				{
 					case PerforationType.usual:
 						{
-							pricePerUnit = Price.Perforation["Staple_First_48pages_Block"] +
+							pricePerUnit = AssemblyPriceList.Perforation["Staple_First_48pages_Block"] +
 								(Math.Ceiling((double)(pagesNumber - 48)
-								/ Price.Perforation["PagesInBlock"])
-								* Price.Perforation["Staple_additional_16pages_Block"]);
+								/ AssemblyPriceList.Perforation["PagesInBlock"])
+								* AssemblyPriceList.Perforation["Staple_additional_16pages_Block"]);
 						}
 						break;
 					case PerforationType.simplified:
 						{
-							pricePerUnit = Price.Perforation["Simplified_Staple_First_48pages_Block"] +
-								(Math.Ceiling((double)(pagesNumber - 48) / Price.Perforation["PagesInBlock"])
-								* Price.Perforation["Simplified_Staple_additional_16pages_Block"]);
+							pricePerUnit = AssemblyPriceList.Perforation["Simplified_Staple_First_48pages_Block"] +
+								(Math.Ceiling((double)(pagesNumber - 48) / AssemblyPriceList.Perforation["PagesInBlock"])
+								* AssemblyPriceList.Perforation["Simplified_Staple_additional_16pages_Block"]);
 						}
 						break;
 					default:
@@ -58,15 +58,15 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 					case PerforationType.usual:
 						{
 							pricePerUnit = (Math.Ceiling((double)(pagesNumber)
-								/ Price.Perforation["PagesInBlock"])
-								* Price.Perforation["Clue_forEach16pages_Block"]);
+								/ AssemblyPriceList.Perforation["PagesInBlock"])
+								* AssemblyPriceList.Perforation["Clue_forEach16pages_Block"]);
 						}
 						break;
 					case PerforationType.simplified:
 						{
 							pricePerUnit = (Math.Ceiling((double)(pagesNumber)
-								/ Price.Perforation["PagesInBlock"])
-								* Price.Perforation["Simplified_Clue_forEach16pages_Block"]);
+								/ AssemblyPriceList.Perforation["PagesInBlock"])
+								* AssemblyPriceList.Perforation["Simplified_Clue_forEach16pages_Block"]);
 						}
 						break;
 					default:

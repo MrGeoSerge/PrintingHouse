@@ -6,7 +6,7 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 {
 	//PressPrice - класс, где хранятся данные из прайса
 	//ZirkonForta660
-	public static class CorosetPressPriceList
+	public static class CorosetPressPriceList 
     {
         //4 параметра определяют прайс на печатную машину
         //стоимость изготовления формы (не зависит от тиража)

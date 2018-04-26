@@ -26,16 +26,16 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 				switch (TaskToLamination.LaminationFormat)
 				{
 					case PaperFormat.A1:
-						pricePerUnit = Price.Lamination["A1_Glossy"];
+						pricePerUnit = AssemblyPriceList.Lamination["A1_Glossy"];
 						break;
 					case PaperFormat.A2:
-						pricePerUnit = Price.Lamination["A2_Glossy"];
+						pricePerUnit = AssemblyPriceList.Lamination["A2_Glossy"];
 						break;
 					case PaperFormat.A3:
-						pricePerUnit = Price.Lamination["A3_Glossy"];
+						pricePerUnit = AssemblyPriceList.Lamination["A3_Glossy"];
 						break;
 					case PaperFormat.A4:
-						pricePerUnit = Price.Lamination["A4_Glossy"];
+						pricePerUnit = AssemblyPriceList.Lamination["A4_Glossy"];
 						break;
 					default:
 						throw new Exception("неверный формат ламинации");
@@ -46,16 +46,16 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 				switch (TaskToLamination.LaminationFormat)
 				{
 					case PaperFormat.A1:
-						pricePerUnit = Price.Lamination["A1_Matte"];
+						pricePerUnit = AssemblyPriceList.Lamination["A1_Matte"];
 						break;
 					case PaperFormat.A2:
-						pricePerUnit = Price.Lamination["A2_Matte"];
+						pricePerUnit = AssemblyPriceList.Lamination["A2_Matte"];
 						break;
 					case PaperFormat.A3:
-						pricePerUnit = Price.Lamination["A3_Matte"];
+						pricePerUnit = AssemblyPriceList.Lamination["A3_Matte"];
 						break;
 					case PaperFormat.A4:
-						pricePerUnit = Price.Lamination["A4_Matte"];
+						pricePerUnit = AssemblyPriceList.Lamination["A4_Matte"];
 						break;
 					default:
 						throw new Exception("неверный формат ламинации");

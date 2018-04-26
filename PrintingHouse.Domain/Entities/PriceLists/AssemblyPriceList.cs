@@ -3,7 +3,7 @@
 namespace PrintingHouse.Domain.Entities.PriceLists
 {
 	//прайс типографии реализован в виде словарей на разные услуги
-	public static class Price
+	public static class AssemblyPriceList
     {
         //перфорация
         static public Dictionary<string, double> Perforation;
@@ -19,7 +19,7 @@ namespace PrintingHouse.Domain.Entities.PriceLists
         static public Dictionary<string, double> SaddleStitching60_90_16;
 
 
-        static Price()
+        static AssemblyPriceList()
         {
             #region Perforation
             Perforation = new Dictionary<string, double>();

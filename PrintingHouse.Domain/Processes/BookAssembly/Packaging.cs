@@ -19,11 +19,11 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 		{
 			if (_taskToPackage.BindingType == BindingType.SaddleStitching)
 			{
-				pricePerUnit = Price.Packaging["PriceForStaple"];
+				pricePerUnit = AssemblyPriceList.Packaging["PriceForStaple"];
 			}
 			else
 			{
-				pricePerUnit = Price.Packaging["PriceForClue"];
+				pricePerUnit = AssemblyPriceList.Packaging["PriceForClue"];
 			}
 			PrintRun = _taskToPackage.PrintRun;
 		}
