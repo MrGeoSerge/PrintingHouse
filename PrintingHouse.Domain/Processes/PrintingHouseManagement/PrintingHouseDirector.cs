@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+using PrintingHouse.Domain.Entities;
+using PrintingHouse.Domain.Entities.Reports;
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Entities.BookComponents;
+using PrintingHouse.Domain.PrintingPresses;
+using PrintingHouse.Domain.Abstract;
+using PrintingHouse.Domain.Processes.BookAssembly;
+using PrintingHouse.Domain.Entities.PrintingPresses;
 
 namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
 {
-    //Директор типографии раздает задания (- формирует Task-и) на печатные машины и другие виды работ
-    public class DirectorOfTypography
+	//Директор типографии раздает задания (- формирует Task-и) на печатные машины и другие виды работ
+	public class DirectorOfTypography
     {
         Book book;
         AssemblyReport assemblyReport;
@@ -58,7 +54,7 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
             IAssemblyDepartment assemblyDepartment = new AssemblyDepartment(book);
             AssemblyDirector assemblyDirector = new AssemblyDirector(assemblyDepartment);
             assemblyDirector.Assemble();
-            assemblyReport = assemblyDepartment.GetReport();
+            assemblyReport = assemblyDepartment.Report;
             assemblyReport.ShowDetailedReport();
         }
 

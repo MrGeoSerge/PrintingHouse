@@ -2,13 +2,13 @@
 
 namespace PrintingHouse.Domain.Abstract
 {
-	interface IAssemblyDepartment
+	public interface IAssemblyDepartment
 	{
 		void MakeLamination();
 		void MakePerforation();
 		void MakeBinding();
 		void MakePackaging();
 		void CalcTotalCostOfAssembly();
-		AssemblyReport GetReport();
+		AssemblyReport Report { get; }
 	}
 }

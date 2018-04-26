@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PrintingHouse.Domain.Abstract;
+using PrintingHouse.Domain.Entities;
+using PrintingHouse.Domain.Entities.Reports;
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Processes.BookBinding;
+using PrintingHouse.Domain.Specifications;
+using System;
 
 namespace PrintingHouse.Domain.Processes.BookAssembly
 {
 	public class AssemblyDepartment : IAssemblyDepartment
 	{
-		AssemblyReport assemblyReport;
 		Book book;
+		public AssemblyReport Report { get; }
 
 		public AssemblyDepartment(Book book)
 		{
-			assemblyReport = new AssemblyReport();
+			Report = new AssemblyReport();
 			this.book = book;
 		}
 
@@ -39,21 +41,21 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 			}
 
 
-			assemblyReport.AddCostOfBinding(binding.CalcCostOfBinding());
+			Report.AddCostOfBinding(binding.CalcCostOfBinding());
 		}
 
 		public void MakeLamination()
 		{
 			TaskToLamination taskToLamination = new TaskToLamination(book.BookParts[0].Format, book.BookAssembly.LaminationType, book.PrintRun);
 			Lamination lamination = new Lamination(taskToLamination);
-			assemblyReport.AddCostOfLamination(lamination.CalcCost());
+			Report.AddCostOfLamination(lamination.CalcCost());
 		}
 
 		public void MakePackaging()
 		{
 			TaskToPackage taskToPackage = new TaskToPackage(book.BookAssembly.BindingType, book.PrintRun);
 			Packaging packaging = new Packaging(taskToPackage);
-			assemblyReport.AddCostOfPackaging(packaging.CalcCostOfPackaging());
+			Report.AddCostOfPackaging(packaging.CalcCostOfPackaging());
 		}
 
 		public void MakePerforation()
@@ -61,27 +63,20 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 			if (book.BookAssembly.Perforation != 0)
 			{
 				TaskToPerforation taskToPerforation = new TaskToPerforation(book.BookAssembly.Perforation, book.PrintRun,
-						   book.BookAssembly.BindingType, book.BookParts[0].PagesNumber);
+							book.BookAssembly.BindingType, book.BookParts[0].PagesNumber);
 				Perforation perforation = new Perforation(taskToPerforation);
-				assemblyReport.AddCostOfPerforation(perforation.CalcCostOfPerforation());
+				Report.AddCostOfPerforation(perforation.CalcCostOfPerforation());
 			}
 			else
 			{
-				assemblyReport.AddCostOfPerforation(0);
+				Report.AddCostOfPerforation(0);
 			}
 		}
 
 		public void CalcTotalCostOfAssembly()
 		{
-			assemblyReport.CalcTotalCostOfAssembly();
+			Report.CalcTotalCostOfAssembly();
 		}
-
-		public AssemblyReport GetReport()
-		{
-			return assemblyReport;
-		}
-
 	}
+}
 
-}
-}

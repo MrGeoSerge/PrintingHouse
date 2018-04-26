@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrintingHouse.Domain.Entities.Reports
 {
-	class AssemblyReport
+	public class AssemblyReport
 	{
 		public double CostOfBinding { set; get; }
 
@@ -56,5 +56,4 @@ namespace PrintingHouse.Domain.Entities.Reports
 			Console.WriteLine($"Общая стоимость за сборку: {TotalCostOfAssembly}");
 		}
 	}
-}
 }

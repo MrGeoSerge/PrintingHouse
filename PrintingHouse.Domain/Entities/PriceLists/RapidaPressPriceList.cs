@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Diagnostics;
 
-namespace PrintingHouse.Domain.PriceLists
+namespace PrintingHouse.Domain.Entities.PriceLists
 {
 	//PressPrice - класс, где хранятся данные из прайса
 	public static class RapidaPressPriceList

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PrintingHouse.Domain.PriceLists
+namespace PrintingHouse.Domain.Entities.PriceLists
 {
 	//прайс типографии реализован в виде словарей на разные услуги
 	public static class Price

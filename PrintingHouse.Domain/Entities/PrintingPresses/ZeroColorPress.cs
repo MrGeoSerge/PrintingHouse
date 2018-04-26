@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction.IssueParams;
-using BookProduction.Tasks;
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Specifications;
 
-namespace PrintingHouse.Domain.PrintingPresses
+namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
-    //временный класс для расчета расхода бумаги при отсутсвиии печати
-    //для частей книг с цветностью 0+0: форзаца, переплетного картона
-    class ZeroColorPress : SheetPress
+	//временный класс для расчета расхода бумаги при отсутсвиии печати
+	//для частей книг с цветностью 0+0: форзаца, переплетного картона
+	class ZeroColorPress : SheetPress
     {
         public ZeroColorPress(TaskToPrint taskToPrint) : base(taskToPrint)
         {

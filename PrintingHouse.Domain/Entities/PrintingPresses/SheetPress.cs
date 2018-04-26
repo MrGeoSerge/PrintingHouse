@@ -1,6 +1,6 @@
 ﻿using PrintingHouse.Domain.Entities.Tasks;
 
-namespace PrintingHouse.Domain.PrintingPresses
+namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
 	public abstract class SheetPress: PrintingPress
     {

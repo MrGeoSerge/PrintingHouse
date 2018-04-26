@@ -1,21 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+﻿using PrintingHouse.Domain.Specifications;
 
 namespace PrintingHouse.Domain.Entities.Tasks
 {
-    public class TaskToPerforation
+	public class TaskToPerforation
     {
         public PerforationType PerforationType { set; get; }
 
@@ -31,7 +18,5 @@ namespace PrintingHouse.Domain.Entities.Tasks
             BindingType = _bindingType;
             PagesNumber = _pagesNumber;
         }
-
-
     }
 }

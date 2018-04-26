@@ -1,10 +1,7 @@
-﻿using BookProduction.Tasks;
-using PrintingHouse.Domain.IssueParams;
+﻿using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Specifications;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrintingHouse.Domain.Processes.BookBinding
 {

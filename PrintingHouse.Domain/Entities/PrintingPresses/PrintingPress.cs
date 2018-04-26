@@ -1,8 +1,9 @@
 ﻿using System;
 using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.PrintingPresses;
 using PrintingHouse.Domain.Specifications;
 
-namespace PrintingHouse.Domain.PrintingPresses
+namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
 	abstract public class PrintingPress
     {

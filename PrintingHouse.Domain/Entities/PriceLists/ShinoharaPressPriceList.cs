@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PrintingHouse.Domain.PriceLists
+namespace PrintingHouse.Domain.Entities.PriceLists
 {
 	//PressPrice - класс, где хранятся данные из прайса
 	public static class ShinoharaPressPriceList

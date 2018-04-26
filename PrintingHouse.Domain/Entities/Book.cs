@@ -1,21 +1,12 @@
-﻿using System;
+﻿using PrintingHouse.Domain.Entities.BookComponents;
+using PrintingHouse.Domain.Entities.Paper;
+using PrintingHouse.Domain.Specifications;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
 
 namespace PrintingHouse.Domain.Entities
 {
-    public class Book
+	public class Book
     {
         //издательский код книги
         public string Id { set; get; }
@@ -89,73 +80,74 @@ namespace PrintingHouse.Domain.Entities
         }
 
         //Конструктор принимающий модель представления из MVC или из базы данных
-        public Book(BookModel _bookModel)
-        {
-            Name = _bookModel.Name;
-            Id = _bookModel.Id;
-            PrintRun = _bookModel.PrintRun;
+		//неправильная зависимость, модель ничего не должна знать об MVC
+        //public Book(BookModel _bookModel)
+        //{
+        //    Name = _bookModel.Name;
+        //    Id = _bookModel.Id;
+        //    PrintRun = _bookModel.PrintRun;
 
-            BookParts = new List<BookPart>();
+        //    BookParts = new List<BookPart>();
 
-            //-------------создаем внутренний блок-------------
-            BookPart innerBlock = new BookPart();
+        //    //-------------создаем внутренний блок-------------
+        //    BookPart innerBlock = new BookPart();
 
-            innerBlock.Name = "Внутренний блок";
+        //    innerBlock.Name = "Внутренний блок";
 
-                    innerBlock.Format = new IssueFormat(_bookModel.IBFormat);
+        //            innerBlock.Format = new IssueFormat(_bookModel.IBFormat);
 
-            switch (_bookModel.IBPaper)
-            {
-                case PaperFullType.Newsprint_45:
-                    innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 45, 16.995, "Шклов", 59.4);
-                    break;
-                case PaperFullType.Offset_60:
-                    innerBlock.Paper = new PaperInKg(PaperType.Offset, 60, 32.0, "Коростышев", 59.4);
-                    break;
-                case PaperFullType.Offset_80:
-                    innerBlock.Paper = new PaperInSheets(PaperType.Offset, 80, 1.045, "Котлас", 60, 90);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException("нераспознанная бумага");
-            }
+        //    switch (_bookModel.IBPaper)
+        //    {
+        //        case PaperFullType.Newsprint_45:
+        //            innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 45, 16.995, "Шклов", 59.4);
+        //            break;
+        //        case PaperFullType.Offset_60:
+        //            innerBlock.Paper = new PaperInKg(PaperType.Offset, 60, 32.0, "Коростышев", 59.4);
+        //            break;
+        //        case PaperFullType.Offset_80:
+        //            innerBlock.Paper = new PaperInSheets(PaperType.Offset, 80, 1.045, "Котлас", 60, 90);
+        //            break;
+        //        default:
+        //            throw new ArgumentOutOfRangeException("нераспознанная бумага");
+        //    }
 
-            innerBlock.Colors = new IssueColors(_bookModel.IBColors);
+        //    innerBlock.Colors = new IssueColors(_bookModel.IBColors);
 
-            innerBlock.PagesNumber = _bookModel.PagesNumber;
+        //    innerBlock.PagesNumber = _bookModel.PagesNumber;
 
-            BookParts.Add(innerBlock);
+        //    BookParts.Add(innerBlock);
 
 
-            //обложка
-            BookPart cover = new BookPart();
-            cover.Name = "Обложка";
-            cover.Format = innerBlock.Format;
+        //    //обложка
+        //    BookPart cover = new BookPart();
+        //    cover.Name = "Обложка";
+        //    cover.Format = innerBlock.Format;
 
-            switch (_bookModel.CoverPaper)
-            {
-                case PaperFullType.FoldingBoxboard_230:
-                    cover.Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 2.5, "Умка", 70, 100);
-                    break;
-                case PaperFullType.CardboardAliaska_230:
-                    cover.Paper = new PaperInSheets(PaperType.CardboardAliaska, 230, 5.3, "Unknown", 70, 100);
-                    break;
+        //    switch (_bookModel.CoverPaper)
+        //    {
+        //        case PaperFullType.FoldingBoxboard_230:
+        //            cover.Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 2.5, "Умка", 70, 100);
+        //            break;
+        //        case PaperFullType.CardboardAliaska_230:
+        //            cover.Paper = new PaperInSheets(PaperType.CardboardAliaska, 230, 5.3, "Unknown", 70, 100);
+        //            break;
 
-                default:
-                    throw new ArgumentOutOfRangeException("нераспознанная бумага на обложку");
-            }
+        //        default:
+        //            throw new ArgumentOutOfRangeException("нераспознанная бумага на обложку");
+        //    }
 
-                    cover.Colors = new IssueColors(_bookModel.CoverColors);
+        //            cover.Colors = new IssueColors(_bookModel.CoverColors);
             
 
-            cover.PagesNumber = 4;//у любой обложки книги 4 страницы
+        //    cover.PagesNumber = 4;//у любой обложки книги 4 страницы
 
-            BookParts.Add(cover);
+        //    BookParts.Add(cover);
 
-            //BookAssembly = new BookAssembly(BindingType.PerfectBinding, LaminationType.Glossy, true, PerforationType.withoutPerforation);
+        //    //BookAssembly = new BookAssembly(BindingType.PerfectBinding, LaminationType.Glossy, true, PerforationType.withoutPerforation);
 
-            BookAssembly = new BookAssembly(_bookModel.Binding, _bookModel.Lamination, true, 
-                (_bookModel.Perforation? PerforationType.usual : PerforationType.withoutPerforation));
-        }
+        //    BookAssembly = new BookAssembly(_bookModel.Binding, _bookModel.Lamination, true, 
+        //        (_bookModel.Perforation? PerforationType.usual : PerforationType.withoutPerforation));
+        //}
 
 
 

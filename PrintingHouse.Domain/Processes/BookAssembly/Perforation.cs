@@ -1,4 +1,7 @@
-﻿using System;
+﻿using PrintingHouse.Domain.Entities.PriceLists;
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Specifications;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

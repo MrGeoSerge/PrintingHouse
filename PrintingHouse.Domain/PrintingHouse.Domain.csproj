@@ -81,7 +81,6 @@
     <Compile Include="Entities\PrintingPresses\Roland-+.cs" />
     <Compile Include="Entities\PrintingPresses\RolledPress.cs" />
     <Compile Include="Entities\PrintingPresses\SheetPress.cs" />
-    <Compile Include="Entities\PrintingPresses\Shinohara.cs" />
     <Compile Include="Entities\PrintingPresses\Shinohara52_2.cs" />
     <Compile Include="Entities\PrintingPresses\ZeroColorPress.cs" />
     <Compile Include="Entities\PrintingPresses\ZirkonForta660.cs" />

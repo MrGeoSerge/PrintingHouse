@@ -1,29 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+using PrintingHouse.Domain.Specifications;
 
 namespace PrintingHouse.Domain.Entities.Tasks
 {
 
-    public class TaskToLamination
+	public class TaskToLamination
     {
         public PaperFormat LaminationFormat { set; get; }
         public int PrintRun { set; get; }
 
         public LaminationType LaminationType { set; get; }
-
-
 
         public TaskToLamination(IssueFormat _issueFormat, LaminationType _laminationType, int _printRun)
         {

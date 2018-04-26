@@ -1,10 +1,10 @@
 ﻿
+using PrintingHouse.Domain.Entities.PriceLists;
 using PrintingHouse.Domain.Entities.Tasks;
-using PrintingHouse.Domain.PriceLists;
 using PrintingHouse.Domain.Specifications;
 using System;
 
-namespace PrintingHouse.Domain.PrintingPresses
+namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
 	public class Rapida74_5 : SheetPress
     {

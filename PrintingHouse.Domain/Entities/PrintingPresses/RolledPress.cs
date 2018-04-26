@@ -1,22 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
-using PrintingHouse.Domain.Entities.Tasks;
+﻿using PrintingHouse.Domain.Entities.Tasks;
 
-namespace PrintingHouse.Domain.PrintingPresses
+namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
-    public abstract class RolledPress : PrintingPress
+	public abstract class RolledPress : PrintingPress
     {
         public double Cutting { get; set; }
         public RolledPress(TaskToPrint taskToPrint) :
