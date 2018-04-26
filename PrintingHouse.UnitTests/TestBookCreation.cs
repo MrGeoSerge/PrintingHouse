@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+﻿using NUnit.Framework;
+using PrintingHouse.Domain.Entities.Paper;
+using PrintingHouse.Domain.Specifications;
+using PrintingHouse.Domain.Entities.Reports;
+using PrintingHouse.Domain.Entities;
+using PrintingHouse.Domain.Entities.BookComponents;
+using PrintingHouse.Domain.Processes.PrintingHouseManagement;
 
 namespace BookProduction.UnitTests
 {
-    [TestFixture]
+	[TestFixture]
     public class TestBookCreation
     {
         #region бумага

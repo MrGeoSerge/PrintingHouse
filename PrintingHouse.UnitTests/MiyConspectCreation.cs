@@ -1,22 +1,17 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+using PrintingHouse.Domain.Entities;
+using PrintingHouse.Domain.Processes.PrintingHouseManagement;
+using PrintingHouse.Domain.Entities.Reports;
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Entities.PrintingPresses;
+using PrintingHouse.Domain.PrintingPresses;
+using PrintingHouse.Domain.Entities.BookComponents;
+using PrintingHouse.Domain.Specifications;
+using PrintingHouse.Domain.Entities.Paper;
 
 namespace BookProduction.UnitTests
 {
-    [TestFixture]
+	[TestFixture]
     public class MiyConspectCreation
     {
         Book MkBook;

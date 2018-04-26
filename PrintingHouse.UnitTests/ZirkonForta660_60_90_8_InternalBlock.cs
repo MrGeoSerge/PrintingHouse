@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+﻿using NUnit.Framework;
+using PrintingHouse.Domain.Entities.BookComponents;
+using PrintingHouse.Domain.Entities.Paper;
+using PrintingHouse.Domain.Entities.PrintingPresses;
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Specifications;
 
 namespace BookProduction
 {
 
-    [TestFixture]
+	[TestFixture]
     public class ZirkonForta660_60_90_8_InternalBlock
     {
         // Z60908IB означает Rapida Format 60*90 Internal block 

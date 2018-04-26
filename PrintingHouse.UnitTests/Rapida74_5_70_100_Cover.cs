@@ -1,22 +1,13 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+using PrintingHouse.Domain.Entities.PrintingPresses;
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Specifications;
+using PrintingHouse.Domain.Entities.Paper;
+using PrintingHouse.Domain.Entities.BookComponents;
 
 namespace BookProduction
 {
-    [TestFixture]
+	[TestFixture]
     public class Rapida74_5_70_100_Cover
     {
         // R70C означает Rapida Format 60*90 Cover (обложка)

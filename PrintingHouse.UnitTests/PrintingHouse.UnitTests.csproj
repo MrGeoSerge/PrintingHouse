@@ -62,7 +62,6 @@
     <Compile Include="Rapida74_5_70_100_Insert.cs" />
     <Compile Include="Rapida74_5_70_100_InternalBlock.cs" />
     <Compile Include="TestBookCreation.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZirkonForta660_60_90_8_InternalBlock.cs" />
     <Compile Include="ZirkonForta660_60_90_InternalBlock - Copy.cs" />
