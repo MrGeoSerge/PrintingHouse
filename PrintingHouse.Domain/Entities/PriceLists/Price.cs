@@ -1,22 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+﻿using System.Collections.Generic;
 
-namespace BookProduction.PriceLists
+namespace PrintingHouse.Domain.PriceLists
 {
-    //прайс типографии реализован в виде словарей на разные услуги
-    public static class Price
+	//прайс типографии реализован в виде словарей на разные услуги
+	public static class Price
     {
         //перфорация
         static public Dictionary<string, double> Perforation;

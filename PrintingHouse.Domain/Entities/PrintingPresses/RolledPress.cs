@@ -12,8 +12,9 @@ using BookProduction.PriceLists;
 using BookProduction.PrintingPresses;
 using BookProduction.Tasks;
 using BookProduction.TypographyManagement;
+using PrintingHouse.Domain.Entities.Tasks;
 
-namespace BookProduction.PrintingPresses
+namespace PrintingHouse.Domain.PrintingPresses
 {
     public abstract class RolledPress : PrintingPress
     {

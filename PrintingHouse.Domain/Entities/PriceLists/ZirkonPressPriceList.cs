@@ -1,30 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization.Json;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
 using System.Diagnostics;
 
-namespace BookProduction.PriceLists
+namespace PrintingHouse.Domain.PriceLists
 {
-    //PressPrice - класс, где хранятся данные из прайса
-    //ZirkonForta660
+	//PressPrice - класс, где хранятся данные из прайса
+	//ZirkonForta660
 
-    public static class ZirkonPressPriceList
+	public static class ZirkonPressPriceList
     {
         //4 параметра определяют прайс на печатную машину
         //стоимость изготовления формы (не зависит от тиража)

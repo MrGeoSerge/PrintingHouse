@@ -1,22 +1,12 @@
 ﻿
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.PriceLists;
+using PrintingHouse.Domain.Specifications;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
 
-namespace BookProduction.PrintingPresses
+namespace PrintingHouse.Domain.PrintingPresses
 {
-    public class Rapida74_5 : SheetPress
+	public class Rapida74_5 : SheetPress
     {
         public Rapida74_5(TaskToPrint taskToPrint) :
             base(taskToPrint)

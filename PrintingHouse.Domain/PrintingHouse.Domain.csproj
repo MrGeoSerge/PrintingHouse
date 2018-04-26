@@ -41,31 +41,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Book.cs" />
-    <Compile Include="Concrete\BookAssembly\AssemblyDepartment.cs" />
-    <Compile Include="Concrete\BookAssembly\AssemblyDirector.cs" />
-    <Compile Include="Concrete\BookAssembly\AssemblyReport.cs" />
-    <Compile Include="Concrete\Binding\AbstractBinding.cs" />
-    <Compile Include="Concrete\Binding\HardCover.cs" />
+    <Compile Include="Processes\BookAssembly\AssemblyDepartment.cs" />
+    <Compile Include="Processes\BookAssembly\AssemblyDirector.cs" />
+    <Compile Include="Entities\Reports\AssemblyReport.cs" />
+    <Compile Include="Processes\BookBinding\AbstractBinding.cs" />
+    <Compile Include="Processes\BookBinding\HardCover.cs" />
     <Compile Include="Abstract\IAssemblyDepartment.cs" />
-    <Compile Include="Concrete\BookAssembly\Lamination.cs" />
-    <Compile Include="Concrete\BookAssembly\Packaging.cs" />
-    <Compile Include="Concrete\Binding\Perfect.cs" />
-    <Compile Include="Concrete\BookAssembly\Perforation.cs" />
-    <Compile Include="Concrete\Binding\SaddleStitching.cs" />
+    <Compile Include="Processes\BookAssembly\Lamination.cs" />
+    <Compile Include="Processes\BookAssembly\Packaging.cs" />
+    <Compile Include="Processes\BookBinding\Perfect.cs" />
+    <Compile Include="Processes\BookAssembly\Perforation.cs" />
+    <Compile Include="Processes\BookBinding\SaddleStitching.cs" />
     <Compile Include="Entities\BookComponents\BookAssembly.cs" />
     <Compile Include="Entities\BookComponents\BookPart.cs" />
-    <Compile Include="Entities\BookCostOfPolygraphy.cs" />
-    <Compile Include="Entities\Enums\BindingType.cs" />
-    <Compile Include="Entities\Enums\ColorsType.cs" />
-    <Compile Include="Entities\Enums\IssueFormatType.cs" />
-    <Compile Include="Entities\Enums\LaminationType.cs" />
-    <Compile Include="Entities\Enums\PaperFormat.cs" />
-    <Compile Include="Entities\Enums\PaperFullType.cs" />
-    <Compile Include="Entities\Enums\PaperType.cs" />
-    <Compile Include="Entities\Enums\PaperUnit.cs" />
-    <Compile Include="Entities\Enums\PerforationType.cs" />
-    <Compile Include="Entities\IssueParams\IssueColor.cs" />
-    <Compile Include="Entities\IssueParams\IssueFormat.cs" />
+    <Compile Include="Entities\Reports\PolygraphyCostReport.cs" />
+    <Compile Include="Specifications\BindingType.cs" />
+    <Compile Include="Specifications\ColorsType.cs" />
+    <Compile Include="Specifications\IssueFormatType.cs" />
+    <Compile Include="Specifications\LaminationType.cs" />
+    <Compile Include="Specifications\PaperFormat.cs" />
+    <Compile Include="Specifications\PaperFullType.cs" />
+    <Compile Include="Specifications\PaperType.cs" />
+    <Compile Include="Specifications\PaperUnit.cs" />
+    <Compile Include="Specifications\PerforationType.cs" />
+    <Compile Include="Specifications\IssueColor.cs" />
+    <Compile Include="Specifications\IssueFormat.cs" />
     <Compile Include="Entities\Paper\AbstractPaper.cs" />
     <Compile Include="Entities\Paper\PaperInKg.cs" />
     <Compile Include="Entities\Paper\PaperInSheets.cs" />
@@ -75,10 +75,10 @@
     <Compile Include="Entities\PriceLists\ShinoharaPressPriceList.cs" />
     <Compile Include="Entities\PriceLists\ZirkonPressPriceList.cs" />
     <Compile Include="Entities\PrintingPresses\CorosetPlamag.cs" />
-    <Compile Include="Entities\PrintingPresses\PressReport.cs" />
+    <Compile Include="Entities\Reports\PrintingPressReport.cs" />
     <Compile Include="Entities\PrintingPresses\PrintingPress.cs" />
     <Compile Include="Entities\PrintingPresses\Rapida74_5.cs" />
-    <Compile Include="Entities\PrintingPresses\Roland.cs" />
+    <Compile Include="Entities\PrintingPresses\Roland-+.cs" />
     <Compile Include="Entities\PrintingPresses\RolledPress.cs" />
     <Compile Include="Entities\PrintingPresses\SheetPress.cs" />
     <Compile Include="Entities\PrintingPresses\Shinohara.cs" />
@@ -86,14 +86,16 @@
     <Compile Include="Entities\PrintingPresses\ZeroColorPress.cs" />
     <Compile Include="Entities\PrintingPresses\ZirkonForta660.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\SheetSizeInSM.cs" />
-    <Compile Include="Concrete\Tasks\TaskToBind.cs" />
-    <Compile Include="Concrete\Tasks\TaskToLamination.cs" />
-    <Compile Include="Concrete\Tasks\TaskToPackage.cs" />
-    <Compile Include="Concrete\Tasks\TaskToPerforation.cs" />
-    <Compile Include="Concrete\Tasks\TaskToPrint.cs" />
-    <Compile Include="Concrete\TypographyManagement\DirectorOfTypography.cs" />
+    <Compile Include="Specifications\SheetSizeInSM.cs" />
+    <Compile Include="Entities\Tasks\TaskToBind.cs" />
+    <Compile Include="Entities\Tasks\TaskToLamination.cs" />
+    <Compile Include="Entities\Tasks\TaskToPackage.cs" />
+    <Compile Include="Entities\Tasks\TaskToPerforation.cs" />
+    <Compile Include="Entities\Tasks\TaskToPrint.cs" />
+    <Compile Include="Processes\PrintingHouseManagement\PrintingHouseDirector.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Processes\BookPrinting\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

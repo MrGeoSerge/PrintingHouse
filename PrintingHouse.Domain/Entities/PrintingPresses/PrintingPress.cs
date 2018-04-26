@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Specifications;
 
-namespace BookProduction.PrintingPresses
+namespace PrintingHouse.Domain.PrintingPresses
 {
-    abstract public class PrintingPress
+	abstract public class PrintingPress
     {
         public TaskToPrint TaskToPrint { get; private set; }
 

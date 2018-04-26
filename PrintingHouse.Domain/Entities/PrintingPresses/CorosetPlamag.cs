@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.PriceLists;
+using PrintingHouse.Domain.Specifications;
+using System;
 
 namespace PrintingHouse.Domain.PrintingPresses
 {

@@ -13,7 +13,7 @@ using BookProduction.PrintingPresses;
 using BookProduction.Tasks;
 using BookProduction.TypographyManagement;
 
-namespace BookProduction.PrintingPresses
+namespace PrintingHouse.Domain.PrintingPresses
 {
     public class Shinohara52_2 : SheetPress
     {

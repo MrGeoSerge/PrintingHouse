@@ -1,10 +1,11 @@
-﻿using System;
+﻿using PrintingHouse.Domain.Specifications;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrintingHouse.Domain.Paper
+namespace PrintingHouse.Domain.Entities.Paper
 {
 	public class PaperInKg : AbstractPaper
 	{

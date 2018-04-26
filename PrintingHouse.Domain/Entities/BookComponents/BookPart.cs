@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PrintingHouse.Domain.Entities.Paper;
+using PrintingHouse.Domain.Specifications;
 
-namespace PrintingHouse.Domain.BookComponents
+namespace PrintingHouse.Domain.Entities.BookComponents
 {
 	//части книги: внутренние блоки, обложки, вставки
 	public class BookPart

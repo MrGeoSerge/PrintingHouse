@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BookProduction.IssueParams;
 using BookProduction.Tasks;
 
-namespace BookProduction.PrintingPresses
+namespace PrintingHouse.Domain.PrintingPresses
 {
     //временный класс для расчета расхода бумаги при отсутсвиии печати
     //для частей книг с цветностью 0+0: форзаца, переплетного картона

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PrintingHouse.Domain.Specifications;
 
-namespace PrintingHouse.Domain.BookComponents
+namespace PrintingHouse.Domain.Entities.BookComponents
 {
 	//сборка книги: переплет, упаковка, ламинация
 	public class BookAssembly

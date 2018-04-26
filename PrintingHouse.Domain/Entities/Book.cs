@@ -13,7 +13,7 @@ using BookProduction.PrintingPresses;
 using BookProduction.Tasks;
 using BookProduction.TypographyManagement;
 
-namespace BookProduction
+namespace PrintingHouse.Domain.Entities
 {
     public class Book
     {

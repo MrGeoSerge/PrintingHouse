@@ -1,26 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookProduction;
-using BookProduction.BookComponents;
-using BookProduction.Assembly;
-using BookProduction.IssueParams;
-using BookProduction.Paper;
-using BookProduction.PriceLists;
-using BookProduction.PrintingPresses;
-using BookProduction.Tasks;
-using BookProduction.TypographyManagement;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Diagnostics;
 
-namespace BookProduction.PriceLists
+namespace PrintingHouse.Domain.PriceLists
 {
-    //PressPrice - класс, где хранятся данные из прайса
-    //ZirkonForta660
-    public static class CorosetPressPriceList
+	//PressPrice - класс, где хранятся данные из прайса
+	//ZirkonForta660
+	public static class CorosetPressPriceList
     {
         //4 параметра определяют прайс на печатную машину
         //стоимость изготовления формы (не зависит от тиража)
