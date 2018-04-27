@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Book.cs" />
-    <Compile Include="Entities\PriceLists\PriceList.cs" />
+    <Compile Include="Entities\PriceLists\CorosetPriceList.cs" />
+    <Compile Include="Entities\PriceLists\PriceListHelper.cs" />
     <Compile Include="Processes\BookAssembly\AssemblyDepartment.cs" />
     <Compile Include="Processes\BookAssembly\AssemblyDirector.cs" />
     <Compile Include="Entities\Reports\AssemblyReport.cs" />
