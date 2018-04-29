@@ -9,21 +9,27 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 {
 	public class PriceListHelper<T>
 	{
+		const string pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
 
-		public void WriteToFile(T corosetPriceList, string fileName)
+		public static void WriteToFile(T priceList, string fileName)
 		{
-			var json = new JavaScriptSerializer().Serialize(corosetPriceList);
-			string path = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\" + fileName + ".json";
+			var json = new JavaScriptSerializer().Serialize(priceList);
+			string path = pathFolder + fileName + ".json";
 			File.WriteAllText(path, json);
 		}
 
-		public T ReadFromFile(string fileName)
+		public static T ReadFromFile(string fileName)
 		{
-			string path = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\" + fileName + ".json";
+			string path = pathFolder + fileName + ".json";
 			var json = File.ReadAllText(path);
-            var serializer = new JavaScriptSerializer();
-            T corosetPriceList1 = serializer.Deserialize<T>(json);
-			return corosetPriceList1;
+			var serializer = new JavaScriptSerializer();
+			T priceList = serializer.Deserialize<T>(json);
+			return priceList;
 		}
+
+		//public CorosetPriceList ReadFromFile(string v)
+		//{
+		//	throw new NotImplementedException();
+		//}
 	}
 }

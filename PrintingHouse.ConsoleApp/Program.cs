@@ -18,10 +18,11 @@ namespace PrintingHouse.ConsoleApp
 			//priceListHelper.WriteToFile(corosetPriceList, "Coroset");
 			#endregion
 
-			#region
+			#region Read PriceList from JSON file
 			//var corosetPriceList = new CorosetPriceList();
-			var priceListHelper = new PriceListHelper<CorosetPriceList>();
-			CorosetPriceList corosetPriceList = priceListHelper.ReadFromFile("CorosetPriceList");
+			//var priceListHelper = new PriceListHelper<CorosetPriceList>();
+			//CorosetPriceList corosetPriceList = PriceListHelper.ReadFromFile("CorosetPriceList");
+			CorosetPriceList corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile("CorosetPriceList");
 			#endregion
 
 			Console.ReadKey();

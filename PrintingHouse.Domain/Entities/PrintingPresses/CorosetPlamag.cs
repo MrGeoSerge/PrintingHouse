@@ -7,32 +7,36 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
 	public class CorosetPlamag : RolledPress
 	{
+		CorosetPriceList corosetPriceList;
+		const string corosetPriceListString = "CorosetPriceList";
+		const double cutting = 0.546;//рубка - параметр размера печатной ротационной машины
 
 		public CorosetPlamag(TaskToPrint taskToPrint) :
 			base(taskToPrint)
 		{
-			Cutting = 0.546;//рубка - параметр размера печатной ротационной машины
+			Cutting = cutting;
+			corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile(corosetPriceListString);
 		}
 
 		public override double GetFormPriceValue()
 		{
-			return CorosetPressPriceList.Form;
+			return corosetPriceList.Form;
 		}
 
 		public override double GetFittingPriceValue()
 		{
-			return CorosetPressPriceList.Fitting;
+			return corosetPriceList.Fitting;
 		}
 
 		public override double GetTechNeedsPriceValue()
 		{
 			if (TaskToPrint.Colors.ToString() == "1+1")
 			{
-				return CorosetPressPriceList.TechNeeds["1+1"];
+				return corosetPriceList.TechNeeds["1+1"];
 			}
 			else
-				return CorosetPressPriceList.TechNeeds["1+1"]
-					+ CorosetPressPriceList.TechNeeds["2+2"]
+				return corosetPriceList.TechNeeds["1+1"]
+					+ corosetPriceList.TechNeeds["2+2"]
 					* (TaskToPrint.Colors.Total() - 2);//-2 изначальных цвета
 		}
 
@@ -41,7 +45,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 			//По факту закоментированное не считается
 			//if (TaskToPrint.Colors.ToString() == "1+1")
 			//{
-			return CorosetPressPriceList.Impression["1+1"];
+			return corosetPriceList.Impression["1+1"];
 			//}
 			//else
 			//    return CorosetPressPriceList.Impression["1+1"]
@@ -49,14 +53,16 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 			//        * (TaskToPrint.Colors.Total() - 2);//-2 изначальных цвета
 		}
 
-
+		/// <summary>
+		/// Коросет Форматы (840 * 546)
+		/// 84 * 108 / 2 = 840мм * 540мм(предпочтительный!)
+		/// 70 * 100 / 2 = 700мм * 500мм
+		/// 70 * 90 / 2 = 700мм * 450мм
+		/// 60 * 90 / 2 = 600мм * 450мм
+		/// </summary>
+		/// <returns></returns>
 		public override IssueFormat GetPressSheetsFormat()
 		{
-			//Коросет Форматы (840 * 546)
-			//84 * 108 / 2 = 840мм * 540мм(предпочтительный!)
-			//70 * 100 / 2 = 700мм * 500мм
-			//70 * 90 / 2 = 700мм * 450мм
-			//60 * 90 / 2 = 600мм * 450мм
 			switch (TaskToPrint.Format.PrintingSheet())
 			{
 				case "84*108":
@@ -70,9 +76,6 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 				default:
 					throw new ArgumentOutOfRangeException(TaskToPrint.Format.PrintingSheet());
 			}
-
-
 		}
-
 	}
 }

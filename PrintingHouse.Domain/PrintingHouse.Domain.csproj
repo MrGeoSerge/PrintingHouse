@@ -72,7 +72,6 @@
     <Compile Include="Entities\Paper\AbstractPaper.cs" />
     <Compile Include="Entities\Paper\PaperInKg.cs" />
     <Compile Include="Entities\Paper\PaperInSheets.cs" />
-    <Compile Include="Entities\PriceLists\CorosetPressPriceList.cs" />
     <Compile Include="Entities\PriceLists\AssemblyPriceList.cs" />
     <Compile Include="Entities\PriceLists\RapidaPressPriceList.cs" />
     <Compile Include="Entities\PriceLists\ShinoharaPressPriceList.cs" />
