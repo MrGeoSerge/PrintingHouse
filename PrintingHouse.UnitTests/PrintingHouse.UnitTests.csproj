@@ -67,9 +67,10 @@
     <Compile Include="PrintingPresses\Shinohara\Shinohara_84_108_Cover.cs" />
     <Compile Include="TestBookCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VerificationResults\ShinoharaResult - Copy.cs" />
+    <Compile Include="VerificationResults\Rapida74_5_60_90_CoverResult.cs" />
+    <Compile Include="VerificationResults\Temp\ShinoharaResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\ShinoharaResult.cs" />
-    <Compile Include="VerificationResults\CorosetResult - Copy.cs" />
+    <Compile Include="VerificationResults\Temp\CorosetResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\CorosetResult.cs" />
     <Compile Include="PrintingPresses\Zirkon\ZirkonForta660_60_90_8_InternalBlock.cs" />
     <Compile Include="PrintingPresses\Zirkon\ZirkonForta660_60_90_InternalBlock - Copy.cs" />
