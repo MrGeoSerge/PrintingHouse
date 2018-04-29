@@ -64,8 +64,11 @@
     <Compile Include="PrintingPresses\Rapida\Rapida74_5_70_100_CoverMagazine.cs" />
     <Compile Include="PrintingPresses\Rapida\Rapida74_5_70_100_Insert.cs" />
     <Compile Include="PrintingPresses\Rapida\Rapida74_5_70_100_InternalBlock.cs" />
+    <Compile Include="PrintingPresses\Shinohara\Shinohara_84_108_Cover.cs" />
     <Compile Include="TestBookCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VerificationResults\ShinoharaResult - Copy.cs" />
+    <Compile Include="VerificationResults\ShinoharaResult.cs" />
     <Compile Include="VerificationResults\CorosetResult - Copy.cs" />
     <Compile Include="VerificationResults\CorosetResult.cs" />
     <Compile Include="PrintingPresses\Zirkon\ZirkonForta660_60_90_8_InternalBlock.cs" />
@@ -76,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\CorosetResult.json" />
+    <None Include="Data\ShinoharaResult.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

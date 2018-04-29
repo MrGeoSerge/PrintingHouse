@@ -51,171 +51,171 @@ namespace BookProduction.UnitTests
         }
 
 
-        [Test]
-        public void MK_IB_01()
-        {
-            Assert.AreEqual(12, coroset.GetPrintingForms());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_IB_01() 
+			=> Assert.AreEqual(expected: 12, 
+				actual: coroset.GetPrintingForms());
 
-        [Test]
-        public void MK_IB_02()
-        {
-            Assert.AreEqual(217.91, IB_report.GetPaperConsumptionInKg(), delta: 0.03);
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_IB_02() 
+			=> Assert.AreEqual(expected: 217.91, 
+				actual: IB_report.GetPaperConsumptionInKg(), delta: 0.03);
 
-        [Test]
-        public void MK_IB_03()
-        {
-            Assert.AreEqual(5500, coroset.GetImpressions());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_IB_03() 
+			=> Assert.AreEqual(expected: 5500, 
+				actual: coroset.GetImpressions());
 
-        [Test]
-        public void MK_IB_04()
-        {
-            Assert.AreEqual(1916.25, IB_report.GetCostOfPolygraphy());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_IB_04() 
+			=> Assert.AreEqual(expected: 1916.25, 
+				actual: IB_report.GetCostOfPolygraphy());
 
-        [Test]
-        public void MK_IB_05()
-        {
-            Assert.AreEqual(3411.60, IB_report.GetPaperCost(), delta: 0.5);
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_IB_05() 
+			=> Assert.AreEqual(expected: 3411.60, 
+				actual: IB_report.GetPaperCost(), delta: 0.5);
 
-        [Test]
-        public void MK_IB_06()
-        {
-            Assert.AreEqual(3411.60, IB_report.GetPaperCost(), delta: 0.5);
-        }
-
-
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_IB_06() 
+			=> Assert.AreEqual(expected: 3411.60, 
+				actual: IB_report.GetPaperCost(), delta: 0.5);
 
 
 
-        [Test]
-        public void MK_C_00_GetFormPriceValue()
-        {
-            Assert.AreEqual(54, shinohara.GetFormPriceValue());
-        }
 
-        [Test]
-        public void MK_C_00_GetFittingPriceValue()
-        {
-            Assert.AreEqual(16, shinohara.GetFittingPriceValue());
-        }
 
-        [Test]
-        public void MK_C_00_GetTechNeedsPriceValue()
-        {
-            Assert.AreEqual(3.2, shinohara.GetTechNeedsPriceValue());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_00_GetFormPriceValue() 
+			=> Assert.AreEqual(expected: 54, 
+				actual: shinohara.GetFormPriceValue());
 
-        [Test]
-        public void MK_C_00_GetImpressionPriceValue()
-        {
-            Assert.AreEqual(0.037, shinohara.GetImpressionPriceValue());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_00_GetFittingPriceValue() 
+			=> Assert.AreEqual(expected: 16, 
+				actual: shinohara.GetFittingPriceValue());
 
-        [Test]
-        public void MK_C_01_GetPagesPerOneImposition()
-        {
-            Assert.AreEqual(2, shinohara.GetPagesPerOneImposition());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_00_GetTechNeedsPriceValue() 
+			=> Assert.AreEqual(expected: 3.2, 
+				actual: shinohara.GetTechNeedsPriceValue());
 
-        [Test]
-        public void MK_C_02_GetImpositionsPerBook()
-        {
-            Assert.AreEqual(2, shinohara.GetImpositionsPerBook());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_00_GetImpressionPriceValue() 
+			=> Assert.AreEqual(expected: 0.037, 
+				actual: shinohara.GetImpressionPriceValue());
 
-        [Test]
-        public void MK_C_03_GetPrintingSheetsPerBook()
-        {
-            Assert.AreEqual(1, shinohara.GetPrintingSheetsPerBook());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_01_GetPagesPerOneImposition() 
+			=> Assert.AreEqual(expected: 2, 
+				actual: shinohara.GetPagesPerOneImposition());
 
-        [Test]
-        public void MK_C_09_GetPrintingSheetsPerPrintRun()
-        {
-            Assert.AreEqual(1000, shinohara.GetPrintingSheetsPerPrintRun());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_02_GetImpositionsPerBook() 
+			=> Assert.AreEqual(expected: 2, 
+				actual: shinohara.GetImpositionsPerBook());
 
-        [Test]
-        public void MK_C_04_GetPrintingForms()
-        {
-            Assert.AreEqual(5, shinohara.GetPrintingForms());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_03_GetPrintingSheetsPerBook() 
+			=> Assert.AreEqual(expected: 1, 
+				actual: shinohara.GetPrintingSheetsPerBook());
 
-        [Test]
-        public void MK_C_05_GetCostOfPrintingFoms()
-        {
-            Assert.AreEqual(270, shinohara.GetCostOfPrintingFoms());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_09_GetPrintingSheetsPerPrintRun() 
+			=> Assert.AreEqual(expected: 1000, 
+				actual: shinohara.GetPrintingSheetsPerPrintRun());
 
-        [Test] //Оттиски
-        public void MK_C_06_GetImpressions()
-        {
-            Assert.AreEqual(5000, shinohara.GetImpressions());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_04_GetPrintingForms() 
+			=> Assert.AreEqual(expected: 5, 
+				actual: shinohara.GetPrintingForms());
 
-        [Test]
-        public void MK_C_07_GetCostOfImpressions()
-        {
-            Assert.AreEqual(185, shinohara.GetCostOfImpressions(), delta: 0.01);
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_05_GetCostOfPrintingFoms() 
+			=> Assert.AreEqual(expected: 270, 
+				actual: shinohara.GetCostOfPrintingFoms());
 
-        [Test]
-        public void MK_C_08_GetCostOfPrinting()
-        {
-            Assert.AreEqual(455, shinohara.GetCostOfPrinting(), delta: 0.01);
-        }
+		[Test] //Оттиски
+		[Category("Miy Conspect")]
+		public void MK_C_06_GetImpressions() 
+			=> Assert.AreEqual(expected: 5000, 
+				actual: shinohara.GetImpressions());
 
-        [Test]
-        public void MK_C_10_GetPaperConsumptionForTechnicalNeeds()
-        {
-            Assert.AreEqual(160, shinohara.GetPaperConsumptionForTechnicalNeeds());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_07_GetCostOfImpressions() 
+			=> Assert.AreEqual(expected: 185, 
+				actual: shinohara.GetCostOfImpressions(), delta: 0.01);
 
-        [Test]
-        public void MK_C_11_GetFittingOnPrintRun()
-        {
-            Assert.AreEqual(80, shinohara.GetFittingOnPrintRun());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_08_GetCostOfPrinting() 
+			=> Assert.AreEqual(expected: 455, 
+				actual: shinohara.GetCostOfPrinting(), delta: 0.01);
 
-        [Test]
-        public void MK_C_12_GetTotalPaperConsumptionInPressFormat()
-        {
-            Assert.AreEqual(1260, shinohara.GetTotalPaperConsumptionInPressFormat());
-        }
-        
-        [Test]
-        public void MK_C_13_GetNumberOfPrintSheetsInRawSheet()
-        {
-           Assert.AreEqual(4, Cov_report.GetNumberOfPrintSheetsInRawSheet());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_10_GetPaperConsumptionForTechnicalNeeds() 
+			=> Assert.AreEqual(expected: 160, 
+				actual: shinohara.GetPaperConsumptionForTechnicalNeeds());
 
-        [Test]
-        public void MK_C_13____GetPaperConsumptionInRawSheets()
-        {
-           Assert.AreEqual(1260, Cov_report.press.GetTotalPaperConsumptionInPressFormat());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_11_GetFittingOnPrintRun() 
+			=> Assert.AreEqual(expected: 80, 
+				actual: shinohara.GetFittingOnPrintRun());
 
-        [Test]
-        public void MK_C_13_PressSheetFormat()
-        {
-            Assert.AreEqual(8, shinohara.GetPressSheetsFormat().Fraction);
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_12_GetTotalPaperConsumptionInPressFormat() 
+			=> Assert.AreEqual(expected: 1260, 
+				actual: shinohara.GetTotalPaperConsumptionInPressFormat());
 
-        [Test]
-        public void MK_C_14_GetPaperCost()
-        {
-            Assert.AreEqual(781.83, Cov_report.GetPaperCost());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_13_GetNumberOfPrintSheetsInRawSheet() 
+			=> Assert.AreEqual(expected: 4, 
+				actual: Cov_report.GetNumberOfPrintSheetsInRawSheet());
 
-        [Test]
-        public void MK_C_15_GetCostOfPolygraphy()
-        {
-            Assert.AreEqual(455, Cov_report.GetCostOfPolygraphy());
-        }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_13____GetPaperConsumptionInRawSheets() 
+			=> Assert.AreEqual(expected: 1260, 
+				actual: Cov_report.press.GetTotalPaperConsumptionInPressFormat());
 
-    }
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_13_PressSheetFormat() 
+			=> Assert.AreEqual(expected: 8, 
+				actual: shinohara.GetPressSheetsFormat().Fraction);
+
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_14_GetPaperCost() 
+			=> Assert.AreEqual(expected: 781.83, 
+				actual: Cov_report.GetPaperCost());
+
+		[Test]
+		[Category("Miy Conspect")]
+		public void MK_C_15_GetCostOfPolygraphy() 
+			=> Assert.AreEqual(expected: 455, 
+				actual: Cov_report.GetCostOfPolygraphy());
+
+	}
 }

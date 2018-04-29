@@ -27,9 +27,9 @@ namespace PrintingHouse.ConsoleApp
 			#endregion
 
 			#region Shinohara Write to JSON file
-			ShinoharaPriceList shinoharaPriceList = new ShinoharaPriceList();
-			shinoharaPriceList.SetDefaultDataWithouFile();
-			PriceListHelper<ShinoharaPriceList>.WriteToFile(shinoharaPriceList, "ShinoharaPriceList");
+			//ShinoharaPriceList shinoharaPriceList = new ShinoharaPriceList();
+			//shinoharaPriceList.SetDefaultDataWithouFile();
+			//PriceListHelper<ShinoharaPriceList>.WriteToFile(shinoharaPriceList, "ShinoharaPriceList");
 
 			#endregion
 
@@ -37,11 +37,17 @@ namespace PrintingHouse.ConsoleApp
 			//CorosetPriceList corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile("CorosetPriceList");
 			#endregion
 
-
 			#region WriteCoroset Results to Json for using in Unit Tests
 			//CorosetResult corosetResult = new CorosetResult();
 			//JsonHelper<CorosetResult>.WriteToFile(corosetResult, "CorosetResult");
 			#endregion
+
+			#region Write Shinohara Results to Json for using in Unit Tests
+			//ShinoharaResult shinoharaResult = new ShinoharaResult();
+			//JsonHelper<ShinoharaResult>.WriteToFile(shinoharaResult, "ShinoharaResult");
+			#endregion
+
+
 			Console.ReadKey();
 		}
 	}
