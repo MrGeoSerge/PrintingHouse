@@ -2,6 +2,7 @@
 using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Entities.PriceLists;
 using PrintingHouse.Domain.Specifications;
+using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
 
 namespace PrintingHouse.Domain.Entities.PrintingPresses
 {

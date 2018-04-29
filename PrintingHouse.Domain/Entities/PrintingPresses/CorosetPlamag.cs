@@ -1,6 +1,7 @@
 ﻿using PrintingHouse.Domain.Entities.PriceLists;
 using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Specifications;
+using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
 using System;
 
 namespace PrintingHouse.Domain.Entities.PrintingPresses

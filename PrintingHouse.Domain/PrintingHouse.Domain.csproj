@@ -78,11 +78,11 @@
     <Compile Include="Entities\PriceLists\ZirkonPressPriceList.cs" />
     <Compile Include="Entities\PrintingPresses\CorosetPlamag.cs" />
     <Compile Include="Entities\Reports\PrintingPressReport.cs" />
-    <Compile Include="Entities\PrintingPresses\PrintingPress.cs" />
+    <Compile Include="Entities\PrintingPresses\Abstract\PrintingPress.cs" />
     <Compile Include="Entities\PrintingPresses\Rapida74_5.cs" />
     <Compile Include="Entities\PrintingPresses\Roland-+.cs" />
-    <Compile Include="Entities\PrintingPresses\RolledPress.cs" />
-    <Compile Include="Entities\PrintingPresses\SheetPress.cs" />
+    <Compile Include="Entities\PrintingPresses\Abstract\RolledPress.cs" />
+    <Compile Include="Entities\PrintingPresses\Abstract\SheetPress.cs" />
     <Compile Include="Entities\PrintingPresses\Shinohara52_2.cs" />
     <Compile Include="Entities\PrintingPresses\ZeroColorPress.cs" />
     <Compile Include="Entities\PrintingPresses\ZirkonForta660.cs" />

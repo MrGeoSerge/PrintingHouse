@@ -3,7 +3,7 @@ using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.PrintingPresses;
 using PrintingHouse.Domain.Specifications;
 
-namespace PrintingHouse.Domain.Entities.PrintingPresses
+namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
 {
 	abstract public class PrintingPress
     {

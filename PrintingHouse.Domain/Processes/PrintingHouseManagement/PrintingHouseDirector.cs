@@ -8,6 +8,7 @@ using PrintingHouse.Domain.PrintingPresses;
 using PrintingHouse.Domain.Abstract;
 using PrintingHouse.Domain.Processes.BookAssembly;
 using PrintingHouse.Domain.Entities.PrintingPresses;
+using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
 
 namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
 {

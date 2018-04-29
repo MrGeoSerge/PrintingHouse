@@ -1,6 +1,7 @@
 ﻿using System;
 using PrintingHouse.Domain.Entities.PrintingPresses;
 using PrintingHouse.Domain.Entities.Paper;
+using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
 
 namespace PrintingHouse.Domain.PrintingPresses
 {
