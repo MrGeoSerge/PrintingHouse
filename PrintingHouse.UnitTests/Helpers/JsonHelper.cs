@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.IO;
-namespace PrintingHouse.Domain.Entities.PriceLists
-{
-	public class PriceListHelper<T>
-	{
-		const string pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
 
-		public static void WriteToFile(T priceList, string fileName)
+namespace PrintingHouse.UnitTests.Data
+{
+	public class JsonHelper<T> where T: class
+	{
+		const string pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.UnitTests\Data\";
+
+		public static void WriteToFile(T results, string fileName)
 		{
-			var json = new JavaScriptSerializer().Serialize(priceList);
+			var json = new JavaScriptSerializer().Serialize(results);
 			string path = pathFolder + fileName + ".json";
 			File.WriteAllText(path, json);
 		}
@@ -26,6 +27,7 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 			T priceList = serializer.Deserialize<T>(json);
 			return priceList;
 		}
+
 
 	}
 }

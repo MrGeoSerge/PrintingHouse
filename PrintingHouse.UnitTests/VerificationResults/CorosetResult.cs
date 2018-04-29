@@ -8,21 +8,21 @@ namespace PrintingHouse.UnitTests.VerificationResults
 {
 	public class CorosetResult
 	{
-		public int FormPrice => 126;
-		public int FittingPriceValue => 400;
-		public double TechNeedsPrice => 4.7;
-		public double ImpressionPrice => 0.0735;
-		public int PagesPerOneImposition => 8;
-		public int ImposiotionsPerBook => 19;
-		public double PrintingSheetsPerBook => 9.5;
-		public int PrintingSheetsPerPrintRun => 9500;
-		public int PrintingForms => 20;
-		public int CostOfPrintingFoms => 2520;
-		public int Impressions => 9500;
-		public double CostOfImpressions => 698.25;
-		public double CostOfPrinting => 3218.25;
-		public int PaperConsumptionForTechnicalNeeds => 447;
-		public int FittingOnPrintRun => 8000;
-		public int TotalPaperConsumptionInPressFormat => 17947;
+		public int FormPrice { get; set; }
+		public int FittingPriceValue { get; set; }
+		public double TechNeedsPrice { get; set; }
+		public double ImpressionPrice { get; set; }
+		public int PagesPerOneImposition { get; set; }
+		public int ImposiotionsPerBook { get; set; }
+		public double PrintingSheetsPerBook { get; set; }
+		public int PrintingSheetsPerPrintRun { get; set; }
+		public int PrintingForms { get; set; }
+		public int CostOfPrintingFoms { get; set; }
+		public int Impressions { get; set; }
+		public double CostOfImpressions { get; set; }
+		public double CostOfPrinting { get; set; }
+		public int PaperConsumptionForTechnicalNeeds { get; set; }
+		public int FittingOnPrintRun { get; set; }
+		public int TotalPaperConsumptionInPressFormat { get; set; }
 	}
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PrintingHouse.Domain.Entities.PriceLists;
+using PrintingHouse.UnitTests.VerificationResults;
+using PrintingHouse.UnitTests.Data;
 
 namespace PrintingHouse.ConsoleApp
 {
@@ -28,6 +30,11 @@ namespace PrintingHouse.ConsoleApp
 			//CorosetPriceList corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile("CorosetPriceList");
 			#endregion
 
+
+			#region WriteCoroset Results to Json for using in Unit Tests
+			CorosetResult corosetResult = new CorosetResult();
+			JsonHelper<CorosetResult>.WriteToFile(corosetResult, "CorosetResult");
+			#endregion
 			Console.ReadKey();
 		}
 	}
