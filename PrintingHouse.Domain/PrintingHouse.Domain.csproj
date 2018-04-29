@@ -74,7 +74,7 @@
     <Compile Include="Entities\Paper\PaperInSheets.cs" />
     <Compile Include="Entities\PriceLists\AssemblyPriceList.cs" />
     <Compile Include="Entities\PriceLists\RapidaPriceList.cs" />
-    <Compile Include="Entities\PriceLists\ShinoharaPressPriceList.cs" />
+    <Compile Include="Entities\PriceLists\ShinoharaPriceList.cs" />
     <Compile Include="Entities\PriceLists\ZirkonPressPriceList.cs" />
     <Compile Include="Entities\PrintingPresses\CorosetPlamag.cs" />
     <Compile Include="Entities\Reports\PrintingPressReport.cs" />

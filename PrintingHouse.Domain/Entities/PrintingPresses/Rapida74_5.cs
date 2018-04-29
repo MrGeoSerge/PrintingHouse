@@ -68,25 +68,25 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		//метод вычисления формата листа оборудования 
 		//в зависимости от заданного формата книги
 		public override IssueFormat GetPressSheetsFormat()
-        {
-            //Рапида Форматы (740 * 520)
-            //84*108/4 = 420мм * 540мм
-            //70*100/2 = 700мм * 500мм(предпочтительный!)
-            //70*90/2 = 700мм * 450мм
-            //60*90/2 = 600мм * 450мм
-            switch (TaskToPrint.Format.PrintingSheet())
-            {
-                case "84*108":
-                    return new IssueFormat("84*108/4");
-                case "70*100":
-                    return new IssueFormat("70*100/2");
-                case "70*90":
-                    return new IssueFormat("70*90/2");
-                case "60*90":
-                    return new IssueFormat("60*90/2");
-                default:
-                    throw new ArgumentOutOfRangeException(TaskToPrint.Format.PrintingSheet());
-            }
-        }
-    }
+		{
+			//Рапида Форматы (740 * 520)
+			//84*108/4 = 420мм * 540мм
+			//70*100/2 = 700мм * 500мм(предпочтительный!)
+			//70*90/2 = 700мм * 450мм
+			//60*90/2 = 600мм * 450мм
+			switch (TaskToPrint.Format.PrintingSheet())
+			{
+				case "84*108":
+					return new IssueFormat("84*108/4");
+				case "70*100":
+					return new IssueFormat("70*100/2");
+				case "70*90":
+					return new IssueFormat("70*90/2");
+				case "60*90":
+					return new IssueFormat("60*90/2");
+				default:
+					throw new ArgumentOutOfRangeException(TaskToPrint.Format.PrintingSheet());
+			}
+		}
+	}
 }

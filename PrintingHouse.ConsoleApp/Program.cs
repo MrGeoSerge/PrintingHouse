@@ -26,14 +26,21 @@ namespace PrintingHouse.ConsoleApp
 			//PriceListHelper<RapidaPriceList>.WriteToFile(rapidaPriceList, "RapidaPriceList");
 			#endregion
 
+			#region Shinohara Write to JSON file
+			ShinoharaPriceList shinoharaPriceList = new ShinoharaPriceList();
+			shinoharaPriceList.SetDefaultDataWithouFile();
+			PriceListHelper<ShinoharaPriceList>.WriteToFile(shinoharaPriceList, "ShinoharaPriceList");
+
+			#endregion
+
 			#region Read PriceList from JSON file
 			//CorosetPriceList corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile("CorosetPriceList");
 			#endregion
 
 
 			#region WriteCoroset Results to Json for using in Unit Tests
-			CorosetResult corosetResult = new CorosetResult();
-			JsonHelper<CorosetResult>.WriteToFile(corosetResult, "CorosetResult");
+			//CorosetResult corosetResult = new CorosetResult();
+			//JsonHelper<CorosetResult>.WriteToFile(corosetResult, "CorosetResult");
 			#endregion
 			Console.ReadKey();
 		}

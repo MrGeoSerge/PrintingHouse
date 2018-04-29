@@ -6,47 +6,52 @@ using PrintingHouse.Domain.Specifications;
 namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
 	public class Shinohara52_2 : SheetPress
-    {
-        public Shinohara52_2(TaskToPrint taskToPrint) : 
-            base(taskToPrint)
-        {
-        }
+	{
+		ShinoharaPriceList shinoharaPriceList;
+		const string shinoharaPriceListString = "ShinoharaPriceList";
+
+		public Shinohara52_2(TaskToPrint taskToPrint) :
+			base(taskToPrint)
+		{
+			shinoharaPriceList = PriceListHelper<ShinoharaPriceList>.ReadFromFile(shinoharaPriceListString);
+		}
 
 		public override double GetFormPriceValue()
-        {
-            return ShinoharaPressPriceList.Form;
-        }
+		{
+			return shinoharaPriceList.Form;
+		}
 
 		public override double GetFittingPriceValue()
-        {
-            return ShinoharaPressPriceList.Fitting;
-        }
+		{
+			return shinoharaPriceList.Fitting;
+		}
 
 		public override double GetTechNeedsPriceValue()
-        {
-            foreach (var printRun in ShinoharaPressPriceList.TechNeeds)
-            {
-                if (GetPrintingSheetsPerPrintRun() < printRun.Key)
-                {
-                    return printRun.Value;
-                }
-            }
-            throw new ArgumentOutOfRangeException("для такого тиража технужды не указаны в прайсе");
-
-        }
+		{
+			foreach (var printRun in shinoharaPriceList.TechNeeds)
+			{
+				int printRun_Key = Int32.Parse(printRun.Key);
+				if (GetPrintingSheetsPerPrintRun() < printRun_Key)
+				{
+					return printRun.Value;
+				}
+			}
+			throw new ArgumentOutOfRangeException("для такого тиража технужды не указаны в прайсе");
+		}
 
 
 		public override double GetImpressionPriceValue()
-        {
-            foreach (var printRun in ShinoharaPressPriceList.Impression)
-            {
-                if (GetPrintingSheetsPerPrintRun() < printRun.Key)
-                {
-                    return printRun.Value;
-                }
-            }
-            throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
-        }
+		{
+			foreach (var printRun in shinoharaPriceList.Impression)
+			{
+				int printRun_Key = Int32.Parse(printRun.Key);
+				if (GetPrintingSheetsPerPrintRun() < printRun_Key)
+				{
+					return printRun.Value;
+				}
+			}
+			throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
+		}
 
 		public override IssueFormat GetPressSheetsFormat()
         {
