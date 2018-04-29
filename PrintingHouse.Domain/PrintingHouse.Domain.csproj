@@ -73,7 +73,7 @@
     <Compile Include="Entities\Paper\PaperInKg.cs" />
     <Compile Include="Entities\Paper\PaperInSheets.cs" />
     <Compile Include="Entities\PriceLists\AssemblyPriceList.cs" />
-    <Compile Include="Entities\PriceLists\RapidaPressPriceList.cs" />
+    <Compile Include="Entities\PriceLists\RapidaPriceList.cs" />
     <Compile Include="Entities\PriceLists\ShinoharaPressPriceList.cs" />
     <Compile Include="Entities\PriceLists\ZirkonPressPriceList.cs" />
     <Compile Include="Entities\PrintingPresses\CorosetPlamag.cs" />
@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\CorosetPriceList.json" />
+    <None Include="Data\RapidaPriceList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

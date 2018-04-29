@@ -7,56 +7,63 @@ using System;
 namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
 	public class Rapida74_5 : SheetPress
-    {
-        public Rapida74_5(TaskToPrint taskToPrint) :
-            base(taskToPrint)
-        { }
+	{
+		RapidaPriceList rapidaPriceList;
+		const string rapidaPriceListString = "RapidaPriceList";
+
+		public Rapida74_5(TaskToPrint taskToPrint) :
+			base(taskToPrint)
+		{
+			rapidaPriceList = PriceListHelper<RapidaPriceList>.ReadFromFile(rapidaPriceListString);
+		}
 
 		//-----установка значений прайса-----
 		//стоимость формы
 		public override double GetFormPriceValue()
-        {
-            return RapidaPressPriceList.Form;
-        }
+		{
+			return rapidaPriceList.Form;
+		}
 
 
 		//стоимость приладки
 		public override double GetFittingPriceValue()
-        {
-            //приладка(зависит от цветности) - и от тиража, то есть, если технужды > 0, приладка = 0
-            if (GetTechNeedsPriceValue() > 0)
-            {
-                return 0.0;
-            }
-            return RapidaPressPriceList.Fitting[TaskToPrint.Colors.ToString()];
-        }
+		{
+			//приладка(зависит от цветности) - и от тиража, то есть, если технужды > 0, приладка = 0
+			if (GetTechNeedsPriceValue() > 0)
+			{
+				return 0.0;
+			}
+			return rapidaPriceList.Fitting[TaskToPrint.Colors.ToString()];
+		}
 
 		//процент технужд
 		public override double GetTechNeedsPriceValue()
-        {
-            foreach (var printRun in RapidaPressPriceList.TechNeeds)
-            {
-                if (GetPrintingSheetsPerPrintRun() < printRun.Key)
-                {
-                    return printRun.Value;
-                }
-            }
-            throw new ArgumentOutOfRangeException("для такого тиража технужды не указаны в прайсе");
-        }
+		{
+			foreach (var printRun in rapidaPriceList.TechNeeds)
+			{
+				int printRun_Key = Int32.Parse(printRun.Key);
+				if (GetPrintingSheetsPerPrintRun() < printRun_Key)
+				{
+					return printRun.Value;
+				}
+			}
+			throw new ArgumentOutOfRangeException("для такого тиража технужды не указаны в прайсе");
+		}
 
 		//стоимость оттиска
 		public override double GetImpressionPriceValue()
-        {
-            foreach (var printRun in RapidaPressPriceList.Impression)
-            {
-                if (GetPrintingSheetsPerPrintRun() < printRun.Key)
-                {
-                    return printRun.Value;
-                }
-            }
-            throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
+		{
+			foreach (var printRun in rapidaPriceList.Impression)
+			{
+				int printRun_Key = Int32.Parse(printRun.Key);
+				if (GetPrintingSheetsPerPrintRun() < printRun_Key)
+				{
+					return printRun.Value;
+				}
+			}
+			throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
 
-        }
+		}
 
 		//метод вычисления формата листа оборудования 
 		//в зависимости от заданного формата книги
