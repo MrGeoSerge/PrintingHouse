@@ -19,9 +19,9 @@ namespace PrintingHouse.ConsoleApp
 			#endregion
 
 			#region Rapida CreateAndWrite to JSON files
-			RapidaPriceList rapidaPriceList = new RapidaPriceList();
-			rapidaPriceList.WriteInitialDataToFile();
-			PriceListHelper<RapidaPriceList>.WriteToFile(rapidaPriceList, "RapidaPriceList");
+			//RapidaPriceList rapidaPriceList = new RapidaPriceList();
+			//rapidaPriceList.WriteInitialDataToFile();
+			//PriceListHelper<RapidaPriceList>.WriteToFile(rapidaPriceList, "RapidaPriceList");
 			#endregion
 
 			#region Read PriceList from JSON file
