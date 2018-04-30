@@ -12,8 +12,8 @@ namespace PrintingHouse.UnitTests.Helpers
 	{
 		public void UpdateResults()
 		{
-			CorosetResult corosetResult = new CorosetResult();
-			JsonHelper<CorosetResult>.WriteToFile(corosetResult, "CorosetResult");
+			PrintingPressResult corosetResult = new PrintingPressResult();
+			JsonHelper<PrintingPressResult>.WriteToFile(corosetResult, "CorosetResult");
 		}
 	}
 }

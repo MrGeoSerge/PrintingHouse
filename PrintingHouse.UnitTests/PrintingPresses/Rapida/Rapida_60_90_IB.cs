@@ -14,7 +14,7 @@ namespace BookProduction
 	public class Rapida_60_90_IB
 	{
 		Rapida74_5 rapida;
-		Rapida_60_90_IBResult rapidaResult;
+		PrintingPressResult rapidaResult;
 
 		//imposition - спуск
 		//impression - оттиск
@@ -26,7 +26,7 @@ namespace BookProduction
 				new IssueFormat(60, 90, 8), new PaperInSheets(PaperType.FoldingBoxboard, 230, 2.5, "Умка", 64, 90),
 				new IssueColors(4, 0), 4), 10000));
 
-			rapidaResult = JsonHelper<Rapida_60_90_IBResult>.ReadFromFile("Rapida_60_90_IBResult");
+			rapidaResult = JsonHelper<PrintingPressResult>.ReadFromFile("Rapida_60_90_IBResult");
 		}
 
 		//Проверка правильности получения значений из прайса

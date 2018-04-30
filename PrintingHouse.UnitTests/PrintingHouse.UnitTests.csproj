@@ -64,13 +64,13 @@
     <Compile Include="PrintingPresses\Rapida\Rapida_70_100_CoverMagazine.cs" />
     <Compile Include="PrintingPresses\Rapida\Rapida_60_90_Insert.cs" />
     <Compile Include="PrintingPresses\Rapida\Rapida_70_100_InternalBlock.cs" />
+    <Compile Include="PrintingPresses\PrintingPressTestBase.cs" />
     <Compile Include="PrintingPresses\Shinohara\Shinohara_84_108_Cover.cs" />
     <Compile Include="TestBookCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VerificationResults\PrintingPressResult.cs" />
-    <Compile Include="VerificationResults\Rapida_60_90_CoverResult.cs" />
-    <Compile Include="VerificationResults\Rapida_60_90_InsertResult.cs" />
-    <Compile Include="VerificationResults\Rapida_60_90_IBResult.cs" />
+    <Compile Include="VerificationResults\Temp\Rapida_70_100_CoverMagazineResultForJsonCreation.cs" />
+    <Compile Include="VerificationResults\Temp\Rapida_70_100_InternalBlockResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\Temp\Rapida_70_100_CoverResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\Temp\Rapida_60_90_InsertResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\Temp\Rapida_60_90_IBResultForJsonCreation.cs" />
@@ -78,7 +78,6 @@
     <Compile Include="VerificationResults\Temp\ShinoharaResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\ShinoharaResult.cs" />
     <Compile Include="VerificationResults\Temp\CorosetResultForJsonCreation.cs" />
-    <Compile Include="VerificationResults\CorosetResult.cs" />
     <Compile Include="PrintingPresses\Zirkon\ZirkonForta660_60_90_8_InternalBlock.cs" />
     <Compile Include="PrintingPresses\Zirkon\ZirkonForta660_60_90_InternalBlock - Copy.cs" />
     <Compile Include="PrintingPresses\Zirkon\ZirkonForta660_70_90_InternalBlock.cs" />
@@ -90,7 +89,9 @@
     <None Include="Data\Rapida_60_90_CoverResult.json" />
     <None Include="Data\Rapida_60_90_IBResult.json" />
     <None Include="Data\Rapida_60_90_InsertResult.json" />
+    <None Include="Data\Rapida_70_100_CoverMagazineResult.json" />
     <None Include="Data\Rapida_70_100_CoverResult.json" />
+    <None Include="Data\Rapida_70_100_InternalBlockResult.json" />
     <None Include="Data\ShinoharaResult.json" />
     <None Include="packages.config" />
   </ItemGroup>

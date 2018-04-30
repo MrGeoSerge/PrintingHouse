@@ -16,7 +16,7 @@ namespace BookProduction
 		// Вкладка
 
 		Rapida74_5 rapida;
-		Rapida_60_90_IBResult rapidaResult;
+		PrintingPressResult rapidaResult;
 
 		//imposition - спуск
 		//impression - оттиск
@@ -28,7 +28,7 @@ namespace BookProduction
 				new IssueFormat(60, 90, 32), new PaperInSheets(PaperType.SelfAdhensivePaper, 80, 3.9758, "Unknown", 45, 64),
 				new IssueColors(4, 0), 4), 28000));
 
-			rapidaResult = JsonHelper<Rapida_60_90_IBResult>.ReadFromFile("Rapida_60_90_InsertResult");
+			rapidaResult = JsonHelper<PrintingPressResult>.ReadFromFile("Rapida_60_90_InsertResult");
 		}
 
 		//Проверка правильности получения значений из прайса

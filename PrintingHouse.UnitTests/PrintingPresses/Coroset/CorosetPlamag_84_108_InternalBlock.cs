@@ -14,7 +14,7 @@ namespace BookProduction
 	public class CorosetPlamag_84_108_InternalBlock
 	{
 		CorosetPlamag coroset;
-		CorosetResult corosetResult;
+		PrintingPressResult corosetResult;
 		//imposition - спуск
 		//impression - оттиск
 
@@ -30,7 +30,7 @@ namespace BookProduction
 								new IssueColors(1, 1), 152),
 					1000));
 
-			corosetResult = JsonHelper<CorosetResult>.ReadFromFile("CorosetResult");
+			corosetResult = JsonHelper<PrintingPressResult>.ReadFromFile("CorosetResult");
         }
 
 		//Проверка правильности получения значений из прайса
