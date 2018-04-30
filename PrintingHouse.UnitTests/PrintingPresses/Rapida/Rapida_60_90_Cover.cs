@@ -5,15 +5,16 @@ using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Entities.BookComponents;
 using PrintingHouse.Domain.Entities.Paper;
 using PrintingHouse.UnitTests.VerificationResults;
+using PrintingHouse.UnitTests.Data;
 
 namespace BookProduction
 {
 	[TestFixture]
-	[Category("Rapida74_5_60_90_Cover")]
-	public class Rapida74_5_60_90_Cover
+	[Category("Rapida_60_90_Cover")]
+	public class Rapida_60_90_Cover
 	{
 		Rapida74_5 rapida;
-		Rapida74_5_60_90_CoverResult rapidaResult;
+		Rapida_60_90_CoverResult rapidaResult;
 		//imposition - спуск
 		//impression - оттиск
 
@@ -24,7 +25,7 @@ namespace BookProduction
 				new IssueFormat(60, 90, 16), new PaperInSheets(PaperType.CoatedPaper, 115, 1.50792, "Unknown", 64, 90),
 				new IssueColors(4, 4), 4), 4400));
 
-			rapidaResult = new Rapida74_5_60_90_CoverResult();
+			rapidaResult = JsonHelper<Rapida_60_90_CoverResult>.ReadFromFile("Rapida_60_90_CoverResult");
 		}
 
 		//Проверка правильности получения значений из прайса

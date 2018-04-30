@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrintingHouse.UnitTests.VerificationResults
 {
-	public class Rapida74_5_60_90_CoverResult
+	public class Rapida_60_90_CoverResult_Copy
 	{
 		public int FormPrice => 108;
 		public int FittingPriceValue => 350;
