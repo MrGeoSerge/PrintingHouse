@@ -48,11 +48,11 @@ namespace PrintingHouse.ConsoleApp
 			#endregion
 
 			#region Write Rapida74_5_60_90_CoverResult to Json for using in Unit Tests
-			Rapida_60_90_CoverResult shinoharaResult = new Rapida_60_90_CoverResult();
-			JsonHelper<Rapida_60_90_CoverResult>.WriteToFile(shinoharaResult, "Rapida_60_90_CoverResult");
+			JsonHelper<Rapida_70_100_CoverResultForJsonCreation>
+				.WriteToFile(new Rapida_70_100_CoverResultForJsonCreation(), "Rapida_70_100_CoverResult");
 			#endregion
 
-			Console.ReadKey();
+			//Console.ReadKey();
 		}
 	}
 }

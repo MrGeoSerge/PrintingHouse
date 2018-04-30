@@ -6,23 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrintingHouse.UnitTests.VerificationResults
 {
-	public class CorosetResult
+	public class CorosetResult : PrintingPressResult
 	{
-		public int FormPrice { get; set; }
-		public int FittingPriceValue { get; set; }
-		public double TechNeedsPrice { get; set; }
-		public double ImpressionPrice { get; set; }
-		public int PagesPerOneImposition { get; set; }
-		public int ImposiotionsPerBook { get; set; }
-		public double PrintingSheetsPerBook { get; set; }
-		public int PrintingSheetsPerPrintRun { get; set; }
-		public int PrintingForms { get; set; }
-		public int CostOfPrintingFoms { get; set; }
-		public int Impressions { get; set; }
-		public double CostOfImpressions { get; set; }
-		public double CostOfPrinting { get; set; }
-		public int PaperConsumptionForTechnicalNeeds { get; set; }
-		public int FittingOnPrintRun { get; set; }
-		public int TotalPaperConsumptionInPressFormat { get; set; }
 	}
 }

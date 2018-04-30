@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrintingHouse.UnitTests.VerificationResults
 {
-	public class CorosetResult_Copy
+	public class CorosetResultForJsonCreation
 	{
 		public int FormPrice => 126;
 		public int FittingPriceValue => 400;

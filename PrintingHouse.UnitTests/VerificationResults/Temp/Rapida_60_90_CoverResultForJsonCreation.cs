@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrintingHouse.UnitTests.VerificationResults
 {
-	public class Rapida_60_90_CoverResult_Copy
+	public class Rapida_60_90_CoverResultForJsonCreation
 	{
 		public int FormPrice => 108;
 		public int FittingPriceValue => 350;

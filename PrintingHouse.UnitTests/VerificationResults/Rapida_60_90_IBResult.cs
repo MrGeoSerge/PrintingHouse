@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrintingHouse.UnitTests.VerificationResults
 {
-	public class Rapida_60_90_CoverResult : PrintingPressResult
+	public class Rapida_60_90_IBResult : PrintingPressResult
 	{
 	}
 }
