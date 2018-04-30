@@ -59,11 +59,11 @@
     <Compile Include="PrintingPresses\Coroset\CorosetPlamag_84_108_InternalBlock.cs" />
     <Compile Include="MiyConspectCreation.cs" />
     <Compile Include="PrintingPresses\Rapida\Rapida_60_90_Cover.cs" />
-    <Compile Include="PrintingPresses\Rapida\Rapida74_5_60_90_IB.cs" />
-    <Compile Include="PrintingPresses\Rapida\Rapida74_5_70_100_Cover.cs" />
-    <Compile Include="PrintingPresses\Rapida\Rapida74_5_70_100_CoverMagazine.cs" />
-    <Compile Include="PrintingPresses\Rapida\Rapida74_5_70_100_Insert.cs" />
-    <Compile Include="PrintingPresses\Rapida\Rapida74_5_70_100_InternalBlock.cs" />
+    <Compile Include="PrintingPresses\Rapida\Rapida_60_90_IB.cs" />
+    <Compile Include="PrintingPresses\Rapida\Rapida_70_100_Cover.cs" />
+    <Compile Include="PrintingPresses\Rapida\Rapida_70_100_CoverMagazine.cs" />
+    <Compile Include="PrintingPresses\Rapida\Rapida_60_90_Insert.cs" />
+    <Compile Include="PrintingPresses\Rapida\Rapida_70_100_InternalBlock.cs" />
     <Compile Include="PrintingPresses\Shinohara\Shinohara_84_108_Cover.cs" />
     <Compile Include="TestBookCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
