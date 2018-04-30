@@ -26,7 +26,8 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Coroset
 					new BookPart("InternalBlock",
 						new IssueFormat(84, 108, 16), 
 						new PaperInKg(PaperType.Newsprint, 45, 16.48, "Германия", 84),
-						new IssueColors(1, 1), 152),
+						new IssueColors(1, 1), 
+						152),
 					1000));
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("CorosetResult");
