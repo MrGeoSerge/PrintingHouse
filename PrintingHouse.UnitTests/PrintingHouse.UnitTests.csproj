@@ -76,7 +76,6 @@
     <Compile Include="VerificationResults\Temp\Rapida_60_90_IBResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\Temp\Rapida_60_90_CoverResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\Temp\ShinoharaResultForJsonCreation.cs" />
-    <Compile Include="VerificationResults\ShinoharaResult.cs" />
     <Compile Include="VerificationResults\Temp\CorosetResultForJsonCreation.cs" />
     <Compile Include="PrintingPresses\Zirkon\ZirkonForta660_60_90_8_InternalBlock.cs" />
     <Compile Include="PrintingPresses\Zirkon\ZirkonForta660_60_90_InternalBlock - Copy.cs" />

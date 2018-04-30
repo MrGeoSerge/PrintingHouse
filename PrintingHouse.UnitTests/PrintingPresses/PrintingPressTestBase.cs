@@ -8,7 +8,7 @@ using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
 
-namespace BookProduction
+namespace PrintingHouse.UnitTests.PrintingPresses
 {
 	[TestFixture]
 	public abstract class PrintingPressTestBase

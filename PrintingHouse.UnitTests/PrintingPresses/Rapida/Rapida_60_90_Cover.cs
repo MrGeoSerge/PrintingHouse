@@ -7,7 +7,7 @@ using PrintingHouse.Domain.Entities.Paper;
 using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 
-namespace BookProduction
+namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
 {
 	[TestFixture]
 	[Category("Rapida_60_90_Cover")]
@@ -16,9 +16,14 @@ namespace BookProduction
 		[SetUp]
 		public override void Initialize()
 		{
-			printingPress = new Rapida74_5(new TaskToPrint(new BookPart("Cover",
-				new IssueFormat(60, 90, 16), new PaperInSheets(PaperType.CoatedPaper, 115, 1.50792, "Unknown", 64, 90),
-				new IssueColors(4, 4), 4), 4400));
+			printingPress = new Rapida74_5(
+				new TaskToPrint(
+					new BookPart("Cover",
+						new IssueFormat(60, 90, 16), 
+						new PaperInSheets(PaperType.CoatedPaper, 115, 1.50792, "Unknown", 64, 90),
+						new IssueColors(4, 4), 
+						4), 
+					4400));
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Rapida_60_90_CoverResult");
 		}
