@@ -95,7 +95,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 			return (int)GetFittingPriceValue() * GetPrintingForms();
 		}
 
-		public new int GetPaperConsumptionForTechnicalNeeds()
+		public override int GetPaperConsumptionForTechnicalNeeds()
 		{
 			return base.GetPaperConsumptionForTechnicalNeeds() * GetPrintingForms();
 		}
