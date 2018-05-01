@@ -28,7 +28,7 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 			Impression = new Dictionary<string, double>();
 		}
 
-		public void WriteInitialDataToFile()
+		public void SetDefaultData()
 		{
 			Form = 108.0;
 

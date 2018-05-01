@@ -6,11 +6,11 @@ using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.PrintingPresses;
 using PrintingHouse.Domain.Specifications;
 
-namespace BookProduction
+namespace PrintingHouse.UnitTests.PrintingPresses.Zirkon
 {
 
 	[TestFixture]
-    public class ZirkonForta660_60_90_InternalBlock
+    public class Zirkon_60_90_16_IB
     {
         // Z60IB означает Rapida Format 60*90 Internal block 
 

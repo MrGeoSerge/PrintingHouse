@@ -22,15 +22,20 @@ namespace PrintingHouse.ConsoleApp
 
 			#region Rapida CreateAndWrite to JSON files
 			//RapidaPriceList rapidaPriceList = new RapidaPriceList();
-			//rapidaPriceList.WriteInitialDataToFile();
+			//rapidaPriceList.SetDefaultData();
 			//PriceListHelper<RapidaPriceList>.WriteToFile(rapidaPriceList, "RapidaPriceList");
 			#endregion
 
 			#region Shinohara Write to JSON file
 			//ShinoharaPriceList shinoharaPriceList = new ShinoharaPriceList();
-			//shinoharaPriceList.SetDefaultDataWithouFile();
+			//shinoharaPriceList.SetDefaultData();
 			//PriceListHelper<ShinoharaPriceList>.WriteToFile(shinoharaPriceList, "ShinoharaPriceList");
+			#endregion
 
+			#region Zirkon Write to JSON file
+			//ZirkonPriceList zirkonPriceList = new ZirkonPriceList();
+			//zirkonPriceList.SetDefaultData();
+			//PriceListHelper<ZirkonPriceList>.WriteToFile(zirkonPriceList, "ZirkonPriceList");
 			#endregion
 
 			#region Read PriceList from JSON file
@@ -48,8 +53,8 @@ namespace PrintingHouse.ConsoleApp
 			#endregion
 
 			#region Write Rapida74_5_60_90_CoverResult to Json for using in Unit Tests
-			JsonHelper<Rapida_70_100_InternalBlockResultForJsonCreation>
-				.WriteToFile(new Rapida_70_100_InternalBlockResultForJsonCreation(), "Rapida_70_100_InternalBlockResult");
+			//JsonHelper<Rapida_70_100_InternalBlockResultForJsonCreation>
+			//	.WriteToFile(new Rapida_70_100_InternalBlockResultForJsonCreation(), "Rapida_70_100_InternalBlockResult");
 			#endregion
 
 			//Console.ReadKey();

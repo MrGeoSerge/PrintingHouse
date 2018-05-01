@@ -26,7 +26,7 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 			Impression = new Dictionary<string, double>();
 		}
 
-		public void SetDefaultDataWithouFile()
+		public void SetDefaultData()
 		{
 			Form = 54.0;
 			Fitting = 16;
