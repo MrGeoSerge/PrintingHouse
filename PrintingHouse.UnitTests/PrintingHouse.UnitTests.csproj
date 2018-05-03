@@ -70,6 +70,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VerificationResults\PrintingPressResult.cs" />
     <Compile Include="VerificationResults\Temp\Zirkon_60_90_16_IBResultForJsonCreation.cs" />
+    <Compile Include="VerificationResults\Temp\Zirkon_84_108_IB_MagazineResultForJsonCreation.cs" />
+    <Compile Include="VerificationResults\Temp\Zirkon_84_108_CoverResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\Temp\Zirkon_70_90_IBResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\Temp\Zirkon_60_90_8_IBResultForJsonCreation.cs" />
     <Compile Include="VerificationResults\Temp\Rapida_70_100_CoverMagazineResultForJsonCreation.cs" />
@@ -98,6 +100,8 @@
     <None Include="Data\Zirkon_60_90_16_IBResult.json" />
     <None Include="Data\Zirkon_60_90_8_IBResult.json" />
     <None Include="Data\Zirkon_70_90_IBResult.json" />
+    <None Include="Data\Zirkon_84_108_CoverResult.json" />
+    <None Include="Data\Zirkon_84_108_IB_MagazineResult.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
