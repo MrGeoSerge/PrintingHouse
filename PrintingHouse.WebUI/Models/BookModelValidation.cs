@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookProduction
+namespace PrintingHouse.WebUI.Models
 {
 	class DivideByEightAttribute: ValidationAttribute
     {
