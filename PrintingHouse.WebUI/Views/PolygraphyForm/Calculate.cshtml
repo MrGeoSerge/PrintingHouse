@@ -2,7 +2,7 @@
 @using PrintingHouse.Domain;
 
 @{
-    ViewBag.Title = "Calculate";
+	ViewBag.Title = "Calculate";
 }
 
 <div class="container">
@@ -140,32 +140,17 @@
         <input type="submit" name="button" value="Calculate" />
     }
 
-    @*@if (ViewBag.Report != null)
+    @if (ViewBag.Report != null)
     {<div id="tabledata">
         @Html.Action("Calculations", @Model)
     </div>
+    }
 
 
-    }*@
-
-
-    @*@Html.Partial("Calculations")*@
-    @*@if (ViewBag.Report != null)
-        {
-            <div id="calcResults">
-                <h3>Расходы на тиражирование</h3>
-                Затраты на полиграфию: @ViewBag.Report.CostOfPolygraphy грн<br>
-                Затраты на материалы: @ViewBag.Report.CostOfMaterials грн<br>
-                Затраты на сборку: @ViewBag.Report.CostOfAssembly грн<br>
-                Затраты на тираж: @ViewBag.Report.CostOfPrintRun грн<br>
-                <b>Затраты на 1 экземпляр: @ViewBag.Report.CostOfPolygraphyPerOneItem грн</b><br>
-            </div>
-        }*@
-
-    @*@section scripts
-{
+    @*@section scripts*@
+@*{*@
         @*Ненавязивый JavaScript для выполнения запроса на сервер без полного обновления страницы*@
-        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+        @*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
     @*}*@
 
     @Html.ActionLink("Прайс печатных машин", "PressesPriceList", "PriceUpdate")

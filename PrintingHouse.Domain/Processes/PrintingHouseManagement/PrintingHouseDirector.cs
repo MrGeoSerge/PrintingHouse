@@ -4,7 +4,6 @@ using PrintingHouse.Domain.Entities;
 using PrintingHouse.Domain.Entities.Reports;
 using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Entities.BookComponents;
-using PrintingHouse.Domain.PrintingPresses;
 using PrintingHouse.Domain.Abstract;
 using PrintingHouse.Domain.Processes.BookAssembly;
 using PrintingHouse.Domain.Entities.PrintingPresses;
@@ -23,7 +22,7 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
             this.book = book;
         }
 
-        public BookCostOfPolygraphy MakeBook()
+        public PolygraphyCostReport MakeBook()
         {
             List<TaskToPrint> tasksToPrint = new List<TaskToPrint>();
 
@@ -33,7 +32,7 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
                     bookPart.Colors, bookPart.PagesNumber, book.PrintRun));
             }
 
-            List<PressReport> pressReports = new List<PressReport>();
+            List<PrintingPressReport> pressReports = new List<PrintingPressReport>();
             foreach (TaskToPrint taskToPrint in tasksToPrint)
             {
                 pressReports.Add(PrintBookPart(taskToPrint));
@@ -45,7 +44,7 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
             }
             AssembleBook();
             //записываем все затраты обратно в книгу и собираем (assemble) книгу
-            return new BookCostOfPolygraphy(book, assemblyReport, pressReports);
+            return new PolygraphyCostReport(book, assemblyReport, pressReports);
         }
 
         //реализация паттерна Строитель
@@ -65,10 +64,10 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
         //и собрать (переплести, сделать ламинацию, перфорацию, упаковать)
 
         //отпечатать часть книги (внутренний блок, обложку или вклейку)
-        private PressReport PrintBookPart(TaskToPrint _taskForPart)
+        private PrintingPressReport PrintBookPart(TaskToPrint _taskForPart)
         {
             PrintingPress printingPress;
-            PressReport bookPartReport;
+            PrintingPressReport bookPartReport;
 
             //-----------выбираем, на каком станке печатать-----------
 

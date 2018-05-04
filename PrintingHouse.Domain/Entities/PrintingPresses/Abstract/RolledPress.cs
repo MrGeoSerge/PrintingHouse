@@ -15,7 +15,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
 
         public override int GetFittingOnPrintRun()
         {
-            return (int)GetFittingPriceValue() * GetPrintingForms();
+            return (int)GetFittingPriceValue() * PrintingForms;
         }
     }
 }

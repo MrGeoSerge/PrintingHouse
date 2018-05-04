@@ -92,12 +92,12 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 
 		public override int GetFittingOnPrintRun()
 		{
-			return (int)GetFittingPriceValue() * GetPrintingForms();
+			return (int)GetFittingPriceValue() * PrintingForms;
 		}
 
 		public override int GetPaperConsumptionForTechnicalNeeds()
 		{
-			return base.GetPaperConsumptionForTechnicalNeeds() * GetPrintingForms();
+			return base.GetPaperConsumptionForTechnicalNeeds() * PrintingForms;
 		}
 	}
 }

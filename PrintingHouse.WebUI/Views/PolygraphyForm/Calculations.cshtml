@@ -1,0 +1,14 @@
+﻿@model PrintingHouse.Domain.Entities.Reports.PolygraphyCostReport
+@if (@Model != null)
+{
+    <div id="calcResults">
+        <h3>Расходы на тиражирование</h3>
+        Затраты на полиграфию: @Model.CostOfPolygraphy грн<br>
+        Затраты на материалы: @Model.CostOfMaterials грн<br>
+        Затраты на сборку: @Model.CostOfAssembly грн<br>
+        Затраты на тираж: @Model.CostOfPrintRun грн<br>
+        <b>Затраты на 1 экземпляр: @Model.CostOfPolygraphyPerOneItem грн</b><br>
+    </div>
+
+}
+

@@ -44,7 +44,7 @@ namespace BookProduction.UnitTests
 		#endregion
 
 
-		BookCostOfPolygraphy report;
+		PolygraphyCostReport report;
 
 		[SetUp]
 		public void Initialize()
@@ -79,7 +79,7 @@ namespace BookProduction.UnitTests
 				 new BookAssembly(BindingType.SaddleStitching, LaminationType.Glossy, true, PerforationType.usual));
 
 			DirectorOfTypography director = new DirectorOfTypography(theBook);
-			BookCostOfPolygraphy report = director.MakeBook();
+			PolygraphyCostReport report = director.MakeBook();
 
 			Assert.AreEqual(7.59, report.CostOfPolygraphyPerOneItem, delta: 0.01);
 

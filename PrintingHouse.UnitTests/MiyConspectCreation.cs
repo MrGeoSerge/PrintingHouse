@@ -4,7 +4,6 @@ using PrintingHouse.Domain.Processes.PrintingHouseManagement;
 using PrintingHouse.Domain.Entities.Reports;
 using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Entities.PrintingPresses;
-using PrintingHouse.Domain.PrintingPresses;
 using PrintingHouse.Domain.Entities.BookComponents;
 using PrintingHouse.Domain.Specifications;
 using PrintingHouse.Domain.Entities.Paper;
@@ -16,14 +15,14 @@ namespace BookProduction.UnitTests
     {
         Book MkBook;
         DirectorOfTypography director;
-        BookCostOfPolygraphy report;
+		PolygraphyCostReport report;
         TaskToPrint taskToInnerBlock;
         CorosetPlamag coroset;
-        PressReport IB_report;
+        PrintingPressReport IB_report;
 
         TaskToPrint taskToCover;
         Shinohara52_2 shinohara;
-        PressReport Cov_report;
+        PrintingPressReport Cov_report;
 
         [SetUp]
         public void Initialize()
@@ -55,13 +54,13 @@ namespace BookProduction.UnitTests
 		[Category("Miy Conspect")]
 		public void MK_IB_01() 
 			=> Assert.AreEqual(expected: 12, 
-				actual: coroset.GetPrintingForms());
+				actual: coroset.PrintingForms);
 
 		[Test]
 		[Category("Miy Conspect")]
 		public void MK_IB_02() 
 			=> Assert.AreEqual(expected: 217.91, 
-				actual: IB_report.GetPaperConsumptionInKg(), delta: 0.03);
+				actual: IB_report.PaperConsumptionInKg, delta: 0.03);
 
 		[Test]
 		[Category("Miy Conspect")]
@@ -73,19 +72,19 @@ namespace BookProduction.UnitTests
 		[Category("Miy Conspect")]
 		public void MK_IB_04() 
 			=> Assert.AreEqual(expected: 1916.25, 
-				actual: IB_report.GetCostOfPolygraphy());
+				actual: IB_report.CostOfPolygraphy);
 
 		[Test]
 		[Category("Miy Conspect")]
 		public void MK_IB_05() 
 			=> Assert.AreEqual(expected: 3411.60, 
-				actual: IB_report.GetPaperCost(), delta: 0.5);
+				actual: IB_report.PaperCost, delta: 0.5);
 
 		[Test]
 		[Category("Miy Conspect")]
 		public void MK_IB_06() 
 			=> Assert.AreEqual(expected: 3411.60, 
-				actual: IB_report.GetPaperCost(), delta: 0.5);
+				actual: IB_report.PaperCost, delta: 0.5);
 
 
 
@@ -143,7 +142,7 @@ namespace BookProduction.UnitTests
 		[Category("Miy Conspect")]
 		public void MK_C_04_GetPrintingForms() 
 			=> Assert.AreEqual(expected: 5, 
-				actual: shinohara.GetPrintingForms());
+				actual: shinohara.PrintingForms);
 
 		[Test]
 		[Category("Miy Conspect")]
@@ -191,7 +190,7 @@ namespace BookProduction.UnitTests
 		[Category("Miy Conspect")]
 		public void MK_C_13_GetNumberOfPrintSheetsInRawSheet() 
 			=> Assert.AreEqual(expected: 4, 
-				actual: Cov_report.GetNumberOfPrintSheetsInRawSheet());
+				actual: Cov_report.NumberOfPrintSheetsInRawSheet);
 
 		[Test]
 		[Category("Miy Conspect")]
@@ -209,13 +208,13 @@ namespace BookProduction.UnitTests
 		[Category("Miy Conspect")]
 		public void MK_C_14_GetPaperCost() 
 			=> Assert.AreEqual(expected: 781.83, 
-				actual: Cov_report.GetPaperCost());
+				actual: Cov_report.PaperCost);
 
 		[Test]
 		[Category("Miy Conspect")]
 		public void MK_C_15_GetCostOfPolygraphy() 
 			=> Assert.AreEqual(expected: 455, 
-				actual: Cov_report.GetCostOfPolygraphy());
+				actual: Cov_report.CostOfPolygraphy);
 
 	}
 }

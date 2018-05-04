@@ -3,15 +3,12 @@ using PrintingHouse.Domain.Entities.Reports;
 using PrintingHouse.Domain.Processes.PrintingHouseManagement;
 using PrintingHouse.Domain.Specifications;
 using PrintingHouse.WebUI.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PrintingHouse.WebUI.Controllers
 {
-    public class PolygraphyFormController : Controller
+	public class PolygraphyFormController : Controller
     {
 		// GET: PolygraphyForm
 		//здесь начало приложения
@@ -58,7 +55,7 @@ namespace PrintingHouse.WebUI.Controllers
 			{
 				Book theBook = bookModel.CreateBook();
 				DirectorOfTypography director = new DirectorOfTypography(theBook);
-				BookCostOfPolygraphy report = director.MakeBook();
+				PolygraphyCostReport report = director.MakeBook();
 				ViewBag.Report = report;
 				return View(bookModel);
 			}
@@ -70,14 +67,11 @@ namespace PrintingHouse.WebUI.Controllers
 			if (ModelState.IsValid)
 			{
 				Book theBook = bookModel.CreateBook();
-
 				DirectorOfTypography director = new DirectorOfTypography(theBook);
-				BookCostOfPolygraphy report = director.MakeBook();
-
+				PolygraphyCostReport report = director.MakeBook();
 				return PartialView(report);
 			}
 			return new EmptyResult();
-
 		}
 	}
 }

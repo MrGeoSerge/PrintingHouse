@@ -65,7 +65,7 @@ namespace PrintingHouse.UnitTests.PrintingPresses
 		[Test]
 		public void R60C_04_GetPrintingForms() 
 			=> Assert.AreEqual(expected: printingPressResult.PrintingForms, 
-				actual: printingPress.GetPrintingForms());
+				actual: printingPress.PrintingForms);
 
 		[Test]
 		public void R60C_05_GetCostOfPrintingFoms() 
