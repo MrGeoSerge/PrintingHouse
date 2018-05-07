@@ -53,6 +53,7 @@ namespace PrintingHouse.WebUI.Controllers
 
 			if (ModelState.IsValid)
 			{
+				// TODO: Unify these for lines into one class
 				Book theBook = bookModel.CreateBook();
 				DirectorOfTypography director = new DirectorOfTypography(theBook);
 				PolygraphyCostReport report = director.MakeBook();
@@ -73,5 +74,20 @@ namespace PrintingHouse.WebUI.Controllers
 			}
 			return new EmptyResult();
 		}
+
+		public ActionResult DetailedCostReport(BookModel bookModel)
+		{
+			if (ModelState.IsValid)
+			{
+				// TODO: Unify these for lines into one class
+				Book theBook = bookModel.CreateBook();
+				DirectorOfTypography director = new DirectorOfTypography(theBook);
+				PolygraphyCostReport report = director.MakeBook();
+				ViewBag.Report = report;
+				return View(bookModel);
+			}
+			return new EmptyResult();
+		}
+
 	}
 }

@@ -1,0 +1,12 @@
+﻿@model PrintingHouse.Domain.Entities.Reports.PolygraphyCostReport
+@if (@Model != null)
+{
+    <div id="calcResults">
+		@foreach(var bookPart in @Model.PrintingPressesReports)
+		{
+			<h4>Название части:</h4> @bookPart.press.TaskToPrint.Name <br>
+
+		}
+    </div>
+
+}

@@ -6,9 +6,9 @@ namespace PrintingHouse.Domain.Entities.Reports
 	public class PolygraphyCostReport
 	{
 		public Book Book { get; set; }
-		List<PrintingPressReport> PrintingPressesReports { set; get; }
+		public List<PrintingPressReport> PrintingPressesReports { set; get; }
 
-		AssemblyReport AssemblyReport { set; get; }
+		public AssemblyReport AssemblyReport { set; get; }
 
 		//затраты на полиграфию 
 		public double costOfPolygraphy;
@@ -53,11 +53,6 @@ namespace PrintingHouse.Domain.Entities.Reports
 			Book = _book;
 			PrintingPressesReports = printingPressesReports;
 			AssemblyReport = assemblyReport;
-
-			//CostOfAssembly = AssemblyReport.TotalCostOfAssembly;
-
-			//CostOfPrintRun = CostOfPolygraphy + CostOfMaterials + CostOfAssembly;
-			//CostOfPolygraphyPerOneItem = Math.Round(CostOfPrintRun / book.PrintRun, 4);
 		}
 
 

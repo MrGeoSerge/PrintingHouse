@@ -146,6 +146,11 @@
     </div>
     }
 
+    @if (ViewBag.Report != null)
+    {<div id="tabledata">
+        @Html.Action("DetailedCostReport", @Model)
+    </div>
+    }
 
     @*@section scripts*@
 @*{*@
