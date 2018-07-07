@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintingHouse.WebUI.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintingHouse.ConsoleApp", "PrintingHouse.ConsoleApp\PrintingHouse.ConsoleApp.csproj", "{FC54B858-1867-40D9-B92E-4444CD07E8C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintingHouse.AndroidUI", "PrintingHouse.AndroidUI\PrintingHouse.AndroidUI.csproj", "{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,12 @@ Global
 		{FC54B858-1867-40D9-B92E-4444CD07E8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC54B858-1867-40D9-B92E-4444CD07E8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC54B858-1867-40D9-B92E-4444CD07E8C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
