@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<TextView
+		android:text="Polygraphy calculator"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:minWidth="25px"
+		android:minHeight="25px"/>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="50px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		 >
+		<TextView
+			android:text="Pages #: "
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_gravity="bottom"
+			android:foregroundGravity="bottom" />
+		<EditText 
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/pagesPCEditText"/>
+	</LinearLayout>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="50px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<TextView
+			android:text="PrintRun: "
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/printrunPCEditText" />
+	</LinearLayout>
+	<Button 
+		android:text="Calculate"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/calculatePCButton" />
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="100dp"
+		android:id="@+id/resultPCTextView" />
+</LinearLayout>

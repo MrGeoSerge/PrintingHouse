@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:text="My conspectus"
+		android:background="@android:color/holo_orange_dark"
+		android:textSize="48dp"
+		android:gravity="center_horizontal|center_vertical" />
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="50px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		 >
+		<TextView
+			android:text="Pages #: "
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_gravity="bottom"
+			android:foregroundGravity="bottom" />
+		<EditText 
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/pagesEditText"/>
+	</LinearLayout>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="50px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<TextView
+			android:text="PrintRun: "
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/printrunEditText" />
+	</LinearLayout>
+	<Button 
+		android:text="Calculate"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/calculateButton" />
+		/>
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:id="@+id/resultTextView" />
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="50px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<Button
+			android:text="Save"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/saveMCButton" />
+			/>
+		<Button
+			android:text="Cancel"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/cancelMCButton" />
+			/>
+
+		</LinearLayout>
+	<Button 
+		android:text="Open in Polygraphy Calculator"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/openInPCButton"
+	/>
+</LinearLayout>

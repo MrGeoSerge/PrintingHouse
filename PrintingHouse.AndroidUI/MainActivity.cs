@@ -5,44 +5,61 @@ using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
+using Android.Content;
 
 namespace PrintingHouse.AndroidUI
 {
-	[Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+	[Activity(Label = "Publishing house", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 	public class MainActivity : AppCompatActivity
 	{
-        EditText pagesQntEditText;
-        EditText printRunEditText;
-        TextView resultView;
-        Button calculateButton;
+        Button bookSeriesButton;
+        Button addSeriesButton;
+        Button polygraphyCalculatorButton;
+        Button aboutButton;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
-			SetContentView(Resource.Layout.activity_main);
+			SetContentView(Resource.Layout.Main);
 
-            pagesQntEditText = FindViewById<EditText>(Resource.Id.pagesEditText);
+            InstantiateControls();
 
-            printRunEditText = FindViewById<EditText>(Resource.Id.printrunEditText);
-            resultView = FindViewById<TextView>(Resource.Id.resultTextView);
-            calculateButton = FindViewById<Button>(Resource.Id.calculateButton);
 
-            calculateButton.Click += OnClick;
+            #region Old Project
+            //pagesQntEditText = FindViewById<EditText>(Resource.Id.pagesEditText);
+
+            //printRunEditText = FindViewById<EditText>(Resource.Id.printrunEditText);
+            //resultView = FindViewById<TextView>(Resource.Id.resultTextView);
+            //calculateButton = FindViewById<Button>(Resource.Id.calculateButton);
+
+            //calculateButton.Click += OnClick;
+            #endregion
 
         }
 
-        private void OnClick(object sender, EventArgs e)
+
+        private void InstantiateControls()
         {
-            string pagesQntString = pagesQntEditText.Text;
-            int pagesQuantity;
-            Int32.TryParse(pagesQntString, out pagesQuantity);
+            bookSeriesButton = FindViewById<Button>(Resource.Id.seriesButton);
+            addSeriesButton = FindViewById<Button>(Resource.Id.addSeriesButton);
+            polygraphyCalculatorButton = FindViewById<Button>(Resource.Id.polygraphyButton);
+            aboutButton = FindViewById<Button>(Resource.Id.aboutButton);
 
-            int printRun;
-            Int32.TryParse(printRunEditText.Text, out printRun);
-
-            resultView.Text = (pagesQuantity * printRun / 100).ToString();
+            //subscribe on events
+            bookSeriesButton.Click += (s,e) => { StartActivity(typeof(BookSeriesActivity)); };
+            addSeriesButton.Click += (s,e) => { base.StartActivity(new Intent(this, typeof(AddSeriesActivity)));};
+            polygraphyCalculatorButton.Click += (s,e) => { base.StartActivity(new Intent(this, typeof(PolygraphyCalculatorActivity)));};
+            aboutButton.Click += AboutButton_Click;
         }
+
+        private void AboutButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(Intent.ActionView);
+            intent.SetData(Android.Net.Uri.Parse("http://osnova.com.ua/"));
+            StartActivity(intent);
+        }
+
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
