@@ -26,6 +26,12 @@
 	/>
 
 	<Button
+		android:id="@+id/managersListButton"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Managers List"
+	/>
+	<Button
 		android:id="@+id/aboutButton"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

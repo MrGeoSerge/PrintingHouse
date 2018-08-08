@@ -55,14 +55,22 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ISectionIndexer.cs" />
     <Compile Include="AddSeriesActivity.cs" />
     <Compile Include="BookSeriesActivity.cs" />
+    <Compile Include="ImageAssetManager.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="ManagerAdapter.cs" />
+    <Compile Include="ManagersListActivity.cs" />
     <Compile Include="Model\BookModel.cs" />
+    <Compile Include="Model\Manager.cs" />
+    <Compile Include="Model\ManagersList.cs" />
     <Compile Include="MyConspectusActivity.cs" />
     <Compile Include="PolygraphyCalculatorActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionIndexerBuilder.cs" />
+    <Compile Include="ViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -130,6 +138,23 @@
     <AndroidResource Include="Resources\layout\PolygraphyCalculator.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ManagersList.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\adrian-stevens.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\chris-van-wyk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\glenn-stephens.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ManagerRow.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

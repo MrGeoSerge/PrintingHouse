@@ -15,6 +15,7 @@ namespace PrintingHouse.AndroidUI
         Button bookSeriesButton;
         Button addSeriesButton;
         Button polygraphyCalculatorButton;
+        Button managersListButton;
         Button aboutButton;
 
 		protected override void OnCreate(Bundle savedInstanceState)
@@ -45,11 +46,13 @@ namespace PrintingHouse.AndroidUI
             addSeriesButton = FindViewById<Button>(Resource.Id.addSeriesButton);
             polygraphyCalculatorButton = FindViewById<Button>(Resource.Id.polygraphyButton);
             aboutButton = FindViewById<Button>(Resource.Id.aboutButton);
+            managersListButton = FindViewById<Button>(Resource.Id.managersListButton);
 
             //subscribe on events
             bookSeriesButton.Click += (s,e) => { StartActivity(typeof(BookSeriesActivity)); };
             addSeriesButton.Click += (s,e) => { base.StartActivity(new Intent(this, typeof(AddSeriesActivity)));};
             polygraphyCalculatorButton.Click += (s,e) => { base.StartActivity(new Intent(this, typeof(PolygraphyCalculatorActivity)));};
+            managersListButton.Click += (s, e) => { StartActivity(typeof(ManagersListActivity)); };
             aboutButton.Click += AboutButton_Click;
         }
 
