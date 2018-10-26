@@ -24,6 +24,9 @@ namespace PrintingHouse.XamarinForms.Pages
             int printRun = Int32.Parse(printRunEntry.Text);
 
             //resultsLabel.Text = (pagesQnt * printRun).ToString();
+
+            var getPathFolderString = new GetPa
+
             CalculationsManager calculationsManager = new CalculationsManager();
             resultsLabel.Text = calculationsManager.CalculateMyConspectusPrintingCost(pagesQnt, printRun);
 

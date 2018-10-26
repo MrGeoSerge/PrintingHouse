@@ -12,7 +12,7 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 {
 	public class PriceListHelper<T>
 	{
-        public static PriceListHelper<T> Instance { get; private set; }
+        //public static PriceListHelper<T> Instance { get; private set; }
 
         //const string pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
         string pathFolder;

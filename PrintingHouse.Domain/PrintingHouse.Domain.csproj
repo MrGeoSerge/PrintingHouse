@@ -98,7 +98,7 @@
     <Compile Include="Entities\Tasks\TaskToPackage.cs" />
     <Compile Include="Entities\Tasks\TaskToPerforation.cs" />
     <Compile Include="Entities\Tasks\TaskToPrint.cs" />
-    <Compile Include="Processes\PrintingHouseManagement\PrintingHouseDirector.cs" />
+    <Compile Include="Processes\PrintingHouseManagement\DirectorOfTypography.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Processes\BookPrinting\" />

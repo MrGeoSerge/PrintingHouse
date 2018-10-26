@@ -10,13 +10,14 @@ using UIKit;
 
 namespace PrintingHouse.XamarinForms.iOS.Data
 {
-    class GetPathFolder : IGetPathFolder
+    public class GetPathFolderString : IGetPathFolder
     {
-        string IGetPathFolder.GetPathFolder()
+        string GetPathFolder()
         {
             return Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 "..", "Library");
         }
+
     }
 }
