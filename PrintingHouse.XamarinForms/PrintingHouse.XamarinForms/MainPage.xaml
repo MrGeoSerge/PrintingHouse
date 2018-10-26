@@ -4,11 +4,17 @@
              xmlns:local="clr-namespace:PrintingHouse.XamarinForms"
              x:Class="PrintingHouse.XamarinForms.MainPage">
 
-    <StackLayout>
+    <StackLayout Padding="20">
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Label Text="Welcome to Polygraphy Calculator!" 
+               HorizontalOptions="Center"
+               Margin="10"/>
+        <Button x:Name="polyCalcWindow"
+                Text="Polygraphy Calculator"
+                BackgroundColor="Green"
+                TextColor="Yellow"
+                Clicked="polyCalcWindow_Clicked"/>
+        
     </StackLayout>
 
 </ContentPage>

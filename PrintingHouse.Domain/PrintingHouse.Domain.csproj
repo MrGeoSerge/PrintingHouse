@@ -30,9 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Containers\GetPathFolderFactory.cs" />
+    <Compile Include="Containers\SimpleContainer.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\PriceLists\CorosetPriceList.cs" />
     <Compile Include="Entities\PriceLists\PriceListHelper.cs" />
+    <Compile Include="Interfaces\IGetPathFolder.cs" />
     <Compile Include="Processes\BookAssembly\AssemblyDepartment.cs" />
     <Compile Include="Processes\BookAssembly\AssemblyDirector.cs" />
     <Compile Include="Entities\Reports\AssemblyReport.cs" />
@@ -103,6 +108,7 @@
     <None Include="Data\RapidaPriceList.json" />
     <None Include="Data\ShinoharaPriceList.json" />
     <None Include="Data\ZirkonPriceList.json" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

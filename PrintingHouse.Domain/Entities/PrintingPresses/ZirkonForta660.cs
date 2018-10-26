@@ -16,7 +16,8 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 			base(taskToPrint)
 		{
 			Cutting = cutting;
-			zirkonPriceList = PriceListHelper<ZirkonPriceList>.ReadFromFile(zirkonPriceListString);
+			zirkonPriceList = PriceListHelper<ZirkonPriceList>.Instance.ReadFromFile(zirkonPriceListString);
+			//zirkonPriceList = PriceListHelper<ZirkonPriceList>.ReadFromFile(zirkonPriceListString);
 		}
 
 

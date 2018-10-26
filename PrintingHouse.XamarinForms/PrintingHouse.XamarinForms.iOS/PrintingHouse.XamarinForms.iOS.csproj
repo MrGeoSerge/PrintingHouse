@@ -90,6 +90,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Data\GetPathFolder.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -152,6 +153,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\PrintingHouse.Domain\PrintingHouse.Domain.csproj">
+      <Project>{c5488144-d4b2-40ba-b5d9-74a9aae3f9b0}</Project>
+      <Name>PrintingHouse.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrintingHouse.XamarinForms\PrintingHouse.XamarinForms.csproj">
       <Project>{4120A17C-319F-45F3-8C34-CEA353D3FFAD}</Project>
       <Name>PrintingHouse.XamarinForms</Name>

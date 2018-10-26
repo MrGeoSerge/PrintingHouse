@@ -14,7 +14,9 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		public Shinohara52_2(TaskToPrint taskToPrint) :
 			base(taskToPrint)
 		{
-			shinoharaPriceList = PriceListHelper<ShinoharaPriceList>.ReadFromFile(shinoharaPriceListString);
+            shinoharaPriceList = PriceListHelper<ShinoharaPriceList>.Instance.ReadFromFile(shinoharaPriceListString);
+
+            //shinoharaPriceList = PriceListHelper<ShinoharaPriceList>.ReadFromFile(shinoharaPriceListString);
 		}
 
 		public override double GetFormPriceValue()

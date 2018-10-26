@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading;
+using System.Threading.Tasks;
+using System.Diagnostics;
 using Foundation;
 using UIKit;
+using PrintingHouse.Domain.Containers;
+using PrintingHouse.XamarinForms.iOS.Data;
+using PrintingHouse.Domain.Interfaces;
 
 namespace PrintingHouse.XamarinForms.iOS
 {
@@ -13,7 +18,9 @@ namespace PrintingHouse.XamarinForms.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        //
+        //readonly SimpleContainer container = new SimpleContainer();
+       
+            //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
         // visible.
@@ -22,6 +29,9 @@ namespace PrintingHouse.XamarinForms.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            //container.Register<IGetPathFolder, GetPathFolder>();
+            //container.Create<GetPathFolder>();
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

@@ -3,27 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
+using System.Net.Http;
 using System.IO;
+using Newtonsoft.Json;
+using PrintingHouse.Domain.Interfaces;
+
 namespace PrintingHouse.Domain.Entities.PriceLists
 {
 	public class PriceListHelper<T>
 	{
-		const string pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
+        public static PriceListHelper<T> Instance { get; private set; }
 
-		public static void WriteToFile(T priceList, string fileName)
+        //const string pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
+        string pathFolder;
+
+        public PriceListHelper(IGetPathFolder getPathFolder)
+        {
+            if (Instance != null)
+                throw new Exception("Can only create a single QuoteManager.");
+            Instance = this;
+
+            pathFolder = getPathFolder.GetPathFolder();
+        }
+
+		public void WriteToFile(T priceList, string fileName)
 		{
-			var json = new JavaScriptSerializer().Serialize(priceList);
-			string path = pathFolder + fileName + ".json";
-			File.WriteAllText(path, json);
+            var priceListJsonFile = JsonConvert.SerializeObject(priceList);
+
+
+
+			//var json = new JavaScriptSerializer().Serialize(priceList);
+			string path = Path.Combine(pathFolder, fileName + ".json");
+			File.WriteAllText(path, priceListJsonFile);
 		}
 
-		public static T ReadFromFile(string fileName)
+		public T ReadFromFile(string fileName)
 		{
-			string path = pathFolder + fileName + ".json";
-			var json = File.ReadAllText(path);
-			var serializer = new JavaScriptSerializer();
-			T priceList = serializer.Deserialize<T>(json);
+			string path = Path.Combine(pathFolder, fileName + ".json");
+			var priceListJsonFile = File.ReadAllText(path);
+			//var serializer = new JavaScriptSerializer();
+			T priceList = JsonConvert.DeserializeObject<T>(priceListJsonFile);
 			return priceList;
 		}
 

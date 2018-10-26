@@ -15,7 +15,10 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		public Rapida74_5(TaskToPrint taskToPrint) :
 			base(taskToPrint)
 		{
-			rapidaPriceList = PriceListHelper<RapidaPriceList>.ReadFromFile(rapidaPriceListString);
+            rapidaPriceList = PriceListHelper<RapidaPriceList>.Instance.ReadFromFile(rapidaPriceListString);
+
+
+            //rapidaPriceList = PriceListHelper<RapidaPriceList>.ReadFromFile(rapidaPriceListString);
 		}
 
 		//-----установка значений прайса-----

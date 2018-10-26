@@ -21,7 +21,7 @@ namespace PrintingHouse.Domain.Specifications
 			set {
 				if (value == 84 || value == 90 || value == 100 || value == 108)
 					width = value;
-				else throw new Exception("wrong width");
+				else throw new Exception("wrong width of issue format");
 			}
 			get {
 				return width;

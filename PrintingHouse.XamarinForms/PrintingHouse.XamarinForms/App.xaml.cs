@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using PrintingHouse.XamarinForms.Pages;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace PrintingHouse.XamarinForms
@@ -11,7 +12,7 @@ namespace PrintingHouse.XamarinForms
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MyConspectusPolyCalc();
         }
 
         protected override void OnStart()

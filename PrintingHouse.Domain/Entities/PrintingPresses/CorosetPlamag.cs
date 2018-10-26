@@ -16,10 +16,12 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 			base(taskToPrint)
 		{
 			Cutting = cutting;
-			corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile(corosetPriceListString);
-		}
+			corosetPriceList = PriceListHelper<CorosetPriceList>.Instance.ReadFromFile(corosetPriceListString);
+            //corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile(corosetPriceListString);
 
-		public override double GetFormPriceValue()
+        }
+
+        public override double GetFormPriceValue()
 		{
 			return corosetPriceList.Form;
 		}

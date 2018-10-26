@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using PrintingHouse.XamarinForms.Model;
+using PrintingHouse.XamarinForms.Pages;
 
 namespace PrintingHouse.XamarinForms
 {
@@ -12,6 +14,11 @@ namespace PrintingHouse.XamarinForms
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void polyCalcWindow_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new MyConspectusPolyCalc());
         }
     }
 }

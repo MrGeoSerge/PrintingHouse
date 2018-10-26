@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrintingHouse.XamarinForms.Pages.MyConspectusPolyCalc">
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Polygraphy Calculator for My Conspectus series"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Pages Quantity"/>
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="pagesQntEntry" Placeholder="128" Text="128" Keyboard="Numeric"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Print Run" />
+            <Entry Grid.Row="2" Grid.Column="1" x:Name="printRunEntry" Placeholder="2000" Text="2000" Keyboard="Numeric"/>
+
+            <Button Grid.Row="3" Grid.Column="0" x:Name="calculateButton" Text="Calculate" Clicked="calculateButton_Clicked"/>
+
+            <Label Grid.Row="4" Grid.Column="0" x:Name="resultsLabel" LineBreakMode="WordWrap" Text="Here will be report"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
