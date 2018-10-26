@@ -5,6 +5,7 @@ using PrintingHouse.Domain.Entities;
 using PrintingHouse.Domain.Entities.BookComponents;
 using PrintingHouse.Domain.Entities.Paper;
 using PrintingHouse.Domain.Entities.Reports;
+using PrintingHouse.Domain.Interfaces;
 using PrintingHouse.Domain.Processes.PrintingHouseManagement;
 using PrintingHouse.Domain.Specifications;
 
@@ -12,6 +13,18 @@ namespace PrintingHouse.iOS_UI.Model
 {
     public class CalculationsManager
     {
+        IGetPathFolder getPathFolder;
+
+        public CalculationsManager()
+        {
+
+        }
+
+        public CalculationsManager(IGetPathFolder getPathFolder)
+        {
+            this.getPathFolder = getPathFolder;
+        }
+
         public Book GetMyConspectusBook(int pagesQuantity, int printRun)
         {
 
@@ -43,7 +56,7 @@ namespace PrintingHouse.iOS_UI.Model
         public string CalculateMyConspectusPrintingCost(int pagesQuantity, int printRun)
         {
             Book book = GetMyConspectusBook(pagesQuantity, printRun);
-            DirectorOfTypography director = new DirectorOfTypography(book);
+            DirectorOfTypography director = new DirectorOfTypography(book, getPathFolder);
             PolygraphyCostReport report = director.MakeBook();
 
             var costPerItem = report.CostOfPolygraphyPerOneItem.ToString();

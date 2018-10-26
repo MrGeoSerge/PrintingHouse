@@ -3,6 +3,7 @@ using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Entities.PriceLists;
 using PrintingHouse.Domain.Specifications;
 using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
+using PrintingHouse.Domain.Interfaces;
 
 namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
@@ -11,10 +12,11 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		ShinoharaPriceList shinoharaPriceList;
 		const string shinoharaPriceListString = "ShinoharaPriceList";
 
-		public Shinohara52_2(TaskToPrint taskToPrint) :
+		public Shinohara52_2(TaskToPrint taskToPrint, IGetPathFolder getPathFolder) :
 			base(taskToPrint)
 		{
-            shinoharaPriceList = PriceListHelper<ShinoharaPriceList>.Instance.ReadFromFile(shinoharaPriceListString);
+            var priceListHelper = new PriceListHelper<ShinoharaPriceList>(getPathFolder);
+            shinoharaPriceList = priceListHelper.ReadFromFile(shinoharaPriceListString);
 
             //shinoharaPriceList = PriceListHelper<ShinoharaPriceList>.ReadFromFile(shinoharaPriceListString);
 		}

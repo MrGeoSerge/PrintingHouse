@@ -4,6 +4,7 @@ using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Specifications;
 using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
 using System;
+using PrintingHouse.Domain.Interfaces;
 
 namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
@@ -12,10 +13,12 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		RapidaPriceList rapidaPriceList;
 		const string rapidaPriceListString = "RapidaPriceList";
 
-		public Rapida74_5(TaskToPrint taskToPrint) :
+		public Rapida74_5(TaskToPrint taskToPrint, IGetPathFolder getPathFolder) :
 			base(taskToPrint)
 		{
-            rapidaPriceList = PriceListHelper<RapidaPriceList>.Instance.ReadFromFile(rapidaPriceListString);
+            var priceListHelper = new PriceListHelper<RapidaPriceList>(getPathFolder);
+
+            rapidaPriceList = priceListHelper.ReadFromFile(rapidaPriceListString);
 
 
             //rapidaPriceList = PriceListHelper<RapidaPriceList>.ReadFromFile(rapidaPriceListString);

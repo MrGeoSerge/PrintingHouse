@@ -3,6 +3,7 @@ using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Entities.PriceLists;
 using PrintingHouse.Domain.Specifications;
 using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
+using PrintingHouse.Domain.Interfaces;
 
 namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
@@ -12,11 +13,14 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		const string zirkonPriceListString = "ZirkonPriceList";
 		const double cutting = 0.452;//рубка - параметр размера печатной ротационной машины
 
-		public ZirkonForta660(TaskToPrint taskToPrint) :
+		public ZirkonForta660(TaskToPrint taskToPrint, IGetPathFolder getPathFolder) :
 			base(taskToPrint)
 		{
 			Cutting = cutting;
-			zirkonPriceList = PriceListHelper<ZirkonPriceList>.Instance.ReadFromFile(zirkonPriceListString);
+
+            var priceListHelper = new PriceListHelper<ZirkonPriceList>(getPathFolder);
+
+            zirkonPriceList = priceListHelper.ReadFromFile(zirkonPriceListString);
 			//zirkonPriceList = PriceListHelper<ZirkonPriceList>.ReadFromFile(zirkonPriceListString);
 		}
 

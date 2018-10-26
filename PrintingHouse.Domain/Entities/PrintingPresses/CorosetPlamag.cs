@@ -3,6 +3,7 @@ using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Specifications;
 using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
 using System;
+using PrintingHouse.Domain.Interfaces;
 
 namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
@@ -12,15 +13,27 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		const string corosetPriceListString = "CorosetPriceList";
 		const double cutting = 0.546;//рубка - параметр размера печатной ротационной машины
 
-		public CorosetPlamag(TaskToPrint taskToPrint) :
+		//public CorosetPlamag(TaskToPrint taskToPrint) :
+		//	base(taskToPrint)
+		//{
+		//	Cutting = cutting;
+		//	//corosetPriceList = PriceListHelper<CorosetPriceList>.Instance.ReadFromFile(corosetPriceListString);
+  //          corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile(corosetPriceListString);
+
+  //      }
+
+		public CorosetPlamag(TaskToPrint taskToPrint, IGetPathFolder getPathFolder) :
 			base(taskToPrint)
 		{
 			Cutting = cutting;
-			//corosetPriceList = PriceListHelper<CorosetPriceList>.Instance.ReadFromFile(corosetPriceListString);
-            corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile(corosetPriceListString);
+            //corosetPriceList = PriceListHelper<CorosetPriceList>.Instance.ReadFromFile(corosetPriceListString);
+
+            var priceListHelper = new PriceListHelper<CorosetPriceList>(getPathFolder);
+
+
+            corosetPriceList = priceListHelper.ReadFromFile(corosetPriceListString);
 
         }
-
         public override double GetFormPriceValue()
 		{
 			return corosetPriceList.Form;

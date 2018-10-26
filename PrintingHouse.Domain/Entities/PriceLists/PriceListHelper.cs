@@ -19,10 +19,6 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 
         public PriceListHelper(IGetPathFolder getPathFolder)
         {
-            if (Instance != null)
-                throw new Exception("Can only create a single QuoteManager.");
-            Instance = this;
-
             pathFolder = getPathFolder.GetPathFolder();
         }
 

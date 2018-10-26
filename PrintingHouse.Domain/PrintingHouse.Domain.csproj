@@ -104,10 +104,18 @@
     <Folder Include="Processes\BookPrinting\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\CorosetPriceList.json" />
-    <None Include="Data\RapidaPriceList.json" />
-    <None Include="Data\ShinoharaPriceList.json" />
-    <None Include="Data\ZirkonPriceList.json" />
+    <Content Include="Data\CorosetPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\RapidaPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\ShinoharaPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\ZirkonPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

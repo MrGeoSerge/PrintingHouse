@@ -8,18 +8,27 @@ using PrintingHouse.Domain.Abstract;
 using PrintingHouse.Domain.Processes.BookAssembly;
 using PrintingHouse.Domain.Entities.PrintingPresses;
 using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
+using PrintingHouse.Domain.Interfaces;
 
 namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
 {
 	//Директор типографии раздает задания (- формирует Task-и) на печатные машины и другие виды работ
 	public class DirectorOfTypography
     {
+        IGetPathFolder getPathFolder;
+
         Book book;
         AssemblyReport assemblyReport;
 
         public DirectorOfTypography(Book book)
         {
             this.book = book;
+        }
+
+        public DirectorOfTypography(Book book, IGetPathFolder getPathFolder)
+        {
+            this.book = book;
+            this.getPathFolder = getPathFolder;
         }
 
         public PolygraphyCostReport MakeBook()
@@ -75,21 +84,21 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
             if (_taskForPart.Format.Length == 84 && _taskForPart.Format.Width == 108
                 && _taskForPart.Paper.Density <= 60)
             {
-                printingPress = new CorosetPlamag(_taskForPart);
+                printingPress = new CorosetPlamag(_taskForPart, getPathFolder);
             }
 
             //циркон, если 60*90 формат и плотность не более 60 г/м2
             else if (_taskForPart.Format.Length == 60 && _taskForPart.Format.Width == 90
                 && _taskForPart.Paper.Density <= 60)
             {
-                printingPress = new ZirkonForta660(_taskForPart);
+                printingPress = new ZirkonForta660(_taskForPart, getPathFolder);
             }
 
             //шинохара, если 84*108 формат и плотность  более 80 г/м2
             else if (_taskForPart.Format.Length == 84 && _taskForPart.Format.Width == 108
                 && _taskForPart.Paper.Density > 80)
             {
-                printingPress = new Shinohara52_2(_taskForPart);
+                printingPress = new Shinohara52_2(_taskForPart, getPathFolder);
             }
 
             //роланд, если 70*100 формат и цветность больше 2+2
@@ -102,7 +111,7 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
             //рапида для обложек - Хром-эрзац или для плотной бумаги
             else if (_taskForPart.Colors.Total() >= 4)
             {
-                printingPress = new Rapida74_5(_taskForPart);
+                printingPress = new Rapida74_5(_taskForPart, getPathFolder);
             }
 
             else if(_taskForPart.Colors.ToString() == "0+0")
