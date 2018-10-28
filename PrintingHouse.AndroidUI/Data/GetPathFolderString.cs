@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-
-using Foundation;
-using UIKit;
-
+using Android.App;
 using PrintingHouse.Domain.Interfaces;
 
-namespace PrintingHouse.iOS_UI.Data
+namespace PrintingHouse.AndroidUI.Data
 {
     public class GetPathFolderString : IGetPathFolder
     {
@@ -19,7 +16,7 @@ namespace PrintingHouse.iOS_UI.Data
             //    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
             //    "..", "Library");
             //return Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            return NSBundle.MainBundle.BundlePath;
+            return Application.Context.FilesDir.Path;
         }
     }
 }

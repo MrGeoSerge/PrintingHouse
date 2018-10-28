@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.IO;
 using Newtonsoft.Json;
 using PrintingHouse.Domain.Interfaces;
+using System.Reflection;
 
 namespace PrintingHouse.Domain.Entities.PriceLists
 {
@@ -22,9 +23,14 @@ namespace PrintingHouse.Domain.Entities.PriceLists
             pathFolder = getPathFolder.GetPathFolder();
         }
 
+        public PriceListHelper()
+        {
+            pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
+        }
+
 		public void WriteToFile(T priceList, string fileName)
 		{
-            var priceListJsonFile = JsonConvert.SerializeObject(priceList);
+            string priceListJsonFile = JsonConvert.SerializeObject(priceList);
 
 
 
@@ -35,10 +41,27 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 
 		public T ReadFromFile(string fileName)
 		{
-			string path = Path.Combine(pathFolder, fileName + ".json");
-			var priceListJsonFile = File.ReadAllText(path);
-			//var serializer = new JavaScriptSerializer();
-			T priceList = JsonConvert.DeserializeObject<T>(priceListJsonFile);
+            #region How to load a text file embedded resource
+            //var assembly = IntrospectionExtensions.GetTypeInfo(typeof(PriceListHelper<T>)).Assembly;
+            //Stream stream = assembly.GetManifestResourceStream("PrintingHouse.Domain.Data." + fileName + ".json");
+
+            //string textFromFile = "";
+            //using (var reader = new System.IO.StreamReader(stream))
+            //{
+            //    textFromFile = reader.ReadToEnd();
+            //}
+            #endregion
+
+
+
+            string path = Path.Combine(pathFolder, fileName + ".json");
+            var priceListJsonFile = File.ReadAllText(path);
+            //var serializer = new JavaScriptSerializer();
+
+
+
+            T priceList = JsonConvert.DeserializeObject<T>(priceListJsonFile);
+            //T priceList_Stream = JsonConvert.DeserializeObject<T>(textFromFile);
 			return priceList;
 		}
 

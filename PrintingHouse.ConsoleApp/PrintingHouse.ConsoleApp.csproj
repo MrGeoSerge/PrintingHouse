@@ -53,10 +53,6 @@
       <Project>{c5488144-d4b2-40ba-b5d9-74a9aae3f9b0}</Project>
       <Name>PrintingHouse.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PrintingHouse.UnitTests\PrintingHouse.UnitTests.csproj">
-      <Project>{276a57b3-963c-4cb3-8c49-ee70ba6b2f81}</Project>
-      <Name>PrintingHouse.UnitTests</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

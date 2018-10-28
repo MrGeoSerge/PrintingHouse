@@ -58,11 +58,13 @@
     <Compile Include="Abstract\ISectionIndexer.cs" />
     <Compile Include="AddSeriesActivity.cs" />
     <Compile Include="BookSeriesActivity.cs" />
+    <Compile Include="Data\GetPathFolderString.cs" />
     <Compile Include="ImageAssetManager.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="ManagerAdapter.cs" />
     <Compile Include="ManagersListActivity.cs" />
     <Compile Include="Model\BookModel.cs" />
+    <Compile Include="Model\CalculationsManager.cs" />
     <Compile Include="Model\Manager.cs" />
     <Compile Include="Model\ManagersList.cs" />
     <Compile Include="MyConspectusActivity.cs" />
@@ -76,6 +78,18 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <Content Include="Resources\CorosetPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\RapidaPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ShinoharaPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ZirkonPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_main.axml">
@@ -155,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ManagerRow.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrintingHouse.Domain\PrintingHouse.Domain.csproj">
+      <Project>{c5488144-d4b2-40ba-b5d9-74a9aae3f9b0}</Project>
+      <Name>PrintingHouse.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

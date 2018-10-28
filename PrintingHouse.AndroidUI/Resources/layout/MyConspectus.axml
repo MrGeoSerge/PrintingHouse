@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -24,7 +25,7 @@
 			android:layout_height="match_parent"
 			android:layout_gravity="bottom"
 			android:foregroundGravity="bottom" />
-		<EditText 
+		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:id="@+id/pagesEditText"/>
@@ -44,17 +45,15 @@
 			android:layout_height="match_parent"
 			android:id="@+id/printrunEditText" />
 	</LinearLayout>
-	<Button 
+	<Button
 		android:text="Calculate"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/calculateButton" />
-		/>
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="50dp"
 		android:id="@+id/resultTextView" />
-
 	<LinearLayout
 		android:orientation="horizontal"
 		android:minWidth="25px"
@@ -66,19 +65,22 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:id="@+id/saveMCButton" />
-			/>
 		<Button
 			android:text="Cancel"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/cancelMCButton" />
-			/>
-
-		</LinearLayout>
-	<Button 
+	</LinearLayout>
+	<Button
 		android:text="Open in Polygraphy Calculator"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/openInPCButton"
 	/>
+	<TextView
+		android:text="Small Text"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="89.0dp"
+		android:id="@+id/pathToApptextView" />
 </LinearLayout>

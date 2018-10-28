@@ -26,13 +26,8 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 			base(taskToPrint)
 		{
 			Cutting = cutting;
-            //corosetPriceList = PriceListHelper<CorosetPriceList>.Instance.ReadFromFile(corosetPriceListString);
-
             var priceListHelper = new PriceListHelper<CorosetPriceList>(getPathFolder);
-
-
             corosetPriceList = priceListHelper.ReadFromFile(corosetPriceListString);
-
         }
         public override double GetFormPriceValue()
 		{

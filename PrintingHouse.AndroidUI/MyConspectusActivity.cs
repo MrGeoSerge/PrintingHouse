@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using PrintingHouse.AndroidUI.Data;
+using PrintingHouse.AndroidUI.Model;
 
 namespace PrintingHouse.AndroidUI
 {
@@ -23,6 +25,8 @@ namespace PrintingHouse.AndroidUI
         private Button cancelButton;
         private Button openInPCButton;
 
+        private TextView pathToApptextView;
+
         int pagesQnt;
         int printRun;
 
@@ -35,6 +39,9 @@ namespace PrintingHouse.AndroidUI
 
             InstantiateControls();
             RetrieveData();
+
+
+            pathToApptextView.Text = Application.Context.FilesDir.Path;
         }
 
         private void RetrieveData()
@@ -60,6 +67,8 @@ namespace PrintingHouse.AndroidUI
 
             openInPCButton = FindViewById<Button>(Resource.Id.openInPCButton);
             openInPCButton.Click += OpenInPCButton_Click;
+
+            pathToApptextView = FindViewById<TextView>(Resource.Id.pathToApptextView);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -91,7 +100,11 @@ namespace PrintingHouse.AndroidUI
         private void OnClick(object sender, EventArgs e)
         {
             GetData();
-            resultView.Text = (pagesQnt * printRun / 100).ToString();
+
+            CalculationsManager calculationsManager = new CalculationsManager(new GetPathFolderString());
+            resultView.Text = calculationsManager.CalculateMyConspectusPrintingCost(pagesQnt, printRun);
+
+
         }
 
         private void GetData()

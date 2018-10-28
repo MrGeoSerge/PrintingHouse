@@ -20,10 +20,10 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
         Book book;
         AssemblyReport assemblyReport;
 
-        public DirectorOfTypography(Book book)
-        {
-            this.book = book;
-        }
+        //public DirectorOfTypography(Book book)
+        //{
+        //    this.book = book;
+        //}
 
         public DirectorOfTypography(Book book, IGetPathFolder getPathFolder)
         {

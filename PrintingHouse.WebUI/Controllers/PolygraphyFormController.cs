@@ -2,6 +2,7 @@
 using PrintingHouse.Domain.Entities.Reports;
 using PrintingHouse.Domain.Processes.PrintingHouseManagement;
 using PrintingHouse.Domain.Specifications;
+using PrintingHouse.WebUI.Data;
 using PrintingHouse.WebUI.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -55,7 +56,8 @@ namespace PrintingHouse.WebUI.Controllers
 			{
 				// TODO: Unify these for lines into one class
 				Book theBook = bookModel.CreateBook();
-				DirectorOfTypography director = new DirectorOfTypography(theBook);
+
+				DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
 				PolygraphyCostReport report = director.MakeBook();
 				ViewBag.Report = report;
 				return View(bookModel);
@@ -68,7 +70,7 @@ namespace PrintingHouse.WebUI.Controllers
 			if (ModelState.IsValid)
 			{
 				Book theBook = bookModel.CreateBook();
-				DirectorOfTypography director = new DirectorOfTypography(theBook);
+				DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
 				PolygraphyCostReport report = director.MakeBook();
 				return PartialView(report);
 			}
@@ -81,7 +83,7 @@ namespace PrintingHouse.WebUI.Controllers
 			{
 				// TODO: Unify these for lines into one class
 				Book theBook = bookModel.CreateBook();
-				DirectorOfTypography director = new DirectorOfTypography(theBook);
+				DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
 				PolygraphyCostReport report = director.MakeBook();
 				ViewBag.Report = report;
 				return View(bookModel);
