@@ -5,6 +5,7 @@ using UIKit;
 using PrintingHouse.iOS_UI.Model;
 using PrintingHouse.iOS_UI.Data;
 using System.IO;
+using PrintingHouse.Domain.Entities.Reports;
 
 namespace PrintingHouse.iOS_UI
 {
@@ -19,10 +20,6 @@ namespace PrintingHouse.iOS_UI
             base.ViewDidLoad ();
             // Perform any additional setup after loading the view, typically from a nib.
 
-            var text = File.ReadAllText("Serge.txt");
-            textFileContentLabel.Text = text;
-
-            folderPathTextView.Text = NSBundle.MainBundle.BundlePath;
         }
 
         public override void DidReceiveMemoryWarning ()
@@ -33,6 +30,8 @@ namespace PrintingHouse.iOS_UI
 
         partial void CalculateButton_TouchUpInside(UIButton sender)
         {
+            printRunTextField.ResignFirstResponder();
+
             int pagesQnt = Int32.Parse(numberOfPagesTextField.Text);
 
             int printRun = Int32.Parse(printRunTextField.Text);
@@ -40,12 +39,17 @@ namespace PrintingHouse.iOS_UI
             var getPathFolderString = new GetPathFolderString();
             
             CalculationsManager calculationsManager = new CalculationsManager(getPathFolderString);
-            resultsLabel.Text = calculationsManager.CalculateMyConspectusPrintingCost(pagesQnt, printRun);
+            PolygraphyCostReport report = calculationsManager.CalculateMyConspectusPrintingCost(pagesQnt, printRun);
+
+
+            costOfPolygraphyLabel.Text = report.CostOfPolygraphy.ToString("F");
+            costOfMaterialsLabel.Text = report.CostOfMaterials.ToString("F");
+            costOfAssemblyLabel.Text = report.CostOfAssembly.ToString("F");
+            costOfPrintRunLabel.Text = report.CostOfPrintRun.ToString("F");
+            costOfOneUnitLabel.Text = report.CostOfPolygraphyPerOneItem.ToString("F");
+
+
         }
 
-        partial void AddTextToFileButton_TouchUpInside(UIButton sender)
-        {
-            File.WriteAllText("Serge.txt", "This is new text in file Serge");
-        }
     }
 }

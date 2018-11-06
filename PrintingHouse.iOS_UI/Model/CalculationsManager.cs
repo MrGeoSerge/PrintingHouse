@@ -32,7 +32,8 @@ namespace PrintingHouse.iOS_UI.Model
             {
                 Name = "Internal Block",
                 Format = new IssueFormat("84*108/16"),
-                Paper = new PaperInKg(PaperType.Newsprint, 45, 23.5, "Zmiev", 84),
+                //Paper = new PaperInKg(PaperType.Newsprint, 45, 23.5, "Zmiev", 84),
+                Paper = new PaperInKg(PaperType.Newsprint, 45, 16.995, "Шклов", 59.4),
                 Colors = new IssueColors("1+1"),
                 PagesNumber = pagesQuantity
             };
@@ -41,7 +42,8 @@ namespace PrintingHouse.iOS_UI.Model
             {
                 Name = "Cover",
                 Format = new IssueFormat("84*108/16"),
-                Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 4.2333, "Korostishev", 64, 90),
+                //Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 4.2333, "Korostishev", 64, 90),
+                Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 2.5, "Умка", 70, 100),
                 Colors = new IssueColors("1+1"),
                 PagesNumber = 4
             };
@@ -53,14 +55,14 @@ namespace PrintingHouse.iOS_UI.Model
             return book;
         }
 
-        public string CalculateMyConspectusPrintingCost(int pagesQuantity, int printRun)
+        public PolygraphyCostReport CalculateMyConspectusPrintingCost(int pagesQuantity, int printRun)
         {
             Book book = GetMyConspectusBook(pagesQuantity, printRun);
             DirectorOfTypography director = new DirectorOfTypography(book, getPathFolder);
             PolygraphyCostReport report = director.MakeBook();
 
-            var costPerItem = report.CostOfPolygraphyPerOneItem.ToString();
-            return costPerItem;
+            //var costPerItem = report.CostOfPolygraphyPerOneItem.ToString();
+            return report;
         }
     }
 }

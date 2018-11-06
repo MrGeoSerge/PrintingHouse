@@ -36,9 +36,6 @@ namespace PrintingHouse.Domain.Entities.Reports
 			}
 		}
 
-
-
-
 		//затраты на сборку (переплет, ламинация, перфорация, упаковка)
 		public double CostOfAssembly => AssemblyReport.TotalCostOfAssembly;
 
