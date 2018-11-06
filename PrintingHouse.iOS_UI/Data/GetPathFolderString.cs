@@ -15,10 +15,6 @@ namespace PrintingHouse.iOS_UI.Data
     {
         public string GetPathFolder()
         {
-            //return Path.Combine(
-            //    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-            //    "..", "Library");
-            //return Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             return NSBundle.MainBundle.BundlePath;
         }
     }

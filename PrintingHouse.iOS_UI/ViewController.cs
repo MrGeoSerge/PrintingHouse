@@ -22,8 +22,6 @@ namespace PrintingHouse.iOS_UI
             var text = File.ReadAllText("Serge.txt");
             textFileContentLabel.Text = text;
 
-            
-
             folderPathTextView.Text = NSBundle.MainBundle.BundlePath;
         }
 
@@ -43,9 +41,6 @@ namespace PrintingHouse.iOS_UI
             
             CalculationsManager calculationsManager = new CalculationsManager(getPathFolderString);
             resultsLabel.Text = calculationsManager.CalculateMyConspectusPrintingCost(pagesQnt, printRun);
-
-            //resultsLabel.Text = (pagesQnt * printRun).ToString();
-
         }
 
         partial void AddTextToFileButton_TouchUpInside(UIButton sender)
