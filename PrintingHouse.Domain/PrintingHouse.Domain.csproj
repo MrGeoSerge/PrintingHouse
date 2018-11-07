@@ -47,6 +47,7 @@
     <Compile Include="Containers\SimpleContainer.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\PriceLists\CorosetPriceList.cs" />
+    <Compile Include="Entities\PriceLists\ImpressionCost.cs" />
     <Compile Include="Entities\PriceLists\PriceListHelper.cs" />
     <Compile Include="Interfaces\IGetPathFolder.cs" />
     <Compile Include="Processes\BookAssembly\AssemblyDepartment.cs" />
@@ -104,9 +105,6 @@
     <Folder Include="Processes\BookPrinting\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Data\--CorosetPriceList.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="Data\RapidaPriceList.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -122,4 +120,5 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions />
 </Project>

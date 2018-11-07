@@ -22,11 +22,16 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 		//стоимость оттисков зависит от цветности
 		public Dictionary<string, double> Impression { set; get; }
 
-		public CorosetPriceList()
+        //новое в прайсе 2018 года: при тираже от 1 до 2000 стоимость печати фиксированная
+        public int PrintRun_UpToWhichFixedPrintingCostApplyed { set; get; }
+        public double FixedPrintingCost { set; get; }
+
+        public CorosetPriceList()
 		{
 			TechNeeds = new Dictionary<string, double>();
 			Impression = new Dictionary<string, double>();
 		}
+
 		public void SetDefaultData()
 		{
 			Form = 126;

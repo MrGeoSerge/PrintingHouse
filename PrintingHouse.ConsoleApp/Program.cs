@@ -15,16 +15,17 @@ namespace PrintingHouse.ConsoleApp
 		{
 
             #region Coroset CreateAndWrite to JSON files
-            var corosetPriceList = new CorosetPriceList();
-            corosetPriceList.SetDefaultData();
-            var priceListHelper = new PriceListHelper<CorosetPriceList>();
-            priceListHelper.WriteToFile(corosetPriceList, "Coroset1");
+            //var corosetPriceList = new CorosetPriceList();
+            //corosetPriceList.SetDefaultData();
+            //var priceListHelper = new PriceListHelper<CorosetPriceList>();
+            //priceListHelper.WriteToFile(corosetPriceList, "Coroset1");
             #endregion
 
             #region Rapida CreateAndWrite to JSON files
-            //RapidaPriceList rapidaPriceList = new RapidaPriceList();
-            //rapidaPriceList.SetDefaultData();
-            //PriceListHelper<RapidaPriceList>.WriteToFile(rapidaPriceList, "RapidaPriceList");
+            RapidaPriceList rapidaPriceList = new RapidaPriceList();
+            rapidaPriceList.SetDefaultData();
+            PriceListHelper<RapidaPriceList> priceListHelper1 = new PriceListHelper<RapidaPriceList>();
+            priceListHelper1.WriteToFile(rapidaPriceList, "RapidaPriceList");
             #endregion
 
             #region Shinohara Write to JSON file
@@ -54,11 +55,11 @@ namespace PrintingHouse.ConsoleApp
             #endregion
 
             #region Write Rapida74_5_60_90_CoverResult to Json for using in Unit Tests
-    //        JsonHelper<Zirkon_84_108_IB_MagazineResultForJsonCreation>
-				//.WriteToFile(new Zirkon_84_108_IB_MagazineResultForJsonCreation(), "Zirkon_84_108_IB_MagazineResult");
-			#endregion
+            //        JsonHelper<Zirkon_84_108_IB_MagazineResultForJsonCreation>
+            //.WriteToFile(new Zirkon_84_108_IB_MagazineResultForJsonCreation(), "Zirkon_84_108_IB_MagazineResult");
+            #endregion
 
-			//Console.ReadKey();
-		}
+            //Console.ReadKey();
+        }
 	}
 }

@@ -60,12 +60,12 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		//стоимость оттиска
 		public override double GetImpressionPriceValue()
 		{
-			foreach (var printRun in rapidaPriceList.Impression)
+			foreach (var impression in rapidaPriceList.Impressions)
 			{
-				int printRun_Key = Int32.Parse(printRun.Key);
-				if (GetPrintingSheetsPerPrintRun() < printRun_Key)
+				if (GetPrintingSheetsPerPrintRun() > impression.LowerPrintRunBound
+                    && GetPrintingSheetsPerPrintRun() < impression.UpperPrintRunBound)
 				{
-					return printRun.Value;
+					return impression.ImpressionCost;
 				}
 			}
 			throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
