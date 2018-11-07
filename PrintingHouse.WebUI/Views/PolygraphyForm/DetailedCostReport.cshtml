@@ -2,11 +2,37 @@
 @if (@Model != null)
 {
     <div id="calcResults">
+        <h3>Детальный отчет</h3>
 		@foreach(var bookPart in @Model.PrintingPressesReports)
 		{
-			<h4>Название части:</h4> @bookPart.press.TaskToPrint.Name <br>
+            <div>
+			    <h4>Название части: @bookPart.press.TaskToPrint.Name </h4>
+                Формат печатного станка: @bookPart.press.PressSheetFormat <br />
+                 <br />
+                Стоимость приладки 1 формы: @bookPart.press.GetFittingPriceValue() <br />
+                Стоимость технужд на 1 форму: @bookPart.press.GetTechNeedsPriceValue() <br />
+                Формат листов печатного оборудования: @bookPart.press.GetPressSheetsFormat() <br />
+                Количество страниц на 1 спуск: @bookPart.press.GetPagesPerOneImposition() <br />
+                Количество спусков на 1 книгу: @bookPart.press.GetImpositionsPerBook() <br />
+                Количество печатных листов на 1 книгу: @bookPart.press.GetPrintingSheetsPerBook() <br />
+                Количество печатных листов на тираж: @bookPart.press.GetPrintingSheetsPerPrintRun() <br />
+                 <br />
+                Количество печатных форм: @bookPart.press.PrintingForms <br />
+                Стоимость 1 формы: @bookPart.press.GetFormPriceValue() <br />
+                Стоимость печатных форм: @bookPart.press.GetCostOfPrintingFoms() <br />
+                 <br />
+                Потребление бумаги для технужд: @bookPart.press.GetPaperConsumptionForTechnicalNeeds() <br />
+                Приладка на тираж: @bookPart.press.GetFittingOnPrintRun() <br />
+                Расход бумаги для списания в листах формата оборудования:  @bookPart.press.GetTotalPaperConsumptionInPressFormat() <br />
+                 <br />
+                Количество оттисков: @bookPart.press.GetImpressions() <br />
+                Стоимость 1 оттиска: @bookPart.press.GetImpressionPriceValue() <br />
+                Стоимость печати: @bookPart.press.GetCostOfImpressions() <br />
+                 <br />
+                Общая сумма за печать: @bookPart.press.GetCostOfPrinting() <br />
 
-		}
+		    </div>
+        }
     </div>
 
 }

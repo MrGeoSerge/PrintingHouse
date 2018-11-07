@@ -7,6 +7,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
 {
 	abstract public class PrintingPress
 	{
+        //TODO: Make properties from Get Methods
 		public TaskToPrint TaskToPrint { get; private set; }
 
 		public IssueFormat PressSheetFormat { get; private set; }

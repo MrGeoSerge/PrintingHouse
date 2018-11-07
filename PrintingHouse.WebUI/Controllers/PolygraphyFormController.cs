@@ -81,12 +81,11 @@ namespace PrintingHouse.WebUI.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				// TODO: Unify these for lines into one class
+				// TODO: Unify these 4 lines into one class
 				Book theBook = bookModel.CreateBook();
 				DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
 				PolygraphyCostReport report = director.MakeBook();
-				ViewBag.Report = report;
-				return View(bookModel);
+				return PartialView(report);
 			}
 			return new EmptyResult();
 		}

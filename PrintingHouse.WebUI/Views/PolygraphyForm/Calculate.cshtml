@@ -143,12 +143,12 @@
     @if (ViewBag.Report != null)
     {<div id="tabledata">
         @Html.Action("Calculations", @Model)
+        @Html.Action("DetailedCostReport", @Model)
     </div>
     }
 
     @*@if (ViewBag.Report != null)
     {<div id="tabledata">
-        @Html.Action("DetailedCostReport", @Model)
     </div>
     }*@
 
