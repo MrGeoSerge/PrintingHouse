@@ -1,5 +1,4 @@
-﻿
-using PrintingHouse.Domain.Entities.PriceLists;
+﻿using PrintingHouse.Domain.Entities.PriceLists;
 using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Specifications;
 using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
@@ -17,11 +16,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 			base(taskToPrint)
 		{
             var priceListHelper = new PriceListHelper<RapidaPriceList>(getPathFolder);
-
             rapidaPriceList = priceListHelper.ReadFromFile(rapidaPriceListString);
-
-
-            //rapidaPriceList = PriceListHelper<RapidaPriceList>.ReadFromFile(rapidaPriceListString);
 		}
 
 		//-----установка значений прайса-----
@@ -60,21 +55,32 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		//стоимость оттиска
 		public override double GetImpressionPriceValue()
 		{
+            if (TaskToPrint.PrintRun < rapidaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+            {
+                return 0.0; //No price for small printruns
+            }
 			foreach (var impression in rapidaPriceList.Impressions)
 			{
-				if (GetPrintingSheetsPerPrintRun() > impression.LowerPrintRunBound
-                    && GetPrintingSheetsPerPrintRun() < impression.UpperPrintRunBound)
+				if (GetPrintingSheetsPerPrintRun() >= impression.LowerPrintRunBound
+                    && GetPrintingSheetsPerPrintRun() <= impression.UpperPrintRunBound)
 				{
 					return impression.ImpressionCost;
 				}
 			}
 			throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
-
 		}
 
-		//метод вычисления формата листа оборудования 
-		//в зависимости от заданного формата книги
-		public override IssueFormat GetPressSheetsFormat()
+        public override double GetCostOfImpressions()
+        {
+            if (TaskToPrint.PrintRun < rapidaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+                return rapidaPriceList.FixedPrintingCost * GetPrintingSheetsPerBook();
+
+            return base.GetCostOfImpressions();
+        }
+
+        //метод вычисления формата листа оборудования 
+        //в зависимости от заданного формата книги
+        public override IssueFormat GetPressSheetsFormat()
 		{
 			//Рапида Форматы (740 * 520)
 			//84*108/4 = 420мм * 540мм

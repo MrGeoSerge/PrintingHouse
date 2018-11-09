@@ -139,7 +139,7 @@ namespace PrintingHouse.WebUI.Models
 			switch (IBPaper)
 			{
 				case PaperFullType.Newsprint_45:
-					innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 45, 16.995, "Шклов", 59.4);
+					innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 45, 23.69, "Змиев", 84);
 					break;
 				case PaperFullType.Offset_60:
 					innerBlock.Paper = new PaperInKg(PaperType.Offset, 60, 32.0, "Коростышев", 59.4);
@@ -166,7 +166,7 @@ namespace PrintingHouse.WebUI.Models
 			switch (CoverPaper)
 			{
 				case PaperFullType.FoldingBoxboard_230:
-					cover.Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 2.5, "Умка", 70, 100);
+					cover.Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 3.68, "Умка", 64, 90);
 					break;
 				case PaperFullType.CardboardAliaska_230:
 					cover.Paper = new PaperInSheets(PaperType.CardboardAliaska, 230, 5.3, "Unknown", 70, 100);

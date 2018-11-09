@@ -18,14 +18,14 @@ namespace PrintingHouse.ConsoleApp
             //var corosetPriceList = new CorosetPriceList();
             //corosetPriceList.SetDefaultData();
             //var priceListHelper = new PriceListHelper<CorosetPriceList>();
-            //priceListHelper.WriteToFile(corosetPriceList, "Coroset1");
+            //priceListHelper.WriteToFile(corosetPriceList, "CorosetPriceList");
             #endregion
 
             #region Rapida CreateAndWrite to JSON files
-            RapidaPriceList rapidaPriceList = new RapidaPriceList();
-            rapidaPriceList.SetDefaultData();
-            PriceListHelper<RapidaPriceList> priceListHelper1 = new PriceListHelper<RapidaPriceList>();
-            priceListHelper1.WriteToFile(rapidaPriceList, "RapidaPriceList");
+            //RapidaPriceList rapidaPriceList = new RapidaPriceList();
+            //rapidaPriceList.SetDefaultData();
+            //PriceListHelper<RapidaPriceList> priceListHelper1 = new PriceListHelper<RapidaPriceList>();
+            //priceListHelper1.WriteToFile(rapidaPriceList, "RapidaPriceList");
             #endregion
 
             #region Shinohara Write to JSON file

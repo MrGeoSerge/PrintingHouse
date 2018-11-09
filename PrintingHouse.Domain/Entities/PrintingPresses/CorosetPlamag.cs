@@ -53,26 +53,53 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 
 		public override double GetImpressionPriceValue()
 		{
-			//По факту закоментированное не считается
-			//if (TaskToPrint.Colors.ToString() == "1+1")
-			//{
-			return corosetPriceList.Impression["1+1"];
-			//}
-			//else
-			//    return CorosetPressPriceList.Impression["1+1"]
-			//        + CorosetPressPriceList.Impression["2+2"]
-			//        * (TaskToPrint.Colors.Total() - 2);//-2 изначальных цвета
-		}
+            #region Not calculated by Printing House
+            //По факту закоментированное не считается
+            //if (TaskToPrint.Colors.ToString() == "1+1")
+            //{
+            //return corosetPriceList.Impression["1+1"];
+            //}
+            //else
+            //    return CorosetPressPriceList.Impression["1+1"]
+            //        + CorosetPressPriceList.Impression["2+2"]
+            //        * (TaskToPrint.Colors.Total() - 2);//-2 изначальных цвета
+            #endregion
+            if (TaskToPrint.PrintRun < corosetPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+            {
+                 return 0.0; //No price for small printruns
 
-		/// <summary>
-		/// Коросет Форматы (840 * 546)
-		/// 84 * 108 / 2 = 840мм * 540мм(предпочтительный!)
-		/// 70 * 100 / 2 = 700мм * 500мм
-		/// 70 * 90 / 2 = 700мм * 450мм
-		/// 60 * 90 / 2 = 600мм * 450мм
-		/// </summary>
-		/// <returns></returns>
-		public override IssueFormat GetPressSheetsFormat()
+
+            }
+			foreach (var impression in corosetPriceList.Impressions)
+			{
+				if (TaskToPrint.PrintRun >= impression.LowerPrintRunBound
+                    && TaskToPrint.PrintRun <= impression.UpperPrintRunBound)
+				{
+					return impression.ImpressionCost;
+				}
+			}
+			throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
+
+
+        }
+
+        public override double GetCostOfImpressions()
+        {
+            if (TaskToPrint.PrintRun < corosetPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+                return corosetPriceList.FixedPrintingCost * GetPrintingSheetsPerBook();
+
+            return base.GetCostOfImpressions();
+        }
+
+        /// <summary>
+        /// Коросет Форматы (840 * 546)
+        /// 84 * 108 / 2 = 840мм * 540мм(предпочтительный!)
+        /// 70 * 100 / 2 = 700мм * 500мм
+        /// 70 * 90 / 2 = 700мм * 450мм
+        /// 60 * 90 / 2 = 600мм * 450мм
+        /// </summary>
+        /// <returns></returns>
+        public override IssueFormat GetPressSheetsFormat()
 		{
 			switch (TaskToPrint.Format.PrintingSheet())
 			{

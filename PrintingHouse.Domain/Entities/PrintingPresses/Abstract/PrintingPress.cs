@@ -60,7 +60,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
 
 		public abstract int GetImpressions();
 
-		public double GetCostOfImpressions()
+		public virtual double GetCostOfImpressions()
 		{
 			return GetImpressions() * GetImpressionPriceValue();
 		}
