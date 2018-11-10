@@ -31,13 +31,15 @@ namespace PrintingHouse.ConsoleApp
             #region Shinohara Write to JSON file
             //ShinoharaPriceList shinoharaPriceList = new ShinoharaPriceList();
             //shinoharaPriceList.SetDefaultData();
-            //PriceListHelper<ShinoharaPriceList>.WriteToFile(shinoharaPriceList, "ShinoharaPriceList");
+            //PriceListHelper<ShinoharaPriceList> priceListHelperShinohara = new PriceListHelper<ShinoharaPriceList>();
+            //priceListHelperShinohara.WriteToFile(shinoharaPriceList, "ShinoharaPriceList");
             #endregion
 
             #region Zirkon Write to JSON file
             //ZirkonPriceList zirkonPriceList = new ZirkonPriceList();
             //zirkonPriceList.SetDefaultData();
-            //PriceListHelper<ZirkonPriceList>.WriteToFile(zirkonPriceList, "ZirkonPriceList");
+            //PriceListHelper<ZirkonPriceList> priceListHelperZirkon = new PriceListHelper<ZirkonPriceList>();
+            //priceListHelperZirkon.WriteToFile(zirkonPriceList, "ZirkonPriceList");
             #endregion
 
             #region Read PriceList from JSON file
@@ -61,5 +63,5 @@ namespace PrintingHouse.ConsoleApp
 
             //Console.ReadKey();
         }
-	}
+    }
 }

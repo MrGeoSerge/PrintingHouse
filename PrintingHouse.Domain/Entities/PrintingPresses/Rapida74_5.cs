@@ -55,7 +55,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		//стоимость оттиска
 		public override double GetImpressionPriceValue()
 		{
-            if (TaskToPrint.PrintRun < rapidaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+            if (TaskToPrint.PrintRun <= rapidaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
             {
                 return 0.0; //No price for small printruns
             }

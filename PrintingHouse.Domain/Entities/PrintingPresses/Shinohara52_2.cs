@@ -17,8 +17,6 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		{
             var priceListHelper = new PriceListHelper<ShinoharaPriceList>(getPathFolder);
             shinoharaPriceList = priceListHelper.ReadFromFile(shinoharaPriceListString);
-
-            //shinoharaPriceList = PriceListHelper<ShinoharaPriceList>.ReadFromFile(shinoharaPriceListString);
 		}
 
 		public override double GetFormPriceValue()
@@ -47,18 +45,31 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 
 		public override double GetImpressionPriceValue()
 		{
-			foreach (var printRun in shinoharaPriceList.Impression)
-			{
-				int printRun_Key = Int32.Parse(printRun.Key);
-				if (GetPrintingSheetsPerPrintRun() < printRun_Key)
-				{
-					return printRun.Value;
-				}
-			}
-			throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
-		}
+            if (TaskToPrint.PrintRun <= shinoharaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+            {
+                return 0.0; //No price for small printruns
+            }
+            foreach (var impression in shinoharaPriceList.Impressions)
+            {
+                if (GetPrintingSheetsPerPrintRun() >= impression.LowerPrintRunBound
+                    && GetPrintingSheetsPerPrintRun() <= impression.UpperPrintRunBound)
+                {
+                    return impression.ImpressionCost;
+                }
+            }
+            throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
+        }
 
-		public override IssueFormat GetPressSheetsFormat()
+        public override double GetCostOfImpressions()
+        {
+            if (TaskToPrint.PrintRun < shinoharaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+                return shinoharaPriceList.FixedPrintingCost * GetPrintingSheetsPerBook();
+
+            return base.GetCostOfImpressions();
+        }
+
+
+        public override IssueFormat GetPressSheetsFormat()
 		{
 			//Шинохара Форматы (370 * 520)
 			//84 * 108 / 8 = 420мм * 270мм

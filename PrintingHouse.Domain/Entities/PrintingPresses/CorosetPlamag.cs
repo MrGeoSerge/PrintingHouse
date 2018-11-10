@@ -13,15 +13,6 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 		const string corosetPriceListString = "CorosetPriceList";
 		const double cutting = 0.546;//рубка - параметр размера печатной ротационной машины
 
-		//public CorosetPlamag(TaskToPrint taskToPrint) :
-		//	base(taskToPrint)
-		//{
-		//	Cutting = cutting;
-		//	//corosetPriceList = PriceListHelper<CorosetPriceList>.Instance.ReadFromFile(corosetPriceListString);
-  //          corosetPriceList = PriceListHelper<CorosetPriceList>.ReadFromFile(corosetPriceListString);
-
-  //      }
-
 		public CorosetPlamag(TaskToPrint taskToPrint, IGetPathFolder getPathFolder) :
 			base(taskToPrint)
 		{
@@ -64,11 +55,9 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
             //        + CorosetPressPriceList.Impression["2+2"]
             //        * (TaskToPrint.Colors.Total() - 2);//-2 изначальных цвета
             #endregion
-            if (TaskToPrint.PrintRun < corosetPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+            if (TaskToPrint.PrintRun <= corosetPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
             {
                  return 0.0; //No price for small printruns
-
-
             }
 			foreach (var impression in corosetPriceList.Impressions)
 			{
@@ -79,13 +68,11 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 				}
 			}
 			throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
-
-
         }
 
         public override double GetCostOfImpressions()
         {
-            if (TaskToPrint.PrintRun < corosetPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+            if (TaskToPrint.PrintRun <= corosetPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
                 return corosetPriceList.FixedPrintingCost * GetPrintingSheetsPerBook();
 
             return base.GetCostOfImpressions();

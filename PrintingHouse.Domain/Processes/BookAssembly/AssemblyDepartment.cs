@@ -46,9 +46,16 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 
 		public void MakeLamination()
 		{
-			TaskToLamination taskToLamination = new TaskToLamination(book.BookParts[0].Format, book.BookAssembly.LaminationType, book.PrintRun);
-			Lamination lamination = new Lamination(taskToLamination);
-			Report.AddCostOfLamination(lamination.CalcCost());
+            if(book.BookAssembly.LaminationType != LaminationType.withoutLamination)
+            {
+			    TaskToLamination taskToLamination = new TaskToLamination(book.BookParts[0].Format, book.BookAssembly.LaminationType, book.PrintRun);
+			    Lamination lamination = new Lamination(taskToLamination);
+			    Report.AddCostOfLamination(lamination.CalcCost());
+            }
+            else
+            {
+			    Report.AddCostOfLamination(0.0);
+            }
 		}
 
 		public void MakePackaging()

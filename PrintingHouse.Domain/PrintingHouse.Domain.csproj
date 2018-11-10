@@ -47,7 +47,7 @@
     <Compile Include="Containers\SimpleContainer.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\PriceLists\CorosetPriceList.cs" />
-    <Compile Include="Entities\PriceLists\ImpressionCost.cs" />
+    <Compile Include="Entities\PriceLists\Impression.cs" />
     <Compile Include="Entities\PriceLists\PriceListHelper.cs" />
     <Compile Include="Interfaces\IGetPathFolder.cs" />
     <Compile Include="Processes\BookAssembly\AssemblyDepartment.cs" />

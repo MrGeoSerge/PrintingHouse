@@ -9,6 +9,8 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 {
 	public class ZirkonForta660 : RolledPress
 	{
+        //TODO: return printing press name to report
+
 		ZirkonPriceList zirkonPriceList;
 		const string zirkonPriceListString = "ZirkonPriceList";
 		const double cutting = 0.452;//рубка - параметр размера печатной ротационной машины
@@ -17,14 +19,9 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 			base(taskToPrint)
 		{
 			Cutting = cutting;
-
             var priceListHelper = new PriceListHelper<ZirkonPriceList>(getPathFolder);
-
             zirkonPriceList = priceListHelper.ReadFromFile(zirkonPriceListString);
-			//zirkonPriceList = PriceListHelper<ZirkonPriceList>.ReadFromFile(zirkonPriceListString);
 		}
-
-
 
 		public override double GetFormPriceValue()
 		{
@@ -50,18 +47,40 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 
 		public override double GetImpressionPriceValue()
 		{
-			//if (TaskToPrint.Colors.ToString() == "1+1")
-			//{
-			return zirkonPriceList.Impression["1+1"];
-			//}
-			//else
-			//    return ZirkonPressPriceList.Impression["1+1"]
-			//        + ZirkonPressPriceList.Impression["2+2"]
-			//        * (TaskToPrint.Colors.Total() - 2);//-2 изначальных цвета
-		}
+            #region Not calculated by Printing House
+            //По факту закоментированное не считается
+            //if (TaskToPrint.Colors.ToString() == "1+1")
+            //{
+            //return zirkonPriceList.Impression["1+1"];
+            //}
+            //else
+            //    return zirkontPressPriceList.Impression["1+1"]
+            //        + zirkonPressPriceList.Impression["2+2"]
+            //        * (TaskToPrint.Colors.Total() - 2);//-2 изначальных цвета
+            #endregion
+            if (TaskToPrint.PrintRun <= zirkonPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+            {
+                return 0.0; //No price for small printruns
+            }
+            foreach (var impression in zirkonPriceList.Impressions)
+            {
+                if (TaskToPrint.PrintRun >= impression.LowerPrintRunBound
+                    && TaskToPrint.PrintRun <= impression.UpperPrintRunBound)
+                {
+                    return impression.ImpressionCost;
+                }
+            }
+            throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
+        }
+        public override double GetCostOfImpressions()
+        {
+            if (TaskToPrint.PrintRun <= zirkonPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+                return zirkonPriceList.FixedPrintingCost * GetPrintingSheetsPerBook();
 
+            return base.GetCostOfImpressions();
+        }
 
-		public override IssueFormat GetPressSheetsFormat()
+        public override IssueFormat GetPressSheetsFormat()
 		{
 			//Циркон Форматы (700 * 452):
 			//84*108/4 = 420мм * 540мм;

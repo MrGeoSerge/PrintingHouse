@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrintingHouse.Domain.Specifications;
+using System;
 using System.Collections.Generic;
 
 namespace PrintingHouse.Domain.Entities.PriceLists
@@ -16,22 +17,35 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 		//технужды в процентах зависят от тиража
 		public Dictionary<string, double> TechNeeds { set; get; }
 
-		//стоимость оттисков зависит от тиража
-		public Dictionary<string, double> Impression { set; get; }
+        //стоимость оттисков зависит от тиража 
+        public List<Impression> Impressions { set; get; }
 
+        //новое в прайсе 2018 года: при тираже от 1 до 2000 стоимость печати фиксированная
+        public int PrintRun_UpToWhichFixedPrintingCostApplyed { set; get; }
+        public double FixedPrintingCost { set; get; }
 
-		public ShinoharaPriceList()
+        //Лакировка защитным маслянным лаком
+        public double Varnishing { set; get; }
+
+        //TODO: change  { set; get; } to { get;set: }
+
+        public ShinoharaPriceList()
 		{
 			TechNeeds = new Dictionary<string, double>();
-			Impression = new Dictionary<string, double>();
-		}
+            Impressions = new List<Impression>();
+        }
 
-		public void SetDefaultData()
+        public void SetDefaultData()
 		{
 			Form = 54.0;
 			Fitting = 16;
 
-			TechNeeds.Add(200.ToString(), 4.8);
+            PrintRun_UpToWhichFixedPrintingCostApplyed = 499;
+            FixedPrintingCost = 131;
+
+            Varnishing = 0.080;
+
+            TechNeeds.Add(200.ToString(), 4.8);
 			TechNeeds.Add(300.ToString(), 4.6);
 			TechNeeds.Add(400.ToString(), 4.4);
 			TechNeeds.Add(500.ToString(), 4.2);
@@ -46,13 +60,49 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 			TechNeeds.Add(10000.ToString(), 1.2);
 			TechNeeds.Add(1000000.ToString(), 1.1);
 
-			Impression.Add(499.ToString(), 0.095);
-			Impression.Add(1999.ToString(), 0.037);
-			Impression.Add(4999.ToString(), 0.029);
-			Impression.Add(1000000.ToString(), 0.026);
-		}
+            Impressions.Add(
+                new Impression
+                {
+                    LowerPrintRunBound = 500,
+                    UpperPrintRunBound = 1999,
+                    ImpressionCost = 0.047,
+                    IssueColorsRange = new List<IssueColors> {
+                                            new IssueColors("4+0"),
+                                            new IssueColors("4+4"),
+                                            new IssueColors("2+0")
+                                            }
+                });
 
-	}
+            Impressions.Add(
+                new Impression
+                {
+                    LowerPrintRunBound = 2000,
+                    UpperPrintRunBound = 4999,
+                    ImpressionCost = 0.036,
+                    IssueColorsRange = new List<IssueColors> {
+                                            new IssueColors("4+0"),
+                                            new IssueColors("4+4"),
+                                            new IssueColors("2+0")
+                                            }
+                });
+
+            Impressions.Add(
+                new Impression
+                {
+                    LowerPrintRunBound = 5000,
+                    UpperPrintRunBound = int.MaxValue,
+                    ImpressionCost = 0.033,
+                    IssueColorsRange = new List<IssueColors> {
+                                            new IssueColors("4+0"),
+                                            new IssueColors("4+4"),
+                                            new IssueColors("2+0")
+                                            }
+                });
+
+
+        }
+
+    }
 
 
  
