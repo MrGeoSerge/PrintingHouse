@@ -51,13 +51,13 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
             }
             foreach (var impression in shinoharaPriceList.Impressions)
             {
-                if (GetPrintingSheetsPerPrintRun() >= impression.LowerPrintRunBound
-                    && GetPrintingSheetsPerPrintRun() <= impression.UpperPrintRunBound)
+                if (TaskToPrint.PrintRun >= impression.LowerPrintRunBound
+                    && TaskToPrint.PrintRun <= impression.UpperPrintRunBound)
                 {
                     return impression.ImpressionCost;
                 }
             }
-            throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");
+            throw new ArgumentOutOfRangeException($"для такого тиража {TaskToPrint.PrintRun} цена оттиска не указана в прайсе {GetPrintingSheetsPerPrintRun()}");
         }
 
         public override double GetCostOfImpressions()

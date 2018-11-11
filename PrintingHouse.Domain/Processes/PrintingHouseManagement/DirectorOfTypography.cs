@@ -101,6 +101,13 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
                 printingPress = new Shinohara52_2(_taskForPart, getPathFolder);
             }
 
+            else if (_taskForPart.Format.Length == 60 && _taskForPart.Format.Width == 90
+                && _taskForPart.Paper.Density > 200)
+            {
+                printingPress = new Shinohara52_2(_taskForPart, getPathFolder);
+            }
+
+
             //роланд, если 70*100 формат и цветность больше 2+2
             //else if (_taskForPart.Format.Length == 70 && _taskForPart.Format.Width == 100 
             //    && _taskForPart.Colors.FrontColors >=2)

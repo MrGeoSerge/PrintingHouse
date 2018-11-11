@@ -90,5 +90,10 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
 		{
 			return new PrintingPressReport(this);
 		}
+
+        public string GetNameOfPrintingPress()
+        {
+            return this.GetType().Name;
+        }
 	}
 }
