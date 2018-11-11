@@ -23,6 +23,8 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 
         public override double FittingPriceValue => shinoharaPriceList.Fitting;
 
+        public override int PrintingForms => (int)(TaskToPrint.Colors.Total() * PrintingSheetsPerBook);
+
         public override double TechNeedsPriceValue {
             get {
                 foreach (var printRun in shinoharaPriceList.TechNeeds)
@@ -104,5 +106,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
         public override int FittingOnPrintRun => (int)FittingPriceValue * PrintingForms;
 
         public override int PaperConsumptionForTechnicalNeeds => base.PaperConsumptionForTechnicalNeeds * PrintingForms;
+
+        public override double CostOfVarnishing => shinoharaPriceList.Varnishing * PrintingSheetsPerPrintRun;
     }
 }

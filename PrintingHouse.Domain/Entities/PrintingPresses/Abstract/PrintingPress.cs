@@ -15,7 +15,6 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
 		public PrintingPress(TaskToPrint taskToPrint)
 		{
 			this.TaskToPrint = taskToPrint;
-
 			PressSheetFormat = PressSheetsFormat;
 		}
 
@@ -38,15 +37,17 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
         public int PrintingSheetsPerPrintRun => (int)Math.Round(PrintingSheetsPerBook * TaskToPrint.PrintRun,
                 MidpointRounding.AwayFromZero);
 
-        public int PrintingForms => TaskToPrint.Colors.Total() * (int)Math.Ceiling(PrintingSheetsPerBook);
+        public virtual int PrintingForms => TaskToPrint.Colors.Total() * (int)Math.Ceiling(PrintingSheetsPerBook);
 
         public double CostOfPrintingFoms => PrintingForms * FormPriceValue;
 
         public abstract int Impressions { get; }
 
-        public virtual double CostOfImpressions => Impressions* ImpressionPriceValue;
+        public virtual double CostOfImpressions => Impressions * ImpressionPriceValue;
 
-        public double CostOfPrinting => CostOfPrintingFoms + CostOfImpressions;
+        public double CostOfPrinting => CostOfPrintingFoms + CostOfImpressions + CostOfVarnishing;
+
+        public virtual double CostOfVarnishing => 0.0;
 
         public virtual int PaperConsumptionForTechnicalNeeds => (int)Math.Ceiling(((double)(int)((PrintingSheetsPerPrintRun * TechNeedsPriceValue / 100) * 10) / 10));
         //округляя до целых (количества листов), сначала отбрасываются сотые доли листа
