@@ -14,7 +14,7 @@ namespace PrintingHouse.Domain.Entities.Reports
 		{
 			this.press = press;
 		}
-		public double CostOfPolygraphy => press.GetCostOfPrinting();
+		public double CostOfPolygraphy => press.CostOfPrinting;
 
 		#region Расчет расхода бумаги
 		//---------Расчет расхода бумаги для списания------------
@@ -37,7 +37,7 @@ namespace PrintingHouse.Domain.Entities.Reports
 			}
 		}
 
-		public double PaperInSquareMeters => SquareOfSheetInMeters2 * press.GetTotalPaperConsumptionInPressFormat();
+		public double PaperInSquareMeters => SquareOfSheetInMeters2 * press.TotalPaperConsumptionInPressFormat;
 
 		/// <summary>
 		/// округляемм вверх до двух знаков после запятой
@@ -46,13 +46,13 @@ namespace PrintingHouse.Domain.Entities.Reports
 		public double PaperConsumptionInKg => Math.Round((double)(PaperInSquareMeters * press.TaskToPrint.Paper.Density / 1000), 2);
 
 		//для листовой
-		public int PaperConsumptionInRawSheets => (int)Math.Ceiling((double)press.GetTotalPaperConsumptionInPressFormat() /
+		public int PaperConsumptionInRawSheets => (int)Math.Ceiling((double)press.TotalPaperConsumptionInPressFormat/
 				NumberOfPrintSheetsInRawSheet);
 
 		public int NumberOfPrintSheetsInRawSheet {
 			get {
 				PaperInSheets printingSheet = press.TaskToPrint.Paper as PaperInSheets;
-				return printingSheet.GetNumberOfPrintSheetsInRawSheet(press.GetPressSheetsFormat());
+				return printingSheet.GetNumberOfPrintSheetsInRawSheet(press.PressSheetsFormat);
 			}
 		}
 
@@ -70,10 +70,10 @@ namespace PrintingHouse.Domain.Entities.Reports
 				PaperExpenditure+ " " + press.TaskToPrint.Paper.Unit);
 			Console.WriteLine("Цена " + press.TaskToPrint.Paper.Price + " " + press.TaskToPrint.Paper.Unit);
 			Console.WriteLine("Стоимость бумаги: " + PaperCost);
-			Console.WriteLine("Количество оттисков: " + press.GetImpressions());
-			Console.WriteLine("Стоимость оттиска: " + press.GetImpressionPriceValue());
-			Console.WriteLine("Общая стоимость форм: " + press.GetCostOfPrintingFoms());
-			Console.WriteLine("Стоимость оттисков: " + press.GetCostOfImpressions());
+			Console.WriteLine("Количество оттисков: " + press.Impressions);
+			Console.WriteLine("Стоимость оттиска: " + press.ImpressionPriceValue);
+			Console.WriteLine("Общая стоимость форм: " + press.CostOfPrintingFoms);
+			Console.WriteLine("Стоимость оттисков: " + press.CostOfImpressions);
 			Console.WriteLine("Общая сумма за печать: " + CostOfPolygraphy);
 			Console.WriteLine("Всего затрат: " + TotalCost);
 			Console.WriteLine("");
@@ -86,10 +86,10 @@ namespace PrintingHouse.Domain.Entities.Reports
 			report += "Расход бумаги для списания: " + PaperExpenditure+ " " + press.TaskToPrint.Paper.Unit + Environment.NewLine;
 			report += "Цена " + press.TaskToPrint.Paper.Price + " " + press.TaskToPrint.Paper.Unit + Environment.NewLine;
 			report += "Стоимость бумаги: " + PaperCost + Environment.NewLine;
-			report += "Количество оттисков: " + press.GetImpressions() + Environment.NewLine;
-			report += "Стоимость оттиска: " + press.GetImpressionPriceValue() + Environment.NewLine;
-			report += "Общая стоимость форм: " + press.GetCostOfPrintingFoms() + Environment.NewLine;
-			report += "Стоимость оттисков: " + press.GetCostOfImpressions() + Environment.NewLine;
+			report += "Количество оттисков: " + press.Impressions+ Environment.NewLine;
+			report += "Стоимость оттиска: " + press.ImpressionPriceValue+ Environment.NewLine;
+			report += "Общая стоимость форм: " + press.CostOfPrintingFoms+ Environment.NewLine;
+			report += "Стоимость оттисков: " + press.CostOfImpressions+ Environment.NewLine;
 			report += "Общая сумма за печать: " + CostOfPolygraphy + Environment.NewLine;
 			report += "Всего затрат: " + TotalCost;
 			return report;

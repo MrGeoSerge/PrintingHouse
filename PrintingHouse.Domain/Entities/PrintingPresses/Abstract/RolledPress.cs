@@ -8,14 +8,8 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
         public RolledPress(TaskToPrint taskToPrint) :
             base(taskToPrint) {}
 
-        public override int GetImpressions()
-        {
-            return GetPrintingSheetsPerPrintRun();
-        }
+        public override int Impressions => PrintingSheetsPerPrintRun;
 
-        public override int GetFittingOnPrintRun()
-        {
-            return (int)GetFittingPriceValue() * PrintingForms;
-        }
+        public override int FittingOnPrintRun => (int)FittingPriceValue * PrintingForms;
     }
 }

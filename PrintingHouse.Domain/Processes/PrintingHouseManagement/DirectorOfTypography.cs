@@ -128,7 +128,7 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
             else
                 throw new Exception("не нашли подходящий станок для печати" + _taskForPart);
 
-            bookPartReport = printingPress.SendReport();
+            bookPartReport = printingPress.SendReport;
             return bookPartReport;
         }
 

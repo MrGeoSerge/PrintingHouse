@@ -16,84 +16,46 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
 		{
 			this.TaskToPrint = taskToPrint;
 
-			PressSheetFormat = GetPressSheetsFormat();
+			PressSheetFormat = PressSheetsFormat;
 		}
 
-		public abstract double GetFormPriceValue();
+        public abstract double FormPriceValue { get; }
 
-		public abstract double GetFittingPriceValue();
+        public abstract double FittingPriceValue { get; }
 
-		public abstract double GetTechNeedsPriceValue();
+        public abstract double TechNeedsPriceValue { get; }
 
-		public abstract double GetImpressionPriceValue();
+        public abstract double ImpressionPriceValue { get; }
 
-		public abstract IssueFormat GetPressSheetsFormat();
+        public abstract IssueFormat PressSheetsFormat { get; }
 
+        public int PagesPerOneImposition => TaskToPrint.Format.Fraction / PressSheetFormat.Fraction;
 
-		public int GetPagesPerOneImposition()
-		{
-			return TaskToPrint.Format.Fraction / PressSheetFormat.Fraction;
-		}
+        public double ImpositionsPerBook => (double)TaskToPrint.PagesNumber / PagesPerOneImposition;
 
-		public double GetImpositionsPerBook()
-		{
-			return (double)TaskToPrint.PagesNumber / GetPagesPerOneImposition();
-		}
+        public double PrintingSheetsPerBook => ImpositionsPerBook/ 2;//лицо и оборот
 
-		public double GetPrintingSheetsPerBook()
-		{
-			return GetImpositionsPerBook() / 2;//лицо и оборот
-		}
+        public int PrintingSheetsPerPrintRun => (int)Math.Round(PrintingSheetsPerBook * TaskToPrint.PrintRun,
+                MidpointRounding.AwayFromZero);
 
-		public int GetPrintingSheetsPerPrintRun()
-		{
-			return (int)Math.Round(GetPrintingSheetsPerBook() * TaskToPrint.PrintRun,
-				MidpointRounding.AwayFromZero);
-		}
+        public int PrintingForms => TaskToPrint.Colors.Total() * (int)Math.Ceiling(PrintingSheetsPerBook);
 
-		public int PrintingForms => TaskToPrint.Colors.Total() * (int)Math.Ceiling(GetPrintingSheetsPerBook());
+        public double CostOfPrintingFoms => PrintingForms * FormPriceValue;
 
-		public double GetCostOfPrintingFoms()
-		{
-			return PrintingForms * GetFormPriceValue();
-		}
+        public abstract int Impressions { get; }
 
-		public abstract int GetImpressions();
+        public virtual double CostOfImpressions => Impressions* ImpressionPriceValue;
 
-		public virtual double GetCostOfImpressions()
-		{
-			return GetImpressions() * GetImpressionPriceValue();
-		}
+        public double CostOfPrinting => CostOfPrintingFoms + CostOfImpressions;
 
-		public double GetCostOfPrinting()
-		{
-			return GetCostOfPrintingFoms() + GetCostOfImpressions();
-		}
+        public virtual int PaperConsumptionForTechnicalNeeds => (int)Math.Ceiling(((double)(int)((PrintingSheetsPerPrintRun * TechNeedsPriceValue / 100) * 10) / 10));
+        //округляя до целых (количества листов), сначала отбрасываются сотые доли листа
+        public abstract int FittingOnPrintRun { get; }
 
-		public virtual int GetPaperConsumptionForTechnicalNeeds()
-		{
-			return (int)Math.Ceiling(((double)(int)((GetPrintingSheetsPerPrintRun()
-				* GetTechNeedsPriceValue() / 100) * 10) / 10));
-			//округляя до целых (количества листов), сначала отбрасываются сотые доли листа
-		}
+        public virtual int TotalPaperConsumptionInPressFormat => PrintingSheetsPerPrintRun + PaperConsumptionForTechnicalNeeds + FittingOnPrintRun;
 
-		public abstract int GetFittingOnPrintRun();
+        public PrintingPressReport SendReport => new PrintingPressReport(this);
 
-
-		public virtual int GetTotalPaperConsumptionInPressFormat()
-		{
-			return GetPrintingSheetsPerPrintRun() + GetPaperConsumptionForTechnicalNeeds()
-				+ GetFittingOnPrintRun();
-		}
-
-		public PrintingPressReport SendReport()
-		{
-			return new PrintingPressReport(this);
-		}
-
-        public string GetNameOfPrintingPress()
-        {
-            return this.GetType().Name;
-        }
-	}
+        public string NameOfPrintingPress => this.GetType().Name;
+    }
 }

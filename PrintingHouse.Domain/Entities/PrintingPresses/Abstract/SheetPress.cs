@@ -7,14 +7,8 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses.Abstract
         public SheetPress(TaskToPrint taskToPrint) : 
             base(taskToPrint) { }
 
-		public override int GetImpressions()
-        {
-            return GetPrintingSheetsPerPrintRun() * (TaskToPrint.Colors.Total());
-        }
+        public override int Impressions => PrintingSheetsPerPrintRun * (TaskToPrint.Colors.Total());
 
-		public override int GetFittingOnPrintRun()
-        {
-            return (int)GetFittingPriceValue();
-        }
+        public override int FittingOnPrintRun => (int)FittingPriceValue;
     }
 }
