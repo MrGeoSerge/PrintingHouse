@@ -10,7 +10,8 @@ namespace PrintingHouse.WebUI.Data
     {
         public string GetPathFolder()
         {
-            return @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data";
+            
+            return System.Web.HttpRuntime.BinDirectory + @"\Data";
         }
     }
 }
