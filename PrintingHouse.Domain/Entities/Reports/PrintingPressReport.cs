@@ -31,7 +31,7 @@ namespace PrintingHouse.Domain.Entities.Reports
 		public double SquareOfSheetInMeters2 {
 			get {
 				RolledPress rolledPress = press as RolledPress;
-
+                if (rolledPress == null) return 0.0;
 				return (double)press.PressSheetFormat.Length / 100 *
 					rolledPress.Cutting;
 			}
@@ -52,6 +52,7 @@ namespace PrintingHouse.Domain.Entities.Reports
 		public int NumberOfPrintSheetsInRawSheet {
 			get {
 				PaperInSheets printingSheet = press.TaskToPrint.Paper as PaperInSheets;
+                if (printingSheet == null) return 0;
 				return printingSheet.GetNumberOfPrintSheetsInRawSheet(press.PressSheetsFormat);
 			}
 		}

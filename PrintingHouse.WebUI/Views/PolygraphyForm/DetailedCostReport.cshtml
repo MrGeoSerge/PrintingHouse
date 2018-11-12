@@ -18,11 +18,6 @@
                 Количество печатных листов на 1 книгу: @bookPart.press.PrintingSheetsPerBook <br />
                 Количество печатных листов на тираж: @bookPart.press.PrintingSheetsPerPrintRun <br />
                 <br />
-                Расход бумаги на печать (Кол-во печатных листов): @bookPart.press.PrintingSheetsPerPrintRun<br />
-                Потребление бумаги для технужд: @bookPart.press.PaperConsumptionForTechnicalNeeds <br />
-                Приладка на тираж: @bookPart.press.FittingOnPrintRun <br />
-                Расход бумаги для списания в листах формата оборудования:  @bookPart.press.TotalPaperConsumptionInPressFormat <br />
-                <br />
                 Количество печатных форм: @bookPart.press.PrintingForms <br />
                 Стоимость 1 формы: @bookPart.press.FormPriceValue <br />
                 Стоимость печатных форм: @bookPart.press.CostOfPrintingFoms <br />
@@ -32,12 +27,23 @@
                 Стоимость 1 оттиска: @bookPart.press.ImpressionPriceValue <br />
                 Стоимость печати: @bookPart.press.CostOfImpressions <br />
                  <br />
-                Общая сумма за печать: @bookPart.press.CostOfPrinting <br />
-                 <br />
-                Расход бумаги в кг: @bookPart.PaperConsumptionInKg
-                Расход бумаги в листах сырья: @bookPart.PaperConsumptionInRawSheets
+                <b>Общая сумма за печать: @bookPart.press.CostOfPrinting </b><br />
+                <br />
+                Расход бумаги на печать (Кол-во печатных листов): @bookPart.press.PrintingSheetsPerPrintRun<br />
+                Потребление бумаги для технужд: @bookPart.press.PaperConsumptionForTechnicalNeeds <br />
+                Приладка на тираж: @bookPart.press.FittingOnPrintRun <br />
+                Расход бумаги для списания в листах формата оборудования:  @bookPart.press.TotalPaperConsumptionInPressFormat <br />
+                <br />
+                <b>Расход бумаги в кг: @bookPart.PaperConsumptionInKg
+                Расход бумаги в листах сырья: @bookPart.PaperConsumptionInRawSheets </b><br />
 		    </div>
         }
+        <h4>Сборка книги</h4>
+        Стоимость переплета: @Model.AssemblyReport.CostOfBinding
+        Стоимость ламинации: @Model.AssemblyReport.CostOfLamination
+        Стоимость упаковки: @Model.AssemblyReport.CostOfPackaging
+        Стоимость перфорации: @Model.AssemblyReport.CostOfPerforation
+        <b>Итого: стоимость сборки: @Model.AssemblyReport.TotalCostOfAssembly</b>
     </div>
 
 }

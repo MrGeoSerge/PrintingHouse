@@ -139,7 +139,7 @@ namespace PrintingHouse.WebUI.Models
 			switch (IBPaper)
 			{
 				case PaperFullType.Newsprint_45:
-					innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 45, 23.69, "Змиев", 84);
+					innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 43, 23.69, "Змиев", 60);
 					break;
 				case PaperFullType.Offset_60:
 					innerBlock.Paper = new PaperInKg(PaperType.Offset, 60, 32.0, "Коростышев", 59.4);

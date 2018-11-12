@@ -22,7 +22,7 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 			assemblyDepartment.MakePerforation();
 			assemblyDepartment.MakeBinding();
 			assemblyDepartment.MakePackaging();
-			assemblyDepartment.CalcTotalCostOfAssembly();
+			//assemblyDepartment.CalcTotalCostOfAssembly();
 		}
 	}
 }

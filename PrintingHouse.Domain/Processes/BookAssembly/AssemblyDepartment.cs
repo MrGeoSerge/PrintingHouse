@@ -80,10 +80,10 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 			}
 		}
 
-		public void CalcTotalCostOfAssembly()
-		{
-			Report.CalcTotalCostOfAssembly();
-		}
+		//public void CalcTotalCostOfAssembly()
+		//{
+		//	Report.TotalCostOfAssembly;
+		//}
 	}
 }
 

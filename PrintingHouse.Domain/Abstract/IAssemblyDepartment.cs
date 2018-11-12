@@ -8,7 +8,7 @@ namespace PrintingHouse.Domain.Abstract
 		void MakePerforation();
 		void MakeBinding();
 		void MakePackaging();
-		void CalcTotalCostOfAssembly();
+		//void CalcTotalCostOfAssembly();
 		AssemblyReport Report { get; }
 	}
 }

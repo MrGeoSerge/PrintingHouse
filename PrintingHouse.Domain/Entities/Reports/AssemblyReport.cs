@@ -16,9 +16,10 @@ namespace PrintingHouse.Domain.Entities.Reports
 
 		public double CostOfPackaging { set; get; }
 
-		public double TotalCostOfAssembly { set; get; }
+        public double TotalCostOfAssembly => CostOfBinding + CostOfPerforation + CostOfLamination + CostOfPackaging;
 
-		public void AddCostOfBinding(double _costOfBinding)
+
+        public void AddCostOfBinding(double _costOfBinding)
 		{
 			CostOfBinding = _costOfBinding;
 		}
@@ -40,12 +41,9 @@ namespace PrintingHouse.Domain.Entities.Reports
 
 
 
-		public void CalcTotalCostOfAssembly()
-		{
-			TotalCostOfAssembly = CostOfBinding + CostOfPerforation + CostOfLamination + CostOfPackaging;
-		}
+        //public void CalcTotalCostOfAssembly() => TotalCostOfAssembly = CostOfBinding + CostOfPerforation + CostOfLamination + CostOfPackaging;
 
-		public void ShowDetailedReport()
+        public void ShowDetailedReport()
 		{
 			Console.WriteLine();
 			Console.WriteLine("Отчет о сборке:");
