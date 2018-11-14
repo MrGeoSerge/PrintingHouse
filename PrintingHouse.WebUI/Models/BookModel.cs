@@ -8,32 +8,36 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PrintingHouse.WebUI.Models
 {
-	//Адаптер между входными параметрами книг из БазыДанных либо из представления
-	//и между моделью производства книги Типографией
-	public class BookModel
-	{
-		public string Name { get; set; }
+    //Адаптер между входными параметрами книг из БазыДанных либо из представления
+    //и между моделью производства книги Типографией
+    public class BookModel
+    {
+        public string Name { get; set; }
 
-		public string Id { get; set; }
+        public string Id { get; set; }
 
-		[Required(ErrorMessage = "Введите количество страниц")]
-		[DivideByEight(ErrorMessage = "Количество страниц должно делиться на 8")]
-		public int PagesNumber { get; set; }
+        [Required(ErrorMessage = "Введите количество страниц")]
+        [DivideByEight(ErrorMessage = "Количество страниц должно делиться на 8")]
+        public int PagesNumber { get; set; }
 
-		[Required(ErrorMessage = "Введите тираж")]
-		public int PrintRun { get; set; }
+        [Required(ErrorMessage = "Введите тираж")]
+        public int PrintRun { get; set; }
 
-		//внутренний блок
-		public string IBFormat { get; set; }
+        //internal block
+        public string IBFormat { get; set; }
+        public PaperFullType IBPaper { get; set; }
+        public string IBColors { get; set; }
 
-		public PaperFullType IBPaper { get; set; }
+        //cover
+        public PaperFullType CoverPaper { get; set; }
+        public string CoverColors { get; set; }
 
-		public string IBColors { get; set; }
+        //stickers
+        public string StickerFormat { get; set; }
+        public PaperFullType StickerPaper { get; set; }
+        public string StickerColors { get; set; }
+        public int StickerPages { get; set; }
 
-		//обложка
-		public PaperFullType CoverPaper { get; set; }
-
-		public string CoverColors { get; set; }
 
 		//переплет
 		public BindingType Binding { get; set; }
@@ -117,8 +121,6 @@ namespace PrintingHouse.WebUI.Models
 
 		}
 
-		//Конструктор принимающий модель представления из MVC или из базы данных
-		//неправильная зависимость, модель ничего не должна знать об MVC
 		public Book CreateBook()
 		{
 			Book book = new Book();

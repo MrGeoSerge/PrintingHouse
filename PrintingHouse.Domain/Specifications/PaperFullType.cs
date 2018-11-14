@@ -8,6 +8,7 @@
 		Offset_120,//new
 		CoatedPaper_120,//new
 		FoldingBoxboard_230,
-		CardboardAliaska_230//new
+		CardboardAliaska_230,//new
+        SelfAdhensive
 	}
 }

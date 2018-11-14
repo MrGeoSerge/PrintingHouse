@@ -1,41 +1,22 @@
 ﻿@model PrintingHouse.WebUI.Models.BookModel
-@using PrintingHouse.Domain;
-
 @{
-	ViewBag.Title = "Calculate";
+    ViewBag.Title = "ExerciseBookCalculations";
 }
-
+<h2>View</h2>
 <div class="container">
-    @*@using (Ajax.BeginForm(new AjaxOptions { Url = Url.Action("Calculations"), UpdateTargetId = "tabledata" }))*@
-    @using (Html.BeginForm("Calculate", "PolygraphyForm", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("ExerciseBookCalculations", "ExerciseBookPolygraphyForm", FormMethod.Post, new { @class = "form-horizontal" }))
     {
-        <div class="row">
-            <div class="form-group col-md-4">
-                <label for="publishId" class="control-label col-md-2">Код</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Id, new { @class = "form-control", id = "publishId", placeholder = "Код" })
-                </div>
-            </div>
-            <div class="form-group col-md-8">
-                <label for="bookName" class="control-label col-md-4">Название книги</label>
-                <div class="col-md-8">
-                    @Html.TextAreaFor(m => m.Name, new { @class = "form-control", id = "bookName", placeholder = "Название" })
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="form-group col-md-4">
                 <label for="pagesNumber" class="control-label col-md-8">Количество страниц</label>
                 <div class="col-md-4">
                     @Html.TextBoxFor(m => m.PagesNumber, new { @class = "form-control", id = "pagesNumber", value = "160" })
-                    @*@Html.ValidationMessageFor(m => m.PagesNumber)*@
                 </div>
             </div>
             <div class="form-group col-md-3">
                 <label for="printRun" class="control-label col-md-5">Тираж</label>
                 <div class="col-md-7">
                     @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun", value = "1000" })
-                    @*@Html.ValidationMessageFor(m => m.PrintRun)*@
                 </div>
             </div>
         </div>
@@ -78,7 +59,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <label for="IBColors" class="control-label col-md-6">Цветность</label>
+                <label for="CoverColors" class="control-label col-md-6">Цветность</label>
                 <div class="col-md-6">
                     @Html.DropDownListFor(m => m.CoverColors,
                             new SelectList(new[] { "4+0", "4+1", "4+4" }),
@@ -86,7 +67,42 @@
                 </div>
             </div>
         </div>
-        <hr />
+         <h4>Наклейки</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="StickerPaper" class="control-label col-md-4">Формат 1-й страницы наклеек</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => m.StickerFormat,
+                            new SelectList(new[] { "60*90/16", "84*108/16", "60*90/8", "84*108/32", "70*100/16" }),
+                            new { @class = "form-control", id = "StickerFormat" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="StickerPaper" class="control-label col-md-4">Бумага</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => m.StickerPaper,
+                            new SelectList(@ViewBag.StickerPaperTypes, "Id", "Name"),
+                            new { @class = "form-control", id = "StickerPaper" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="IBColors" class="control-label col-md-6">Цветность</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.StickerColors,
+                            new SelectList(new[] { "4+0" }),
+                            new { @class = "form-control", id = "StickerColors" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="StickerPages" class="control-label col-md-6">Кол-во страниц</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.StickerPages,
+                            new SelectList(new[] { 2, 4, 8 }),
+                            new { @class = "form-control", id = "StickerPages" })
+                </div>
+            </div>
+        </div>
+       <hr />
 
         <h4>Сборка</h4>
         <div class="row">
@@ -142,22 +158,11 @@
 
     @if (ViewBag.Report != null)
     {<div id="tabledata">
-        @Html.Action("Calculations", @Model)
-        @Html.Action("DetailedCostReport", @Model)
+        @Html.Action("Calculations", "PolygraphyForm", @Model)
+        @Html.Action("DetailedCostReport", "PolygraphyForm", @Model)
     </div>
     }
 
-    @*@if (ViewBag.Report != null)
-    {<div id="tabledata">
-    </div>
-    }*@
 
-    @*@section scripts*@
-@*{*@
-        @*Ненавязивый JavaScript для выполнения запроса на сервер без полного обновления страницы*@
-        @*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
-    @*}*@
-
-    @Html.ActionLink("Прайс печатных машин", "PressesPriceList", "PriceUpdate") <br />
-    @Html.ActionLink("Расчет тетрадей", "ExerciseBookCalculations", "ExerciseBookPolygraphyForm")
 </div>
+

@@ -41,7 +41,7 @@ namespace PrintingHouse.Domain.Entities
 
         //конструктор для книги, у которой только обложка, внутренний блок, наклейки и переплет
         public Book(string id, string name, int printRun, BookPart innerBlock, 
-            BookPart cover, BookPart nakleyki,BookAssembly assembly)
+            BookPart cover, BookPart stickers,BookAssembly assembly)
         {
             BookParts = new List<BookPart>();
 
@@ -51,7 +51,7 @@ namespace PrintingHouse.Domain.Entities
 
             BookParts.Add(innerBlock);
             BookParts.Add(cover);
-            BookParts.Add(nakleyki);
+            BookParts.Add(stickers);
 
             BookAssembly = assembly;
         }
@@ -79,9 +79,6 @@ namespace PrintingHouse.Domain.Entities
 
         }
 
-
-
-
         public override string ToString()
         {
             string myBook = "Название: " + Name + "\n";
@@ -97,73 +94,6 @@ namespace PrintingHouse.Domain.Entities
             }
             return myBook;
         }
-
-
-
-
-
-
-
-        #region Характеристики книги, которые будем вычислять
-
-        ////затраты на полиграфию 
-        //public double CostOfPolygraphy { private set; get; }
-
-        ////затраты на материалы
-        //public double CostOfMaterials { private set; get; }
-
-        ////затраты на сборку (переплет, ламинация, перфорация, упаковка)
-        //public double CostOfAssembly { private set; get; }
-
-        ////общие затраты на тираж
-        //public double CostOfPrintRun { private set; get; }
-
-        ////затраты на полиграфию одного экземпляра
-        //public double CostOfPolygraphyPerOneItem { private set; get; }
-
-
-        #endregion
-
-
-        //public void GetCosts(PressReport innerBlock, PressReport cover, AssemblyReport assembly)
-        //{
-        //    CostOfPolygraphy = innerBlock.PolygraphyCost + cover.PolygraphyCost;
-        //    CostOfMaterials = innerBlock.PaperCost + cover.PaperCost;
-        //    CostOfAssembly = assembly.totalCostOfAssembly;
-
-        //    CostOfPrintRun = CostOfPolygraphy + CostOfMaterials + CostOfAssembly;
-        //    CostOfPolygraphyPerOneItem = Math.Round(CostOfPrintRun / PrintRun, 4);
-        //}
-
-        //public void ShowCostOfPolygraphy()
-        //{
-        //    Console.WriteLine(new string('-', 80));
-        //    Console.WriteLine("Затраты на книгу: ");
-        //    Console.WriteLine($"Оборот полиграфия: {CostOfPolygraphy}");
-        //    Console.WriteLine($"Всего материалов: {CostOfMaterials}");
-        //    Console.WriteLine($"Переплет: {CostOfAssembly}");
-        //    Console.WriteLine($"Оборот с материалами и полиграфией: {CostOfPrintRun}");
-        //    Console.WriteLine($"За экземпляр с материалами: {CostOfPolygraphyPerOneItem}");
-
-
-        //}
-
-
-        //public string TotalCosts()
-        //{
-        //    string myBook = "Название: " + Name + "\n";
-        //    myBook += "Издательский код: " + Id + "\n";
-        //    myBook += "Тираж: " + PrintRun + "\n";
-        //    myBook += "Затраты на книгу: \n";
-        //    myBook += "Оборот полиграфия: " + CostOfPolygraphy + "\n";
-        //    myBook += "Всего материалов: " + CostOfMaterials + "\n";
-        //    myBook += "Переплет: " + CostOfAssembly + "\n";
-        //    myBook += "Оборот с материалами и полиграфией: " + CostOfPrintRun + "\n";
-        //    myBook += "За экземпляр с материалами: " + CostOfPolygraphyPerOneItem + "\n";
-
-        //    return myBook;
-        //}
-
     }
 }
 

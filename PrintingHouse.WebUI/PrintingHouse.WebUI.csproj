@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ExerciseBookPolygraphyFormController.cs" />
     <Compile Include="Controllers\PolygraphyFormController.cs" />
     <Compile Include="Data\GetPathFolderString.cs" />
     <Compile Include="Global.asax.cs">
@@ -136,6 +137,7 @@
     <Content Include="Views\PolygraphyForm\Calculate.cshtml" />
     <Content Include="Views\PolygraphyForm\Calculations.cshtml" />
     <Content Include="Views\PolygraphyForm\DetailedCostReport.cshtml" />
+    <Content Include="Views\ExerciseBookPolygraphyForm\ExerciseBookCalculations.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
