@@ -57,6 +57,12 @@ namespace PrintingHouse.WebUI.Controllers
 			};
 			ViewBag.CoverPaperTypes = CoverPaperTypes;
 
+			List<PaperItem> StickerPaperTypes = new List<PaperItem>()
+			{
+				new PaperItem() {Id = PaperFullType.SelfAdhensive, Name="самоклейка" },
+			};
+			ViewBag.StickerPaperTypes = StickerPaperTypes;
+
 			if (ModelState.IsValid)
 			{
 				// TODO: Unify these for lines into one class
