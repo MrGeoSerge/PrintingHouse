@@ -122,7 +122,8 @@
     <Compile Include="Models\BindingTypes.cs" />
     <Compile Include="Models\BookModel.cs" />
     <Compile Include="Models\BookModelValidation.cs" />
-    <Compile Include="Models\PaperTypes.cs" />
+    <Compile Include="Models\PaperItem.cs" />
+    <Compile Include="Models\PrintingPressItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

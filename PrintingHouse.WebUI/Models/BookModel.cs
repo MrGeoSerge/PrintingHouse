@@ -27,16 +27,19 @@ namespace PrintingHouse.WebUI.Models
         public string IBFormat { get; set; }
         public PaperFullType IBPaper { get; set; }
         public string IBColors { get; set; }
+        public PrintingPressType IBPrintingPressType { get; set; }
 
         //cover
         public PaperFullType CoverPaper { get; set; }
         public string CoverColors { get; set; }
+        public PrintingPressType CoverPrintingPressType { get; set; }
 
         //stickers
         public string StickerFormat { get; set; }
         public PaperFullType StickerPaper { get; set; }
         public string StickerColors { get; set; }
         public int StickerPages { get; set; }
+        public PrintingPressType StickerPrintingPressType { get; set; }
 
 
 		//переплет
@@ -185,9 +188,31 @@ namespace PrintingHouse.WebUI.Models
 
 			book.BookParts.Add(cover);
 
-			//BookAssembly = new BookAssembly(BindingType.PerfectBinding, LaminationType.Glossy, true, PerforationType.withoutPerforation);
 
-			book.BookAssembly = new BookAssembly(Binding, Lamination, true,
+            if (StickerPages > 0)
+            {
+                //создаем самоклейку
+                BookPart stickers = new BookPart();
+                stickers.Name = "Самоклейка";
+                stickers.Format = new IssueFormat(StickerFormat);
+
+                switch (StickerPaper)
+                {
+                    case PaperFullType.SelfAdhensive:
+                        cover.Paper = new PaperInSheets(PaperType.SelfAdhensivePaper, 80, 3.61, "Самоклейка 43х61 пл.80", 43, 61);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException("нераспознанная бумага на наклейку");
+
+                }
+                stickers.Colors = new IssueColors(StickerColors);
+                stickers.PagesNumber = StickerPages;
+                book.BookParts.Add(stickers);
+            }
+
+            //BookAssembly = new BookAssembly(BindingType.PerfectBinding, LaminationType.Glossy, true, PerforationType.withoutPerforation);
+
+            book.BookAssembly = new BookAssembly(Binding, Lamination, true,
 				(Perforation ? PerforationType.usual : PerforationType.withoutPerforation));
 
 			return book;
