@@ -16,58 +16,14 @@ namespace PrintingHouse.WebUI.Controllers
 		[HttpGet]
 		public ActionResult ExerciseBookCalculations()
 		{
-			List<PaperItem> IB_PaperTypes = new List<PaperItem>()
-			{
-				new PaperItem() {Id = PaperFullType.Newsprint_45, Name="газетка 45 г/м2" },
-				new PaperItem() {Id = PaperFullType.Offset_60, Name="офсет 60 г/м2" },
-				new PaperItem() {Id = PaperFullType.Offset_80, Name="офсет 80 г/м2" }
-			};
-			ViewBag.IB_PaperTypes = IB_PaperTypes;
-            
-			List<PaperItem> CoverPaperTypes = new List<PaperItem>()
-			{
-				new PaperItem() {Id = PaperFullType.FoldingBoxboard_230, Name="хром-эрзац 230 г/м2" },
-				new PaperItem() {Id = PaperFullType.CardboardAliaska_230, Name="картон Аляска 230 г/м2" }
-			};
-			ViewBag.CoverPaperTypes = CoverPaperTypes;
-
-			List<PaperItem> StickerPaperTypes = new List<PaperItem>()
-			{
-				new PaperItem() {Id = PaperFullType.SelfAdhensive, Name="самоклейка" },
-			};
-			ViewBag.StickerPaperTypes = StickerPaperTypes;
-
-            List<PrintingPressItem> IBPrintingPressTypes = new List<PrintingPressItem>()
-            {
-                new PrintingPressItem(){Id= PrintingPressType.Zirkon, Name = "Циркон"}
-            };
-
+            FillViewBagWithDropDowns(ViewBag);
 			return View();
 		}
 
 		[HttpPost]
 		public ActionResult ExerciseBookCalculations(BookModel bookModel)
 		{
-			List<PaperItem> IB_PaperTypes = new List<PaperItem>()
-			{
-				new PaperItem() {Id = PaperFullType.Newsprint_45, Name="газетка 45 г/м2" },
-				new PaperItem() {Id = PaperFullType.Offset_60, Name="офсет 60 г/м2" },
-				new PaperItem() {Id = PaperFullType.Offset_80, Name="офсет 80 г/м2" }
-			};
-			ViewBag.IB_PaperTypes = IB_PaperTypes;
-
-			List<PaperItem> CoverPaperTypes = new List<PaperItem>()
-			{
-				new PaperItem() {Id = PaperFullType.FoldingBoxboard_230, Name="хром-эрзац 230 г/м2" },
-				new PaperItem() {Id = PaperFullType.CardboardAliaska_230, Name="картон Аляска 230 г/м2" }
-			};
-			ViewBag.CoverPaperTypes = CoverPaperTypes;
-
-			List<PaperItem> StickerPaperTypes = new List<PaperItem>()
-			{
-				new PaperItem() {Id = PaperFullType.SelfAdhensive, Name="самоклейка" },
-			};
-			ViewBag.StickerPaperTypes = StickerPaperTypes;
+            FillViewBagWithDropDowns(ViewBag);
 
 			if (ModelState.IsValid)
 			{
@@ -81,5 +37,37 @@ namespace PrintingHouse.WebUI.Controllers
 			}
 			return View("ExerciseBookCalculations");
 		}
+
+        private void FillViewBagWithDropDowns(dynamic viewBag)
+        {
+            List<PaperItem> IB_PaperTypes = new List<PaperItem>()
+            {
+                new PaperItem() {Id = PaperFullType.Newsprint_45, Name="газетка 45 г/м2" },
+                new PaperItem() {Id = PaperFullType.Offset_60, Name="офсет 60 г/м2" },
+                new PaperItem() {Id = PaperFullType.Offset_80, Name="офсет 80 г/м2" }
+            };
+            viewBag.IB_PaperTypes = IB_PaperTypes;
+
+            List<PaperItem> CoverPaperTypes = new List<PaperItem>()
+            {
+                new PaperItem() {Id = PaperFullType.FoldingBoxboard_230, Name="хром-эрзац 230 г/м2" },
+                new PaperItem() {Id = PaperFullType.CardboardAliaska_230, Name="картон Аляска 230 г/м2" }
+            };
+            viewBag.CoverPaperTypes = CoverPaperTypes;
+
+            List<PaperItem> StickerPaperTypes = new List<PaperItem>()
+            {
+                new PaperItem() {Id = PaperFullType.SelfAdhensive, Name="самоклейка" },
+            };
+            viewBag.StickerPaperTypes = StickerPaperTypes;
+
+            List<PrintingPressItem> IBPrintingPressTypes = new List<PrintingPressItem>()
+            {
+                new PrintingPressItem(){Id= PrintingPressType.Zirkon, Name = "Циркон"},
+                new PrintingPressItem(){Id= PrintingPressType.Rapida, Name = "Рапида"}
+            };
+            viewBag.IB_PrintingPresses = IBPrintingPressTypes;
+
+        }
 	}
 }

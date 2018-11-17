@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "ExerciseBookCalculations";
 }
-<h2>View</h2>
+<h2>Расчет полиграфии тетради с наклейками</h2>
 <div class="container">
     @using (Html.BeginForm("ExerciseBookCalculations", "ExerciseBookPolygraphyForm", FormMethod.Post, new { @class = "form-horizontal" }))
     {
@@ -45,6 +45,14 @@
                     @Html.DropDownListFor(m => m.IBColors,
                             new SelectList(new[] { "1+1", "2+2", "4+4" }),
                             new { @class = "form-control", id = "IBColors" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="IBPrintingPress" class="control-label col-md-6">Печатный станок</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.IBPrintingPress,
+                            new SelectList(ViewBag.IB_PrintingPresses, "Id", "Name"),
+                            new { @class = "form-control", id = "IBPrintingPresses" })
                 </div>
             </div>
         </div>

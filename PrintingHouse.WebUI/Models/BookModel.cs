@@ -27,19 +27,19 @@ namespace PrintingHouse.WebUI.Models
         public string IBFormat { get; set; }
         public PaperFullType IBPaper { get; set; }
         public string IBColors { get; set; }
-        public PrintingPressType IBPrintingPressType { get; set; }
+        public PrintingPressType IBPrintingPress { get; set; }
 
         //cover
         public PaperFullType CoverPaper { get; set; }
         public string CoverColors { get; set; }
-        public PrintingPressType CoverPrintingPressType { get; set; }
+        public PrintingPressType CoverPrintingPress { get; set; }
 
         //stickers
         public string StickerFormat { get; set; }
         public PaperFullType StickerPaper { get; set; }
         public string StickerColors { get; set; }
         public int StickerPages { get; set; }
-        public PrintingPressType StickerPrintingPressType { get; set; }
+        public PrintingPressType StickerPrintingPress { get; set; }
 
 
 		//переплет
@@ -134,81 +134,9 @@ namespace PrintingHouse.WebUI.Models
 
 			book.BookParts = new List<BookPart>();
 
-			//-------------создаем внутренний блок-------------
-			BookPart innerBlock = new BookPart();
-
-			innerBlock.Name = "Внутренний блок";
-
-			innerBlock.Format = new IssueFormat(IBFormat);
-
-			switch (IBPaper)
-			{
-				case PaperFullType.Newsprint_45:
-					innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 43, 23.69, "Змиев", 60);
-					break;
-				case PaperFullType.Offset_60:
-					innerBlock.Paper = new PaperInKg(PaperType.Offset, 60, 32.0, "Коростышев", 59.4);
-					break;
-				case PaperFullType.Offset_80:
-					innerBlock.Paper = new PaperInSheets(PaperType.Offset, 80, 1.045, "Котлас", 60, 90);
-					break;
-				default:
-					throw new ArgumentOutOfRangeException("нераспознанная бумага");
-			}
-
-			innerBlock.Colors = new IssueColors(IBColors);
-
-			innerBlock.PagesNumber = PagesNumber;
-
-			book.BookParts.Add(innerBlock);
-
-
-			//обложка
-			BookPart cover = new BookPart();
-			cover.Name = "Обложка";
-			cover.Format = innerBlock.Format;
-
-			switch (CoverPaper)
-			{
-				case PaperFullType.FoldingBoxboard_230:
-					cover.Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 3.68, "Умка", 64, 90);
-					break;
-				case PaperFullType.CardboardAliaska_230:
-					cover.Paper = new PaperInSheets(PaperType.CardboardAliaska, 230, 5.3, "Unknown", 70, 100);
-					break;
-
-				default:
-					throw new ArgumentOutOfRangeException("нераспознанная бумага на обложку");
-			}
-
-			cover.Colors = new IssueColors(CoverColors);
-
-
-			cover.PagesNumber = 4;//у любой обложки книги 4 страницы
-
-			book.BookParts.Add(cover);
-
-
-            if (StickerPages > 0)
-            {
-                //создаем самоклейку
-                BookPart stickers = new BookPart();
-                stickers.Name = "Самоклейка";
-                stickers.Format = new IssueFormat(StickerFormat);
-
-                switch (StickerPaper)
-                {
-                    case PaperFullType.SelfAdhensive:
-                        cover.Paper = new PaperInSheets(PaperType.SelfAdhensivePaper, 80, 3.61, "Самоклейка 43х61 пл.80", 43, 61);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException("нераспознанная бумага на наклейку");
-
-                }
-                stickers.Colors = new IssueColors(StickerColors);
-                stickers.PagesNumber = StickerPages;
-                book.BookParts.Add(stickers);
-            }
+            book.BookParts.Add(InternalBlock);
+			book.BookParts.Add(Cover);
+            if(StickerPages > 0) book.BookParts.Add(Stickers);
 
             //BookAssembly = new BookAssembly(BindingType.PerfectBinding, LaminationType.Glossy, true, PerforationType.withoutPerforation);
 
@@ -218,5 +146,87 @@ namespace PrintingHouse.WebUI.Models
 			return book;
 		}
 
+
+        public BookPart InternalBlock {
+            get {
+                //-------------создаем внутренний блок-------------
+                BookPart innerBlock = new BookPart();
+
+                innerBlock.Name = "Внутренний блок";
+
+                innerBlock.Format = new IssueFormat(IBFormat);
+
+                switch (IBPaper)
+                {
+                    case PaperFullType.Newsprint_45:
+                        innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 43, 23.69, "Змиев", 60);
+                        break;
+                    case PaperFullType.Offset_60:
+                        innerBlock.Paper = new PaperInKg(PaperType.Offset, 60, 32.0, "Коростышев", 59.4);
+                        break;
+                    case PaperFullType.Offset_80:
+                        innerBlock.Paper = new PaperInSheets(PaperType.Offset, 80, 1.045, "Котлас", 60, 90);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException("нераспознанная бумага");
+                }
+
+                innerBlock.Colors = new IssueColors(IBColors);
+
+                innerBlock.PagesNumber = PagesNumber;
+
+                innerBlock.PrintingPressType = IBPrintingPress;
+
+                return innerBlock;
+            }
+        }
+
+        public BookPart Cover {
+            get {
+                //обложка
+                BookPart cover = new BookPart();
+                cover.Name = "Обложка";
+                cover.Format = InternalBlock.Format;
+
+                switch (CoverPaper)
+                {
+                    case PaperFullType.FoldingBoxboard_230:
+                        cover.Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 3.68, "Умка", 64, 90);
+                        break;
+                    case PaperFullType.CardboardAliaska_230:
+                        cover.Paper = new PaperInSheets(PaperType.CardboardAliaska, 230, 5.3, "Unknown", 70, 100);
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException("нераспознанная бумага на обложку");
+                }
+
+                cover.Colors = new IssueColors(CoverColors);
+                cover.PagesNumber = 4;//у любой обложки книги 4 страницы
+                return cover;
+            }
+        }
+
+        public BookPart Stickers {
+            get {
+                //создаем самоклейку
+                BookPart stickers = new BookPart();
+                stickers.Name = "Самоклейка";
+                stickers.Format = new IssueFormat(StickerFormat);
+
+                switch (StickerPaper)
+                {
+                    case PaperFullType.SelfAdhensive:
+                        stickers.Paper = new PaperInSheets(PaperType.SelfAdhensivePaper, 80, 3.61, "Самоклейка 43х61 пл.80", 43, 61);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException("нераспознанная бумага на наклейку");
+
+                }
+                stickers.Colors = new IssueColors(StickerColors);
+                stickers.PagesNumber = StickerPages;
+                return stickers;
+            }
+        }
 	}
 }
