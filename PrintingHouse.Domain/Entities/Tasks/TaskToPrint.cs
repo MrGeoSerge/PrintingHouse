@@ -6,19 +6,23 @@ namespace PrintingHouse.Domain.Entities.Tasks
 {
 	public class TaskToPrint
     {
-        public string Name { set; get; }
-        public IssueFormat Format { set; get; }
-        public AbstractPaper Paper { set; get; }
-        public IssueColors Colors { set; get; }
-        public int PagesNumber { set; get; }
-        public int PrintRun { set; get; }
+        public string Name { get; set; }
+        public IssueFormat Format { get; set; }
+        public AbstractPaper Paper { get; set; }
+        public IssueColors Colors { get; set; }
+        public PrintingPressType PrintingPressType { get; set; }
+        public int PagesNumber { get; set; }
+        public int PrintRun { get; set; }
 
-        public TaskToPrint(string name, IssueFormat format, AbstractPaper paper, IssueColors colors, int pagesNumber, int printRun)
+
+        public TaskToPrint(string name, IssueFormat format, AbstractPaper paper, IssueColors colors, 
+            PrintingPressType printingPressType, int pagesNumber, int printRun)
         {
             Name = name;
             Format = format;
             Paper = paper;
             Colors = colors;
+            PrintingPressType = printingPressType;
             PagesNumber = pagesNumber;
             PrintRun = printRun;
         }
