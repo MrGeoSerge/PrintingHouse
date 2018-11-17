@@ -52,7 +52,8 @@ namespace PrintingHouse.WebUI.Controllers
             List<PaperItem> CoverPaperTypes = new List<PaperItem>()
             {
                 new PaperItem() {Id = PaperFullType.FoldingBoxboard_230, Name="хром-эрзац 230 г/м2" },
-                new PaperItem() {Id = PaperFullType.CardboardAliaska_230, Name="картон Аляска 230 г/м2" }
+                new PaperItem() {Id = PaperFullType.CardboardAliaska_230, Name="картон Аляска 230 г/м2" },
+                new PaperItem() {Id = PaperFullType.CardboardСellulose_215, Name="картон целлюлоза 215 г/м2"}
             };
             viewBag.CoverPaperTypes = CoverPaperTypes;
 
@@ -68,6 +69,19 @@ namespace PrintingHouse.WebUI.Controllers
                 new PrintingPressItem(){Id= PrintingPressType.Rapida, Name = "Рапида"}
             };
             viewBag.IB_PrintingPresses = IBPrintingPressTypes;
+
+            List<PrintingPressItem> CoverPrintingPressTypes = new List<PrintingPressItem>()
+            {
+                new PrintingPressItem(){Id= PrintingPressType.Rapida, Name = "Рапида"},
+                new PrintingPressItem(){Id= PrintingPressType.Shinohara, Name = "Шинохара"}
+            };
+            viewBag.Cover_PrintingPresses = CoverPrintingPressTypes;
+
+            List<PrintingPressItem> StickerPrintingPressTypes = new List<PrintingPressItem>()
+            {
+                new PrintingPressItem(){Id= PrintingPressType.Rapida, Name = "Рапида"}
+            };
+            viewBag.Sticker_PrintingPresses = StickerPrintingPressTypes;
 
         }
 	}

@@ -8,6 +8,7 @@
 		FoldingBoxboard,//хром-эрзац
 		Cardboard,//картон
 		SelfAdhensivePaper,//самоклейка
-		CardboardAliaska//картон Аляска
-	}
+		CardboardAliaska,//картон Аляска
+        CardboardСellulose
+    }
 }

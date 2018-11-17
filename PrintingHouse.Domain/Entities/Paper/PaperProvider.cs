@@ -36,6 +36,9 @@ namespace PrintingHouse.Domain.Entities.Paper
                 case PaperFullType.CardboardAliaska_230:
                     paper = new PaperInSheets(PaperType.CardboardAliaska, 230, 5.3, "Unknown", 70, 100);
                     break;
+                case PaperFullType.CardboardСellulose_215:
+                    paper = new PaperInSheets(PaperType.CardboardСellulose, 300, 1.6068, "Unknown", 47, 55); //правильно 47.2 вместо 47
+                    break;
 
                 //наклейки
                 case PaperFullType.SelfAdhensive:

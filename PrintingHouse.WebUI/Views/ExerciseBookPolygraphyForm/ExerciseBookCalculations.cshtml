@@ -21,6 +21,7 @@
             </div>
         </div>
         <hr />
+
         <h4>Внутренний блок</h4>
         <div class="row">
             <div class="col-md-4">
@@ -56,6 +57,7 @@
                 </div>
             </div>
         </div>
+
         <h4>Обложка</h4>
         <div class="row">
             <div class="col-md-4">
@@ -70,11 +72,20 @@
                 <label for="CoverColors" class="control-label col-md-6">Цветность</label>
                 <div class="col-md-6">
                     @Html.DropDownListFor(m => m.CoverColors,
-                            new SelectList(new[] { "4+0", "4+1", "4+4" }),
+                            new SelectList(new[] { "4+4", "4+0", "4+1" }),
                             new { @class = "form-control", id = "CoverColors" })
                 </div>
             </div>
+            <div class="col-md-4">
+                <label for="CoverPrintingPress" class="control-label col-md-6">Печатный станок</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.CoverPrintingPress,
+                            new SelectList(ViewBag.Cover_PrintingPresses, "Id", "Name"),
+                            new { @class = "form-control", id = "CoverPrintingPresses" })
+                </div>
+            </div>
         </div>
+
          <h4>Наклейки</h4>
         <div class="row">
             <div class="col-md-4">
@@ -109,6 +120,15 @@
                             new { @class = "form-control", id = "StickerPages" })
                 </div>
             </div>
+            <div class="col-md-4">
+                <label for="StickerPrintingPress" class="control-label col-md-6">Печатный станок</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.StickerPrintingPress,
+                            new SelectList(ViewBag.Sticker_PrintingPresses, "Id", "Name"),
+                            new { @class = "form-control", id = "StickerPrintingPresses" })
+                </div>
+            </div>
+
         </div>
        <hr />
 

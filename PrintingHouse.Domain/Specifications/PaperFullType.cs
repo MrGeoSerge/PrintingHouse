@@ -10,6 +10,7 @@
 		FoldingBoxboard_230,
 		CardboardAliaska_230,//new
         SelfAdhensive,
-        Offset_70
+        Offset_70,
+        CardboardСellulose_215
     }
 }

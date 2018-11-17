@@ -177,6 +177,7 @@ namespace PrintingHouse.WebUI.Models
                 cover.Paper = PaperProvider.GetPaper(CoverPaper);
                 cover.Colors = new IssueColors(CoverColors);
                 cover.PagesNumber = 4;//у любой обложки книги 4 страницы
+                cover.PrintingPressType = CoverPrintingPress;
                 return cover;
             }
         }
@@ -190,6 +191,7 @@ namespace PrintingHouse.WebUI.Models
                 stickers.Paper = PaperProvider.GetPaper(StickerPaper);
                 stickers.Colors = new IssueColors(StickerColors);
                 stickers.PagesNumber = StickerPages;
+                stickers.PrintingPressType = StickerPrintingPress;
                 return stickers;
             }
         }
