@@ -156,20 +156,7 @@ namespace PrintingHouse.WebUI.Models
 
                 innerBlock.Format = new IssueFormat(IBFormat);
 
-                switch (IBPaper)
-                {
-                    case PaperFullType.Newsprint_45:
-                        innerBlock.Paper = new PaperInKg(PaperType.Newsprint, 43, 23.69, "Змиев", 60);
-                        break;
-                    case PaperFullType.Offset_60:
-                        innerBlock.Paper = new PaperInKg(PaperType.Offset, 60, 32.0, "Коростышев", 59.4);
-                        break;
-                    case PaperFullType.Offset_80:
-                        innerBlock.Paper = new PaperInSheets(PaperType.Offset, 80, 1.045, "Котлас", 60, 90);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException("нераспознанная бумага");
-                }
+                innerBlock.Paper = PaperProvider.GetPaper(IBPaper);
 
                 innerBlock.Colors = new IssueColors(IBColors);
 
@@ -187,20 +174,7 @@ namespace PrintingHouse.WebUI.Models
                 BookPart cover = new BookPart();
                 cover.Name = "Обложка";
                 cover.Format = InternalBlock.Format;
-
-                switch (CoverPaper)
-                {
-                    case PaperFullType.FoldingBoxboard_230:
-                        cover.Paper = new PaperInSheets(PaperType.FoldingBoxboard, 230, 3.68, "Умка", 64, 90);
-                        break;
-                    case PaperFullType.CardboardAliaska_230:
-                        cover.Paper = new PaperInSheets(PaperType.CardboardAliaska, 230, 5.3, "Unknown", 70, 100);
-                        break;
-
-                    default:
-                        throw new ArgumentOutOfRangeException("нераспознанная бумага на обложку");
-                }
-
+                cover.Paper = PaperProvider.GetPaper(CoverPaper);
                 cover.Colors = new IssueColors(CoverColors);
                 cover.PagesNumber = 4;//у любой обложки книги 4 страницы
                 return cover;
@@ -213,16 +187,7 @@ namespace PrintingHouse.WebUI.Models
                 BookPart stickers = new BookPart();
                 stickers.Name = "Самоклейка";
                 stickers.Format = new IssueFormat(StickerFormat);
-
-                switch (StickerPaper)
-                {
-                    case PaperFullType.SelfAdhensive:
-                        stickers.Paper = new PaperInSheets(PaperType.SelfAdhensivePaper, 80, 3.61, "Самоклейка 43х61 пл.80", 43, 61);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException("нераспознанная бумага на наклейку");
-
-                }
+                stickers.Paper = PaperProvider.GetPaper(StickerPaper);
                 stickers.Colors = new IssueColors(StickerColors);
                 stickers.PagesNumber = StickerPages;
                 return stickers;

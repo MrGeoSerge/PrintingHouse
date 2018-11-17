@@ -10,13 +10,13 @@
             <div class="form-group col-md-4">
                 <label for="pagesNumber" class="control-label col-md-8">Количество страниц</label>
                 <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.PagesNumber, new { @class = "form-control", id = "pagesNumber", value = "160" })
+                    @Html.TextBoxFor(m => m.PagesNumber, new { @class = "form-control", id = "pagesNumber", @Value = "32"})
                 </div>
             </div>
             <div class="form-group col-md-3">
                 <label for="printRun" class="control-label col-md-5">Тираж</label>
                 <div class="col-md-7">
-                    @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun", value = "1000" })
+                    @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun", @Value = "16000" })
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                 <label for="IBFormat" class="control-label col-md-6">Формат</label>
                 <div class="col-md-6">
                     @Html.DropDownListFor(m => m.IBFormat,
-                            new SelectList(new[] { "60*90/16", "84*108/16", "60*90/8", "84*108/32", "70*100/16" }),
+                            new SelectList(new[] { "84*108/16", "60*90/16", "60*90/8", "84*108/32", "70*100/16" }),
                             new { @class = "form-control", id = "IBFormat" })
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <label for="IBColors" class="control-label col-md-6">Цветность</label>
                 <div class="col-md-6">
                     @Html.DropDownListFor(m => m.IBColors,
-                            new SelectList(new[] { "1+1", "2+2", "4+4" }),
+                            new SelectList(new[] { "4+4", "1+1", "2+2" }),
                             new { @class = "form-control", id = "IBColors" })
                 </div>
             </div>

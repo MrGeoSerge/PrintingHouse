@@ -46,6 +46,7 @@
     <Compile Include="Containers\GetPathFolderFactory.cs" />
     <Compile Include="Containers\SimpleContainer.cs" />
     <Compile Include="Entities\Book.cs" />
+    <Compile Include="Entities\Paper\PaperProvider.cs" />
     <Compile Include="Entities\PriceLists\CorosetPriceList.cs" />
     <Compile Include="Entities\PriceLists\Impression.cs" />
     <Compile Include="Entities\PriceLists\PriceListHelper.cs" />

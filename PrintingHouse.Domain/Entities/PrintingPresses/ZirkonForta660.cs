@@ -55,14 +55,22 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
                 #endregion
                 if (TaskToPrint.PrintRun <= zirkonPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
                 {
-                    return 0.0; //No price for small printruns
+                    if (TaskToPrint.Colors.ToString() == "1+1")
+                        return 0.0; //No price for small printruns
+                    else
+                        throw new NotImplementedException("для такого маленького тиража не предусмотрена печать выше 1+1");
                 }
                 foreach (var impression in zirkonPriceList.Impressions)
                 {
                     if (TaskToPrint.PrintRun >= impression.LowerPrintRunBound
                         && TaskToPrint.PrintRun <= impression.UpperPrintRunBound)
                     {
-                        return impression.ImpressionCost;
+                        if (TaskToPrint.Colors.ToString() == "1+1")
+                            return impression.ImpressionCost;
+                        else
+                        {
+                            return impression.ImpressionCost + impression.SurplusForAdditionalColor * (TaskToPrint.Colors.Total() - 2);
+                        }
                     }
                 }
                 throw new ArgumentOutOfRangeException("для такого тиража цена оттиска не указана в прайсе");

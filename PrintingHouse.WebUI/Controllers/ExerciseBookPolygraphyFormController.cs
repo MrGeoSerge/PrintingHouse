@@ -42,6 +42,7 @@ namespace PrintingHouse.WebUI.Controllers
         {
             List<PaperItem> IB_PaperTypes = new List<PaperItem>()
             {
+                new PaperItem() {Id = PaperFullType.Offset_70, Name="офсет 70 г/м2" },
                 new PaperItem() {Id = PaperFullType.Newsprint_45, Name="газетка 45 г/м2" },
                 new PaperItem() {Id = PaperFullType.Offset_60, Name="офсет 60 г/м2" },
                 new PaperItem() {Id = PaperFullType.Offset_80, Name="офсет 80 г/м2" }

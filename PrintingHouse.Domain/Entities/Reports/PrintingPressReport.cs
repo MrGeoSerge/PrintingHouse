@@ -32,7 +32,16 @@ namespace PrintingHouse.Domain.Entities.Reports
 			get {
 				RolledPress rolledPress = press as RolledPress;
                 if (rolledPress == null) return 0.0;
-				return (double)press.PressSheetFormat.Length / 100 *
+
+
+                //чтобы правильно посчитать расход бумаги на форматы 4 доли, нужно еще разделить на 2
+                //и листы переворачиваются, поэтому получается, что брать надо ширину
+                //что ниже и сделано
+                double pressSheetFormatLength = press.PressSheetFormat.Fraction == 2 
+                    ? press.PressSheetFormat.Length
+                    : press.PressSheetFormat.Width / 2;
+
+				return pressSheetFormatLength / 100 *
 					rolledPress.Cutting;
 			}
 		}
