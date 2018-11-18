@@ -107,6 +107,6 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 
         public override int PaperConsumptionForTechnicalNeeds => base.PaperConsumptionForTechnicalNeeds * PrintingForms;
 
-        public override double CostOfVarnishing => shinoharaPriceList.Varnishing * PrintingSheetsPerPrintRun;
+        public override double CostOfVarnishing => TaskToPrint.VarnishingOrdered == true ? shinoharaPriceList.Varnishing * PrintingSheetsPerPrintRun : 0.0;
     }
 }

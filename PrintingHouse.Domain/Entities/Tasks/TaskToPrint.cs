@@ -13,10 +13,10 @@ namespace PrintingHouse.Domain.Entities.Tasks
         public PrintingPressType PrintingPressType { get; set; }
         public int PagesNumber { get; set; }
         public int PrintRun { get; set; }
-
+        public bool VarnishingOrdered { get; set; }
 
         public TaskToPrint(string name, IssueFormat format, AbstractPaper paper, IssueColors colors, 
-            PrintingPressType printingPressType, int pagesNumber, int printRun)
+            PrintingPressType printingPressType, int pagesNumber, int printRun, bool varnishingOrdered = false)
         {
             Name = name;
             Format = format;
@@ -25,6 +25,7 @@ namespace PrintingHouse.Domain.Entities.Tasks
             PrintingPressType = printingPressType;
             PagesNumber = pagesNumber;
             PrintRun = printRun;
+            VarnishingOrdered = varnishingOrdered;
         }
 
 

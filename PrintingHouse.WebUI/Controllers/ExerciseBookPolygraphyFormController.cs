@@ -42,18 +42,18 @@ namespace PrintingHouse.WebUI.Controllers
         {
             List<PaperItem> IB_PaperTypes = new List<PaperItem>()
             {
-                new PaperItem() {Id = PaperFullType.Offset_70, Name="офсет 70 г/м2" },
+                new PaperItem() {Id = PaperFullType.Offset_70, Name="офсет 70 г/м2 ролевой" },
                 new PaperItem() {Id = PaperFullType.Newsprint_45, Name="газетка 45 г/м2" },
-                new PaperItem() {Id = PaperFullType.Offset_60, Name="офсет 60 г/м2" },
-                new PaperItem() {Id = PaperFullType.Offset_80, Name="офсет 80 г/м2" }
+                new PaperItem() {Id = PaperFullType.Offset_60, Name="офсет 60 г/м2 ролевой" },
+                new PaperItem() {Id = PaperFullType.Offset_80, Name="офсет 80 г/м2 листовой" }
             };
             viewBag.IB_PaperTypes = IB_PaperTypes;
 
             List<PaperItem> CoverPaperTypes = new List<PaperItem>()
             {
+                new PaperItem() {Id = PaperFullType.CardboardСellulose_215, Name="картон целлюлоза 215 г/м2"},
                 new PaperItem() {Id = PaperFullType.FoldingBoxboard_230, Name="хром-эрзац 230 г/м2" },
-                new PaperItem() {Id = PaperFullType.CardboardAliaska_230, Name="картон Аляска 230 г/м2" },
-                new PaperItem() {Id = PaperFullType.CardboardСellulose_215, Name="картон целлюлоза 215 г/м2"}
+                new PaperItem() {Id = PaperFullType.CardboardAliaska_230, Name="картон Аляска 230 г/м2" }
             };
             viewBag.CoverPaperTypes = CoverPaperTypes;
 
@@ -79,6 +79,7 @@ namespace PrintingHouse.WebUI.Controllers
 
             List<PrintingPressItem> StickerPrintingPressTypes = new List<PrintingPressItem>()
             {
+                new PrintingPressItem(){Id= PrintingPressType.Shinohara, Name = "Шинохара"},
                 new PrintingPressItem(){Id= PrintingPressType.Rapida, Name = "Рапида"}
             };
             viewBag.Sticker_PrintingPresses = StickerPrintingPressTypes;

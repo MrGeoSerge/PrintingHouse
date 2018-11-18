@@ -26,7 +26,7 @@ namespace PrintingHouse.Domain.Entities.Paper
                     paper = new PaperInKg(PaperType.Offset, 70, 27.4598, "Змиев", 54);
                     break;
                 case PaperFullType.Offset_80:
-                    paper = new PaperInSheets(PaperType.Offset, 80, 1.045, "Котлас", 60, 90);
+                    paper = new PaperInSheets(PaperType.Offset, 80, 1.39246, "Котлас", 60, 90);
                     break;
 
                 //на обложку

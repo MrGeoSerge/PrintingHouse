@@ -10,13 +10,13 @@
             <div class="form-group col-md-4">
                 <label for="pagesNumber" class="control-label col-md-8">Количество страниц</label>
                 <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.PagesNumber, new { @class = "form-control", id = "pagesNumber", @Value = "32"})
+                    @Html.TextBoxFor(m => m.PagesNumber, new { @class = "form-control", id = "pagesNumber"})
                 </div>
             </div>
             <div class="form-group col-md-3">
                 <label for="printRun" class="control-label col-md-5">Тираж</label>
                 <div class="col-md-7">
-                    @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun", @Value = "16000" })
+                    @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun"})
                 </div>
             </div>
         </div>
@@ -92,7 +92,7 @@
                 <label for="StickerPaper" class="control-label col-md-4">Формат 1-й страницы наклеек</label>
                 <div class="col-md-8">
                     @Html.DropDownListFor(m => m.StickerFormat,
-                            new SelectList(new[] { "60*90/16", "84*108/16", "60*90/8", "84*108/32", "70*100/16" }),
+                            new SelectList(new[] { "84*108/16", "60*90/16", "60*90/8", "84*108/32", "70*100/16" }),
                             new { @class = "form-control", id = "StickerFormat" })
                 </div>
             </div>

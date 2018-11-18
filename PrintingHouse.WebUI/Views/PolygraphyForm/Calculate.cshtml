@@ -85,6 +85,11 @@
                             new { @class = "form-control", id = "CoverColors" })
                 </div>
             </div>
+                        <div class="col-md-4">
+                <label class="control-label">Лакировка</label>
+                @Html.CheckBoxFor(m => m.VarnishingOrdered, new { @class = "checkbox-inline" })
+            </div>
+
         </div>
         <hr />
 

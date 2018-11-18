@@ -39,7 +39,7 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
             foreach (BookPart bookPart in book.BookParts)
             {
                 tasksToPrint.Add(new TaskToPrint(bookPart.Name, bookPart.Format, bookPart.Paper,
-                    bookPart.Colors, bookPart.PrintingPressType, bookPart.PagesNumber, book.PrintRun));
+                    bookPart.Colors, bookPart.PrintingPressType, bookPart.PagesNumber, book.PrintRun, bookPart.VarnishingOrdered));
             }
 
             List<PrintingPressReport> pressReports = new List<PrintingPressReport>();

@@ -9,25 +9,25 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 	{
 		//4 параметра определяют прайс на печатную машину
 		//стоимость изготовления формы (не зависит от тиража)
-		public double Form { set; get; }
+		public double Form { get; set; }
 
-		//приладка (зависит от цветности) - и от тиража, то есть, если технужды > 0, приладка = 0
-		public double Fitting { set; get; }
+        //приладка (зависит от цветности) - и от тиража, то есть, если технужды > 0, приладка = 0
+        public double Fitting { get; set; }
 
-		//технужды в процентах зависят от тиража
-		public Dictionary<string, double> TechNeeds { set; get; }
+        //технужды в процентах зависят от тиража
+        public Dictionary<string, double> TechNeeds { get; set; }
 
         //стоимость оттисков зависит от тиража 
-        public List<Impression> Impressions { set; get; }
+        public List<Impression> Impressions { get; set; }
 
         //новое в прайсе 2018 года: при тираже от 1 до 2000 стоимость печати фиксированная
-        public int PrintRun_UpToWhichFixedPrintingCostApplyed { set; get; }
-        public double FixedPrintingCost { set; get; }
+        public int PrintRun_UpToWhichFixedPrintingCostApplyed { get; set; }
+        public double FixedPrintingCost { get; set; }
 
         //Лакировка защитным маслянным лаком
-        public double Varnishing { set; get; }
+        public double Varnishing { get; set; }
 
-        //TODO: change  { set; get; } to { get;set: }
+        //TODO: change  { set; get; } to { get; set: }
 
         public ShinoharaPriceList()
 		{

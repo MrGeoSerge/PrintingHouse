@@ -12,17 +12,19 @@ namespace PrintingHouse.Domain.Entities.BookComponents
 		public IssueColors Colors { set; get; }
 		public int PagesNumber { set; get; }
         public PrintingPressType PrintingPressType { set; get; }
+        public bool VarnishingOrdered { set; get; }
 
-		public BookPart(string _name, IssueFormat _format, AbstractPaper _paper, IssueColors _colors, int _pagesNumber)
-		{
-			Name = _name;
-			Format = _format;
-			Paper = _paper;
-			Colors = _colors;
-			PagesNumber = _pagesNumber;
-		}
+		//public BookPart(string _name, IssueFormat _format, AbstractPaper _paper, IssueColors _colors, int _pagesNumber)
+		//{
+		//	Name = _name;
+		//	Format = _format;
+		//	Paper = _paper;
+		//	Colors = _colors;
+		//	PagesNumber = _pagesNumber;
+		//}
 
-		public BookPart(string _name, IssueFormat _format, AbstractPaper _paper, IssueColors _colors, int _pagesNumber, PrintingPressType _printingPressType)
+		public BookPart(string _name, IssueFormat _format, AbstractPaper _paper, 
+            IssueColors _colors, int _pagesNumber, PrintingPressType _printingPressType, bool varnishingOrdered = false)
 		{
 			Name = _name;
 			Format = _format;
@@ -30,7 +32,9 @@ namespace PrintingHouse.Domain.Entities.BookComponents
 			Colors = _colors;
 			PagesNumber = _pagesNumber;
             PrintingPressType = _printingPressType;
-		}
+            VarnishingOrdered = varnishingOrdered;
+
+        }
 
 		public BookPart() { }
 	}

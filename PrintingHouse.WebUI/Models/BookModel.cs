@@ -33,6 +33,7 @@ namespace PrintingHouse.WebUI.Models
         public PaperFullType CoverPaper { get; set; }
         public string CoverColors { get; set; }
         public PrintingPressType CoverPrintingPress { get; set; }
+        public bool VarnishingOrdered { get; set; }
 
         //stickers
         public string StickerFormat { get; set; }
@@ -136,7 +137,8 @@ namespace PrintingHouse.WebUI.Models
 
             book.BookParts.Add(InternalBlock);
 			book.BookParts.Add(Cover);
-            if(StickerPages > 0) book.BookParts.Add(Stickers);
+            if(StickerPages > 0)
+                book.BookParts.Add(Stickers);
 
             //BookAssembly = new BookAssembly(BindingType.PerfectBinding, LaminationType.Glossy, true, PerforationType.withoutPerforation);
 
@@ -178,21 +180,26 @@ namespace PrintingHouse.WebUI.Models
                 cover.Colors = new IssueColors(CoverColors);
                 cover.PagesNumber = 4;//у любой обложки книги 4 страницы
                 cover.PrintingPressType = CoverPrintingPress;
+                cover.VarnishingOrdered = VarnishingOrdered;
                 return cover;
             }
         }
 
         public BookPart Stickers {
             get {
-                //создаем самоклейку
-                BookPart stickers = new BookPart();
-                stickers.Name = "Самоклейка";
-                stickers.Format = new IssueFormat(StickerFormat);
-                stickers.Paper = PaperProvider.GetPaper(StickerPaper);
-                stickers.Colors = new IssueColors(StickerColors);
-                stickers.PagesNumber = StickerPages;
-                stickers.PrintingPressType = StickerPrintingPress;
-                return stickers;
+                if(StickerPages > 0)
+                {
+                    //создаем самоклейку
+                    BookPart stickers = new BookPart();
+                    stickers.Name = "Самоклейка";
+                    stickers.Format = new IssueFormat(StickerFormat);
+                    stickers.Paper = PaperProvider.GetPaper(StickerPaper);
+                    stickers.Colors = new IssueColors(StickerColors);
+                    stickers.PagesNumber = StickerPages;
+                    stickers.PrintingPressType = StickerPrintingPress;
+                    return stickers;
+                }
+                return null;
             }
         }
 	}
