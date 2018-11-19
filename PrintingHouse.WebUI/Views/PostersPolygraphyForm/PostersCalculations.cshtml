@@ -1,0 +1,148 @@
+﻿@model PrintingHouse.WebUI.Models.PostersModel
+@{
+    ViewBag.Title = "PostersCalculations";
+}
+<h2>Расчет полиграфии плакатов</h2>
+<div class="container">
+    @using (Html.BeginForm("PostersCalculations", "PostersPolygraphyForm", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="printRun" class="control-label col-md-5">Тираж</label>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun", @Value="3000"})
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <h4>Плакаты</h4>
+       <div class="row">
+             <div class="form-group col-md-4">
+                <label for="pagesNumber" class="control-label col-md-8">Количество страниц (1 плакат - это 2 страницы)</label>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.PostersPagesNumber, new { @class = "form-control", id = "PostersPagesNumber", @Value="20"})
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="PosterFormat" class="control-label col-md-6">Формат</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.PostersFormat,
+                            new SelectList(new[] { "60*90/4", "60*90/16", "60*90/8", "84*108/32" }),
+                            new { @class = "form-control", id = "PostersFormat" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="PostersPaper" class="control-label col-md-4">Бумага</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => m.PostersPaper,
+                            new SelectList(@ViewBag.PostersPaperTypes, "Id", "Name"),
+                            new { @class = "form-control", id = "PostersPaper" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="PostersColors" class="control-label col-md-6">Цветность</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.PostersColors,
+                            new SelectList(new[] { "4+4", "1+1", "2+2" }),
+                            new { @class = "form-control", id = "PostersColors" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="PostersPrintingPress" class="control-label col-md-6">Печатный станок</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.PostersPrintingPress,
+                            new SelectList(ViewBag.PostersPrintingPresses, "Id", "Name"),
+                            new { @class = "form-control", id = "PostersPrintingPresses" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="control-label">Лакировка</label>
+                @Html.CheckBoxFor(m => m.PostersVarnishingOrdered, new { @class = "checkbox-inline" , @checked = "checked" })
+            </div>
+        </div>
+
+        <h4>Вкладыш</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="CoverPaper" class="control-label col-md-4">Бумага</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => m.InsertPaper,
+                            new SelectList(@ViewBag.InsertPaperTypes, "Id", "Name"),
+                            new { @class = "form-control", id = "InsertPaper" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="CoverColors" class="control-label col-md-6">Цветность</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.InsertColors,
+                            new SelectList(new[] { "4+4", "4+0", "4+1" }),
+                            new { @class = "form-control", id = "InsertColors" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="PosterFormat" class="control-label col-md-6">Формат</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.InsertFormat,
+                            new SelectList(new[] { "84*108/16", "60*90/16", "60*90/8", "84*108/32", "70*100/16" }),
+                            new { @class = "form-control", id = "InsertFormat" })
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="CoverPrintingPress" class="control-label col-md-6">Печатный станок</label>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.InsertPrintingPress,
+                            new SelectList(ViewBag.InsertPrintingPresses, "Id", "Name"),
+                            new { @class = "form-control", id = "InsertPrintingPress" })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="pagesNumber" class="control-label col-md-8">Количество страниц</label>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.InsertPagesNumber, new { @class = "form-control", id = "InsertPagesNumber", @Value="2"})
+                </div>
+            </div>
+
+        </div>
+
+       <hr />
+
+        @*<h4>Сборка</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="Lamination" class="control-label col-md-6">Ламинация</label>
+                <div class="col-md-6">
+                    <div class="radio">
+                        <label>
+                            @Html.RadioButtonFor(m => m.Lamination, PrintingHouse.Domain.Specifications.LaminationType.Glossy, new { @checked = "checked" })
+                            Глянцевая
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            @Html.RadioButtonFor(m => m.Lamination, PrintingHouse.Domain.Specifications.LaminationType.Matte)
+                            Матовая
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            @Html.RadioButtonFor(m => m.Lamination, PrintingHouse.Domain.Specifications.LaminationType.withoutLamination, new { @checked = "checked" })
+                            Без ламинации
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <input type="submit" name="button" value="Calculate" />
+    }
+
+    @if (ViewBag.Report != null)
+    {<div id="tabledata">
+        @Html.Action("Calculations", "PostersPolygraphyForm", @Model)
+        @Html.Action("DetailedCostReport", "PostersPolygraphyForm", @Model)
+    </div>
+    }
+
+
+</div>

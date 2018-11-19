@@ -25,6 +25,9 @@ namespace PrintingHouse.Domain.Processes.BookBinding
 
 		public double CalcCostOfBinding()
 		{
+            if (this == null)
+                return 0.0;
+
 			const int share = 8;
 			double costValue;
 			while (pagesNumber < 800)

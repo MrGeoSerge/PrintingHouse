@@ -23,9 +23,12 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 
         //новое в прайсе 2018 года: при тираже от 1 до 2000 стоимость печати фиксированная
         public int PrintRun_UpToWhichFixedPrintingCostApplyed { set; get; }
-        public double FixedPrintingCost { set; get; } 
+        public double FixedPrintingCost { set; get; }
 
-		public RapidaPriceList()
+        //Лакировка защитным маслянным лаком
+        public double Varnishing { get; set; }
+
+        public RapidaPriceList()
 		{
 			Fitting = new Dictionary<string, double>();
 			TechNeeds = new Dictionary<string, double>();
@@ -47,6 +50,8 @@ namespace PrintingHouse.Domain.Entities.PriceLists
 
             PrintRun_UpToWhichFixedPrintingCostApplyed = 2000;
             FixedPrintingCost = 488.0;
+
+            Varnishing = 0.144;
 
             Impressions.Add(
                 new Impression

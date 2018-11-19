@@ -42,7 +42,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
                 foreach (var printRun in rapidaPriceList.TechNeeds)
                 {
                     int printRun_Key = Int32.Parse(printRun.Key);
-                    if (PrintingSheetsPerPrintRun < printRun_Key)
+                    if (TaskToPrint.PrintRun < printRun_Key)
                     {
                         return printRun.Value;
                     }
@@ -54,14 +54,14 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
         //стоимость оттиска
         public override double ImpressionPriceValue {
             get {
-                if (PrintingSheetsPerPrintRun <= rapidaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+                if (TaskToPrint.PrintRun <= rapidaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
                 {
                     return 0.0; //No price for small printruns
                 }
                 foreach (var impression in rapidaPriceList.Impressions)
                 {
-                    if (PrintingSheetsPerPrintRun >= impression.LowerPrintRunBound
-                        && PrintingSheetsPerPrintRun <= impression.UpperPrintRunBound)
+                    if (TaskToPrint.PrintRun >= impression.LowerPrintRunBound
+                        && TaskToPrint.PrintRun <= impression.UpperPrintRunBound)
                     {
                         return impression.ImpressionCost;
                     }
@@ -101,6 +101,24 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
                     default:
                         throw new ArgumentOutOfRangeException(TaskToPrint.Format.PrintingSheet());
                 }
+            }
+        }
+
+        public override int FittingOnPrintRun => (int)FittingPriceValue * (int)PrintingSheetsPerBook;
+
+        public override int PaperConsumptionForTechnicalNeeds => base.PaperConsumptionForTechnicalNeeds;
+
+        public override double CostOfVarnishing {
+            get {
+                if (TaskToPrint.VarnishingOrdered == false)
+                    return 0.0;
+
+                //we need to decide varnishing is one sided
+                if (TaskToPrint.Colors.BackColors < 4)
+                    return rapidaPriceList.Varnishing * PrintingSheetsPerPrintRun;
+                //or doublesided
+                return rapidaPriceList.Varnishing * PrintingSheetsPerPrintRun * 2;//doublesided
+
             }
         }
     }

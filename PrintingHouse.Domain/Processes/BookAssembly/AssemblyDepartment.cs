@@ -36,12 +36,17 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 				case BindingType.HardcoverBinding:
 					binding = new HardCover(taskToBind);
 					break;
+                case BindingType.WithoutBinding:
+                    binding = null;
+                    break;
 				default:
 					throw new Exception("неправильно указан переплет");
 			}
 
-
-			Report.AddCostOfBinding(binding.CalcCostOfBinding());
+            if (binding == null)
+                Report.AddCostOfBinding(0.0);
+            else
+			    Report.AddCostOfBinding(binding.CalcCostOfBinding());
 		}
 
 		public void MakeLamination()

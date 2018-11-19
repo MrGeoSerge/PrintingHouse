@@ -54,6 +54,7 @@ namespace PrintingHouse.WebUI.Models
 
 		public BookModel() { }
 
+        [Obsolete]
 		public BookModel(Book _book)
 		{
 			Name = _book.Name;

@@ -4,6 +4,7 @@
 	{
 		SaddleStitching,//cкоба
 		PerfectBinding,//клеевой
-		HardcoverBinding//7БЦ
-	}
+		HardcoverBinding,//7БЦ
+        WithoutBinding
+    }
 }

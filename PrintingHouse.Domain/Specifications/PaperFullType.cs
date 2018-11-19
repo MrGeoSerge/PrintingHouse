@@ -11,6 +11,7 @@
 		CardboardAliaska_230,//new
         SelfAdhensive,
         Offset_70,
-        CardboardСellulose_215
+        CardboardСellulose_215,
+        CoatedPaper_300
     }
 }
