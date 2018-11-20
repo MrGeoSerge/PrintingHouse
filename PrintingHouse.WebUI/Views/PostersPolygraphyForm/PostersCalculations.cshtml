@@ -10,7 +10,7 @@
             <div class="form-group col-md-3">
                 <label for="printRun" class="control-label col-md-5">Тираж</label>
                 <div class="col-md-7">
-                    @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun", @Value="3000"})
+                    @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun" })
                 </div>
             </div>
         </div>
@@ -21,14 +21,14 @@
              <div class="form-group col-md-4">
                 <label for="pagesNumber" class="control-label col-md-8">Количество страниц (1 плакат - это 2 страницы)</label>
                 <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.PostersPagesNumber, new { @class = "form-control", id = "PostersPagesNumber", @Value="20"})
+                    @Html.TextBoxFor(m => m.PostersPagesNumber, new { @class = "form-control", id = "PostersPagesNumber" })
                 </div>
             </div>
             <div class="col-md-4">
                 <label for="PosterFormat" class="control-label col-md-6">Формат</label>
                 <div class="col-md-6">
                     @Html.DropDownListFor(m => m.PostersFormat,
-                            new SelectList(new[] { "60*90/4", "60*90/16", "60*90/8", "84*108/32" }),
+                            new SelectList(new[] {"60*90/2",  "60*90/4", "60*90/8" }),
                             new { @class = "form-control", id = "PostersFormat" })
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 <label for="PostersColors" class="control-label col-md-6">Цветность</label>
                 <div class="col-md-6">
                     @Html.DropDownListFor(m => m.PostersColors,
-                            new SelectList(new[] { "4+4", "1+1", "2+2" }),
+                            new SelectList(new[] { "4+4", "4+0" }),
                             new { @class = "form-control", id = "PostersColors" })
                 </div>
             </div>

@@ -39,6 +39,9 @@ namespace PrintingHouse.Domain.Entities.Paper
                 case PaperFullType.CardboardСellulose_215:
                     paper = new PaperInSheets(PaperType.CardboardСellulose, 300, 1.6068, "Unknown", 47, 55); //правильно 47.2 вместо 47
                     break;
+                case PaperFullType.CoatedPaper_200:
+                    paper = new PaperInSheets(PaperType.CoatedPaper, 200, 3.5432, "Unknown", 64, 90);
+                    break;
                 case PaperFullType.CoatedPaper_300:
                     paper = new PaperInSheets(PaperType.CoatedPaper, 300, 5.6444, "Unknown", 64, 90);
                     break;

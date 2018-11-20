@@ -12,6 +12,7 @@
         SelfAdhensive,
         Offset_70,
         CardboardСellulose_215,
-        CoatedPaper_300
+        CoatedPaper_300,
+        CoatedPaper_200
     }
 }

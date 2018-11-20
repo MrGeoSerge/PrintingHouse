@@ -45,6 +45,7 @@ namespace PrintingHouse.WebUI.Controllers
             List<PaperItem> PostersPaperTypes = new List<PaperItem>()
             {
                 new PaperItem() {Id = PaperFullType.CoatedPaper_300, Name = "Меловка пл.300 64х90 гл"},
+                new PaperItem() {Id = PaperFullType.CoatedPaper_200, Name = "Меловка пл.200 64х90 гл"},
                 new PaperItem() {Id = PaperFullType.CardboardСellulose_215, Name="картон целлюлоза 215 г/м2"},
                 new PaperItem() {Id = PaperFullType.FoldingBoxboard_230, Name="хром-эрзац 230 г/м2"},
                 new PaperItem() {Id = PaperFullType.CardboardAliaska_230, Name="картон Аляска 230 г/м2"}

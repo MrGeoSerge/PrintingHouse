@@ -5,6 +5,7 @@ using PrintingHouse.Domain.Entities.Reports;
 using PrintingHouse.Domain.Entities;
 using PrintingHouse.Domain.Entities.BookComponents;
 using PrintingHouse.Domain.Processes.PrintingHouseManagement;
+using PrintingHouse.UnitTests.Data;
 
 namespace BookProduction.UnitTests
 {
@@ -56,12 +57,12 @@ namespace BookProduction.UnitTests
 		public void MakeBookOSK002()
 		{
 			Book Kanikularia = new Book("ОСК002", "Подорож країною Канікулярія. 2 клас", 28000,
-					new BookPart("InnerBlock", new IssueFormat(70, 100, 16), offset70_100_D60, new IssueColors(2, 2), 48),
-					new BookPart("Cover", new IssueFormat(70, 100, 16), hrom_erzats230, new IssueColors(4, 1), 4),
-					new BookPart("Nakleyki", new IssueFormat(70, 100, 16), samokleyka, new IssueColors(4, 0), 4),
+					new BookPart("InnerBlock", new IssueFormat(70, 100, 16), offset70_100_D60, new IssueColors(2, 2), 48, PrintingPressType.NotSelected),
+					new BookPart("Cover", new IssueFormat(70, 100, 16), hrom_erzats230, new IssueColors(4, 1), 4, PrintingPressType.NotSelected),
+					new BookPart("Nakleyki", new IssueFormat(70, 100, 16), samokleyka, new IssueColors(4, 0), 4, PrintingPressType.NotSelected),
 					new BookAssembly(BindingType.SaddleStitching, LaminationType.Glossy, true));
 
-			report = new DirectorOfTypography(Kanikularia).MakeBook();
+			report = new DirectorOfTypography(Kanikularia, new GetPathFolderString()).MakeBook();
 
 			Assert.AreEqual(4.67, report.CostOfPolygraphyPerOneItem, delta: 0.1);
 		}
@@ -72,13 +73,13 @@ namespace BookProduction.UnitTests
 			Book theBook = new Book("УММ034-д1", "Українська мова 8клас 2 семестр Нова програма Мій конспект", 1000,
 				new BookPart("Внутренний блок", new IssueFormat(84, 108, 16),
 				 new PaperInKg(PaperType.Newsprint, 45, 15.656, "Шклов", 84),
-				 new IssueColors(1, 1), 88),
+				 new IssueColors(1, 1), 88, PrintingPressType.NotSelected),
 				 new BookPart("Обложка", new IssueFormat(84, 108, 16),
 				 new PaperInSheets(PaperType.FoldingBoxboard, 230, 2.482, "Умка", 64, 90),
-				 new IssueColors(4, 1), 4),
+				 new IssueColors(4, 1), 4, PrintingPressType.NotSelected),
 				 new BookAssembly(BindingType.SaddleStitching, LaminationType.Glossy, true, PerforationType.usual));
 
-			DirectorOfTypography director = new DirectorOfTypography(theBook);
+			DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
 			PolygraphyCostReport report = director.MakeBook();
 
 			Assert.AreEqual(7.59, report.CostOfPolygraphyPerOneItem, delta: 0.01);

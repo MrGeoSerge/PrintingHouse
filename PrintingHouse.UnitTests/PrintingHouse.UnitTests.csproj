@@ -54,6 +54,7 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\GetPathFolderString.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\UpdatePrintingPressesResults.cs" />
     <Compile Include="PrintingPresses\Coroset\CorosetPlamag_84_108_InternalBlock.cs" />
