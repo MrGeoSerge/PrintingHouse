@@ -1,0 +1,18 @@
+{
+  "FormPrice": 90,
+  "FittingPriceValue": 400,
+  "TechNeedsPrice": 4.7,
+  "ImpressionPrice": 0.0367,
+  "PagesPerOneImposition": 8,
+  "ImposiotionsPerBook": 24,
+  "PrintingSheetsPerBook": 12,
+  "PrintingSheetsPerPrintRun": 12000,
+  "PrintingForms": 24,
+  "CostOfPrintingFoms": 2160,
+  "Impressions": 12000,
+  "CostOfImpressions": 440.4,
+  "CostOfPrinting": 2600.4,
+  "PaperConsumptionForTechnicalNeeds": 564,
+  "FittingOnPrintRun": 9600,
+  "TotalPaperConsumptionInPressFormat": 22164
+}

@@ -11,6 +11,7 @@ namespace PrintingHouse.UnitTests.Data
 	public class JsonHelper<T> where T: class
 	{
 		const string pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.UnitTests\Data\";
+		const string shortPathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.UnitTests\";
 
 		public static void WriteToFile(T results, string fileName)
 		{
@@ -22,6 +23,15 @@ namespace PrintingHouse.UnitTests.Data
 		public static T ReadFromFile(string fileName)
 		{
 			string path = pathFolder + fileName + ".json";
+			var json = File.ReadAllText(path);
+			var serializer = new JavaScriptSerializer();
+			T priceList = serializer.Deserialize<T>(json);
+			return priceList;
+		}
+
+		public static T ReadFromFile(string folderName, string fileName)
+		{
+			string path = shortPathFolder + folderName + @"\" + fileName + ".json";
 			var json = File.ReadAllText(path);
 			var serializer = new JavaScriptSerializer();
 			T priceList = serializer.Deserialize<T>(json);

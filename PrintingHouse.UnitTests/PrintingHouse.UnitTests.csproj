@@ -58,6 +58,8 @@
     <Compile Include="Helpers\GetPathFolderString.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\UpdatePrintingPressesResults.cs" />
+    <Compile Include="PrintingPresses\PrintingPressTestBase.cs" />
+    <Compile Include="PrintingPresses\Zirkon\Zirkon_60_90_16_IB.cs" />
     <Compile Include="PrintingPresses_OldPrice\Coroset\CorosetPlamag_84_108_InternalBlock.cs" />
     <Compile Include="MiyConspectCreation.cs" />
     <Compile Include="PrintingPresses_OldPrice\Rapida\Rapida_60_90_Cover.cs" />
@@ -91,23 +93,24 @@
     <Compile Include="PrintingPresses_OldPrice\Zirkon\Zirkon_84_108_IB_Magazine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\CorosetPriceList.json" />
-    <None Include="Data\CorosetResult.json" />
-    <None Include="Data\RapidaPriceList.json" />
-    <None Include="Data\Rapida_60_90_CoverResult.json" />
-    <None Include="Data\Rapida_60_90_IBResult.json" />
-    <None Include="Data\Rapida_60_90_InsertResult.json" />
-    <None Include="Data\Rapida_70_100_CoverMagazineResult.json" />
-    <None Include="Data\Rapida_70_100_CoverResult.json" />
-    <None Include="Data\Rapida_70_100_InternalBlockResult.json" />
-    <None Include="Data\ShinoharaPriceList.json" />
-    <None Include="Data\ShinoharaResult.json" />
-    <None Include="Data\ZirkonPriceList.json" />
-    <None Include="Data\Zirkon_60_90_16_IBResult.json" />
-    <None Include="Data\Zirkon_60_90_8_IBResult.json" />
-    <None Include="Data\Zirkon_70_90_IBResult.json" />
-    <None Include="Data\Zirkon_84_108_CoverResult.json" />
-    <None Include="Data\Zirkon_84_108_IB_MagazineResult.json" />
+    <None Include="Data\Zirkon_60_90_16_IBResult_AKK059.json" />
+    <None Include="Data_Old\CorosetPriceList.json" />
+    <None Include="Data_Old\CorosetResult.json" />
+    <None Include="Data_Old\RapidaPriceList.json" />
+    <None Include="Data_Old\Rapida_60_90_CoverResult.json" />
+    <None Include="Data_Old\Rapida_60_90_IBResult.json" />
+    <None Include="Data_Old\Rapida_60_90_InsertResult.json" />
+    <None Include="Data_Old\Rapida_70_100_CoverMagazineResult.json" />
+    <None Include="Data_Old\Rapida_70_100_CoverResult.json" />
+    <None Include="Data_Old\Rapida_70_100_InternalBlockResult.json" />
+    <None Include="Data_Old\ShinoharaPriceList.json" />
+    <None Include="Data_Old\ShinoharaResult.json" />
+    <None Include="Data_Old\ZirkonPriceList.json" />
+    <None Include="Data_Old\Zirkon_60_90_16_IBResult.json" />
+    <None Include="Data_Old\Zirkon_60_90_8_IBResult.json" />
+    <None Include="Data_Old\Zirkon_70_90_IBResult.json" />
+    <None Include="Data_Old\Zirkon_84_108_CoverResult.json" />
+    <None Include="Data_Old\Zirkon_84_108_IB_MagazineResult.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +119,11 @@
       <Name>PrintingHouse.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="PrintingPresses\Coroset\" />
+    <Folder Include="PrintingPresses\Rapida\" />
+    <Folder Include="PrintingPresses\Shinohara\" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

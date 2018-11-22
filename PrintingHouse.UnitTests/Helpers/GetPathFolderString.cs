@@ -11,7 +11,8 @@ namespace PrintingHouse.UnitTests.Data
     {
         public string GetPathFolder()
         {
-            return System.Reflection.Assembly.GetExecutingAssembly().Location + @"\Data";
+            return @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
+            //return System.Reflection.Assembly.GetExecutingAssembly().Location + @"\Data";
                 //Assembly.GetExecutingAssembly().GetDirectoryPath() + @"\Data";
         }
     }

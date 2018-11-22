@@ -24,5 +24,11 @@ namespace PrintingHouse.UnitTests.VerificationResults
 		public int PaperConsumptionForTechnicalNeeds { get; set; }
 		public int FittingOnPrintRun { get; set; }
 		public int TotalPaperConsumptionInPressFormat { get; set; }
-	}
+        public double PaperExpenditure { get; set; }
+        public double SquareOfSheetInMeters2 { get; set; }
+        public double PaperInSquareMeters { get; set; }
+        public double PaperConsumptionInKg { get; set; }
+        public double PaperCost { get; set; }
+        public double TotalCost { get; set; }
+    }
 }
