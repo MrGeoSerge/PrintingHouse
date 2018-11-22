@@ -7,11 +7,12 @@ using System.Web;
 
 namespace PrintingHouse.UnitTests.Data
 {
-    public class GetPathFolderString : IGetPathFolder
+    public class Get_Old_PathFolderString : IGetPathFolder
     {
         public string GetPathFolder()
         {
-            return System.Reflection.Assembly.GetExecutingAssembly().Location + @"\Data";
+            return @"D:\MyApps\PrintingHouse\PrintingHouse.UnitTests\Data\";
+            //return System.Reflection.Assembly.GetExecutingAssembly().Location + @"\Data";
                 //Assembly.GetExecutingAssembly().GetDirectoryPath() + @"\Data";
         }
     }

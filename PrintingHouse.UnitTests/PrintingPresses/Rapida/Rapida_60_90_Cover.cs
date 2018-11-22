@@ -22,8 +22,8 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
 						new IssueFormat(60, 90, 16), 
 						new PaperInSheets(PaperType.CoatedPaper, 115, 1.50792, "Unknown", 64, 90),
 						new IssueColors(4, 4), 
-						4), 
-					4400));
+						4, PrintingPressType.Rapida), 
+					4400), new Get_Old_PathFolderString());
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Rapida_60_90_CoverResult");
 		}

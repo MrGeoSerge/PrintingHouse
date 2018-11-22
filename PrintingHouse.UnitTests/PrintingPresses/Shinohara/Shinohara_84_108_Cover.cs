@@ -23,8 +23,8 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Shinohara
 								new BookPart("Cover",
 								new IssueFormat(84, 108, 16),
 								new PaperInSheets(PaperType.FoldingBoxboard, 230, 2.482, "Умка", 64, 90),
-								new IssueColors(4, 1), 4),
-								1000));
+								new IssueColors(4, 1), 4, PrintingPressType.Shinohara),
+								1000), new Get_Old_PathFolderString());
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("ShinoharaResult");
 		}

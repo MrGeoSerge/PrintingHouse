@@ -23,7 +23,7 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Zirkon
 			//ШКК1-д9 - издательский код
 			printingPress = new ZirkonForta660(new TaskToPrint(new BookPart("InternalBlock",
 				new IssueFormat(70, 90, 16), new PaperInKg(PaperType.Offset, 60, 28.0675, "Люмисет", 70),
-				new IssueColors(1, 1), 176), 2000));
+				new IssueColors(1, 1), 176, PrintingPressType.Zirkon), 2000), new Get_Old_PathFolderString());
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Zirkon_70_90_IBResult");
 		}

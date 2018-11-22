@@ -25,7 +25,7 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Zirkon
 			//обложка журнала АМЖ063 - первые страницы журнала, которые 2+1
 			printingPress = new ZirkonForta660(new TaskToPrint(new BookPart("InternalBlock",
 				new IssueFormat(84, 108, 16), new PaperInKg(PaperType.Newsprint, 43, 13.42708, "Змиев", 54),
-				new IssueColors(2, 1), 8), 1815));
+				new IssueColors(2, 1), 8, PrintingPressType.Zirkon), 1815), new Get_Old_PathFolderString());
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Zirkon_84_108_CoverResult");
 		}

@@ -28,7 +28,7 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Coroset
 						new PaperInKg(PaperType.Newsprint, 45, 16.48, "Германия", 84),
 						new IssueColors(1, 1), 
 						152, PrintingPressType.Coroset),
-					1000), new GetPathFolderString());
+					1000), new Get_Old_PathFolderString());
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("CorosetResult");
 		}

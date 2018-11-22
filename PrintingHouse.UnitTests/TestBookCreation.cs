@@ -62,7 +62,7 @@ namespace BookProduction.UnitTests
 					new BookPart("Nakleyki", new IssueFormat(70, 100, 16), samokleyka, new IssueColors(4, 0), 4, PrintingPressType.NotSelected),
 					new BookAssembly(BindingType.SaddleStitching, LaminationType.Glossy, true));
 
-			report = new DirectorOfTypography(Kanikularia, new GetPathFolderString()).MakeBook();
+			report = new DirectorOfTypography(Kanikularia, new Get_Old_PathFolderString()).MakeBook();
 
 			Assert.AreEqual(4.67, report.CostOfPolygraphyPerOneItem, delta: 0.1);
 		}
@@ -79,7 +79,7 @@ namespace BookProduction.UnitTests
 				 new IssueColors(4, 1), 4, PrintingPressType.NotSelected),
 				 new BookAssembly(BindingType.SaddleStitching, LaminationType.Glossy, true, PerforationType.usual));
 
-			DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
+			DirectorOfTypography director = new DirectorOfTypography(theBook, new Get_Old_PathFolderString());
 			PolygraphyCostReport report = director.MakeBook();
 
 			Assert.AreEqual(7.59, report.CostOfPolygraphyPerOneItem, delta: 0.01);

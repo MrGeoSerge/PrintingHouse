@@ -42,11 +42,11 @@ namespace BookProduction.UnitTests
             //director = new DirectorOfTypography(theBook);
             //report = director.MakeBook();
             taskToInnerBlock = new TaskToPrint(MkBook.BookParts[0], MkBook.PrintRun);
-            coroset = new CorosetPlamag(taskToInnerBlock, new GetPathFolderString());
+            coroset = new CorosetPlamag(taskToInnerBlock, new Get_Old_PathFolderString());
             IB_report = coroset.SendReport;
 
             taskToCover = new TaskToPrint(MkBook.BookParts[1], MkBook.PrintRun);
-            shinohara = new Shinohara52_2(taskToCover, new GetPathFolderString());
+            shinohara = new Shinohara52_2(taskToCover, new Get_Old_PathFolderString());
             Cov_report = shinohara.SendReport;
         }
 
@@ -109,11 +109,12 @@ namespace BookProduction.UnitTests
 			=> Assert.AreEqual(expected: 3.2, 
 				actual: shinohara.TechNeedsPriceValue);
 
-		[Test]
-		[Category("Miy Conspect")]
-		public void MK_C_00_GetImpressionPriceValue() 
-			=> Assert.AreEqual(expected: 0.037, 
-				actual: shinohara.ImpressionPriceValue);
+        [Test]
+        [Category("Miy Conspect")]
+        public void MK_C_00_GetImpressionPriceValue()
+            => Assert.Throws<System.ArgumentOutOfRangeException>(() => { var sh = shinohara.ImpressionPriceValue; });
+    //        AssertException.AreEqual(expected: 0.037, 
+				//actual: shinohara.ImpressionPriceValue);
 
 		[Test]
 		[Category("Miy Conspect")]

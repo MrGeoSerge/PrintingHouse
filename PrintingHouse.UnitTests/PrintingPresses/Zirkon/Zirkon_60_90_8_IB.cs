@@ -25,7 +25,7 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Zirkon
 			//ДН108-д11 - издательский код
 			printingPress = new ZirkonForta660(new TaskToPrint(new BookPart("ДН108-д11",
 				new IssueFormat(60, 90, 8), new PaperInKg(PaperType.Offset, 60, 25.1835, "Коростышев", 60),
-				new IssueColors(1, 1), 128), 10000));
+				new IssueColors(1, 1), 128, PrintingPressType.Zirkon), 10000), new Get_Old_PathFolderString());
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Zirkon_60_90_8_IBResult");
 		}

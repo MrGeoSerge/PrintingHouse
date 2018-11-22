@@ -26,8 +26,8 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
 						new IssueFormat(70, 100, 4), 
 						new PaperInSheets(PaperType.CoatedPaper, 80, 1.31016, "Меловка пл.80 64х90 мат ", 64, 90),
 						new IssueColors(4, 4), 
-						2), 
-					1865));
+						2, PrintingPressType.Rapida), 
+					1865), new Get_Old_PathFolderString());
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Rapida_70_100_CoverMagazineResult");
 		}
