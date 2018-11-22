@@ -14,12 +14,12 @@
   "VarnishImpressionPrice": 0,
   "VarnishImpressions": 0,
   "CostOfVarnishing": 0,
-  "CostOfPrinting": 3608,
-  "PaperConsumptionForTechnicalNeeds": 24,
-  "FittingOnPrintRun": 32,
-  "TotalPaperConsumptionInPressFormat": 316,
-  "PressSheetFormat_Fraction": 8,
-  "PaperExpenditure": 79,
-  "PaperCost": 282.44,
-  "TotalCost": 458.78
+  "CostOfPrinting": 2328,
+  "PaperConsumptionForTechnicalNeeds": 704,
+  "FittingOnPrintRun": 64,
+  "TotalPaperConsumptionInPressFormat": 17045,
+  "PressSheetFormat_Fraction": 0,
+  "PaperExpenditure": 8523.0,
+  "PaperCost": 15081.8162,
+  "TotalCost": 32243.73
 }

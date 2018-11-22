@@ -24,8 +24,10 @@ namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Shinohara
 				new TaskToPrint(
 								new BookPart("Stickers",
 								new IssueFormat(84, 108, 16),
-								new PaperInSheets(PaperType.SelfAdhensivePaper, 80, 3.51, "Умка", 43, 61),
-								new IssueColors(4, 0), 4, PrintingPressType.Shinohara, true),
+								new PaperInSheets(PaperType.SelfAdhensivePaper, 80, 3.51, "Unknown", 43, 61),
+								new IssueColors(4, 0), 
+                                4, 
+                                PrintingPressType.Shinohara),
 								16000), new GetPathFolderString());
 
 			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Shinohara_84_108_Stickers_ZMK001");
