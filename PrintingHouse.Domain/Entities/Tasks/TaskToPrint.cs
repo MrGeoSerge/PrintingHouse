@@ -37,6 +37,7 @@ namespace PrintingHouse.Domain.Entities.Tasks
             Colors = _bookPart.Colors;
             PagesNumber = _bookPart.PagesNumber;
             PrintRun = _printRun;
+            VarnishingOrdered = _bookPart.VarnishingOrdered;
         }
 
 

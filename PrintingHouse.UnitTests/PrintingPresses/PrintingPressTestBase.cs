@@ -58,32 +58,32 @@ namespace PrintingHouse.UnitTests.PrintingPresses
 				actual: printingPress.PrintingSheetsPerBook);
 
 		[Test]
-		public void R60C_09_GetPrintingSheetsPerPrintRun() 
+		public void R60C_04_GetPrintingSheetsPerPrintRun() 
 			=> Assert.AreEqual(expected: printingPressResult.PrintingSheetsPerPrintRun, 
 				actual: printingPress.PrintingSheetsPerPrintRun);
 
 		[Test]
-		public void R60C_04_GetPrintingForms() 
+		public void R60C_05_GetPrintingForms() 
 			=> Assert.AreEqual(expected: printingPressResult.PrintingForms, 
 				actual: printingPress.PrintingForms);
 
 		[Test]
-		public void R60C_05_GetCostOfPrintingFoms() 
+		public void R60C_06_GetCostOfPrintingFoms() 
 			=> Assert.AreEqual(expected: printingPressResult.CostOfPrintingFoms, 
 				actual: printingPress.CostOfPrintingFoms);
 
 		[Test] //Оттиски
-		public void R60C_06_GetImpressions() 
+		public void R60C_07_GetImpressions() 
 			=> Assert.AreEqual(expected: printingPressResult.Impressions, 
 				actual: printingPress.Impressions);
 
 		[Test]
-		public void R60C_07_GetCostOfImpressions() 
+		public void R60C_08_GetCostOfImpressions() 
 			=> Assert.AreEqual(expected: printingPressResult.CostOfImpressions, 
 				actual: printingPress.CostOfImpressions, delta: 0.01);
 
 		[Test]
-		public void R60C_08_GetCostOfPrinting() 
+		public void R60C_09_GetCostOfPrinting() 
 			=> Assert.AreEqual(expected: printingPressResult.CostOfPrinting, 
 				actual: printingPress.CostOfPrinting, delta: 0.01);
 

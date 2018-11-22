@@ -59,6 +59,7 @@
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\UpdatePrintingPressesResults.cs" />
     <Compile Include="PrintingPresses\PrintingPressTestBase.cs" />
+    <Compile Include="PrintingPresses\Shinohara\Shinohara_60_90_CoverPlanBook.cs" />
     <Compile Include="PrintingPresses\Zirkon\Zirkon_60_90_16_IB.cs" />
     <Compile Include="PrintingPresses_OldPrice\Coroset\CorosetPlamag_84_108_InternalBlock.cs" />
     <Compile Include="MiyConspectCreation.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="PrintingPresses_OldPrice\Zirkon\Zirkon_84_108_IB_Magazine.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\Shinohara_60_90_CoverPlanBook_AKK059.json" />
     <None Include="Data\Zirkon_60_90_16_IBResult_AKK059.json" />
     <None Include="Data_Old\CorosetPriceList.json" />
     <None Include="Data_Old\CorosetResult.json" />
@@ -122,7 +124,6 @@
   <ItemGroup>
     <Folder Include="PrintingPresses\Coroset\" />
     <Folder Include="PrintingPresses\Rapida\" />
-    <Folder Include="PrintingPresses\Shinohara\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
