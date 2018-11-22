@@ -25,57 +25,57 @@ namespace PrintingHouse.UnitTests.PrintingPresses
 		[Test]
 		public void R60C_00_GetFormPriceValue() 
 			=> Assert.AreEqual(expected: printingPressResult.FormPrice, 
-				actual: printingPress.FormPriceValue);
+				actual: printingPress.FormPriceValue, delta: 0.01);
 
 		[Test]
 		public void R60C_00_GetFittingPriceValue() 
 			=> Assert.AreEqual(expected: printingPressResult.FittingPriceValue, 
-				actual: printingPress.FittingPriceValue);
+				actual: printingPress.FittingPriceValue, delta: 0.01);
 
 		[Test]
 		public void R60C_00_GetTechNeedsPriceValue() 
 			=> Assert.AreEqual(expected: printingPressResult.TechNeedsPrice, 
-				actual: printingPress.TechNeedsPriceValue);
+				actual: printingPress.TechNeedsPriceValue, delta: 0.01);
 
 		[Test]
 		public void R60C_00_GetImpressionPriceValue() 
 			=> Assert.AreEqual(expected: printingPressResult.ImpressionPrice, 
-				actual: printingPress.ImpressionPriceValue);
+				actual: printingPress.ImpressionPriceValue, delta: 0.01);
 
 		[Test]
 		public void R60C_01_GetPagesPerOneImposition() 
 			=> Assert.AreEqual(expected: printingPressResult.PagesPerOneImposition, 
-				actual: printingPress.PagesPerOneImposition);
+				actual: printingPress.PagesPerOneImposition, delta: 0.01);
 
 		[Test]
 		public void R60C_02_GetImpositionsPerBook() 
 			=> Assert.AreEqual(expected: printingPressResult.ImposiotionsPerBook, 
-				actual: printingPress.ImpositionsPerBook);
+				actual: printingPress.ImpositionsPerBook, delta: 0.01);
 
 		[Test]
 		public void R60C_03_GetPrintingSheetsPerBook() 
 			=> Assert.AreEqual(expected: printingPressResult.PrintingSheetsPerBook, 
-				actual: printingPress.PrintingSheetsPerBook);
+				actual: printingPress.PrintingSheetsPerBook, delta: 0.01);
 
 		[Test]
 		public void R60C_04_GetPrintingSheetsPerPrintRun() 
 			=> Assert.AreEqual(expected: printingPressResult.PrintingSheetsPerPrintRun, 
-				actual: printingPress.PrintingSheetsPerPrintRun);
+				actual: printingPress.PrintingSheetsPerPrintRun, delta: 0.01);
 
 		[Test]
 		public void R60C_05_GetPrintingForms() 
 			=> Assert.AreEqual(expected: printingPressResult.PrintingForms, 
-				actual: printingPress.PrintingForms);
+				actual: printingPress.PrintingForms, delta: 0.01);
 
 		[Test]
 		public void R60C_06_GetCostOfPrintingFoms() 
 			=> Assert.AreEqual(expected: printingPressResult.CostOfPrintingFoms, 
-				actual: printingPress.CostOfPrintingFoms);
+				actual: printingPress.CostOfPrintingFoms, delta: 0.01);
 
 		[Test] //Оттиски
 		public void R60C_07_GetImpressions() 
 			=> Assert.AreEqual(expected: printingPressResult.Impressions, 
-				actual: printingPress.Impressions);
+				actual: printingPress.Impressions, delta: 0.01);
 
 		[Test]
 		public void R60C_08_GetCostOfImpressions() 
@@ -90,16 +90,16 @@ namespace PrintingHouse.UnitTests.PrintingPresses
 		[Test]
 		public void R60C_10_GetPaperConsumptionForTechnicalNeeds() 
 			=> Assert.AreEqual(expected: printingPressResult.PaperConsumptionForTechnicalNeeds, 
-				actual: printingPress.PaperConsumptionForTechnicalNeeds);
+				actual: printingPress.PaperConsumptionForTechnicalNeeds, delta: 0.01);
 
 		[Test]
 		public void R60C_11_GetFittingOnPrintRun() 
 			=> Assert.AreEqual(expected: printingPressResult.FittingOnPrintRun, 
-				actual: printingPress.FittingOnPrintRun);
+				actual: printingPress.FittingOnPrintRun, delta: 0.01);
 
 		[Test]
 		public void R60C_12_GetTotalPaperConsumptionInPressFormat() 
 			=> Assert.AreEqual(expected: printingPressResult.TotalPaperConsumptionInPressFormat, 
-				actual: printingPress.TotalPaperConsumptionInPressFormat);
+				actual: printingPress.TotalPaperConsumptionInPressFormat, delta: 0.01);
 	}
 }

@@ -59,8 +59,11 @@
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\UpdatePrintingPressesResults.cs" />
     <Compile Include="PrintingPresses\PrintingPressTestBase.cs" />
+    <Compile Include="PrintingPresses\Rapida\Rapida_84_108_Cover.cs" />
+    <Compile Include="PrintingPresses\Shinohara\Shinohara_84_108_Stickers.cs" />
     <Compile Include="PrintingPresses\Shinohara\Shinohara_60_90_CoverPlanBook.cs" />
     <Compile Include="PrintingPresses\Zirkon\Zirkon_60_90_16_IB.cs" />
+    <Compile Include="PrintingPresses\Zirkon\Zirkon_84_108_IB_ExerciseBook.cs" />
     <Compile Include="PrintingPresses_OldPrice\Coroset\CorosetPlamag_84_108_InternalBlock.cs" />
     <Compile Include="MiyConspectCreation.cs" />
     <Compile Include="PrintingPresses_OldPrice\Rapida\Rapida_60_90_Cover.cs" />
@@ -94,8 +97,11 @@
     <Compile Include="PrintingPresses_OldPrice\Zirkon\Zirkon_84_108_IB_Magazine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\Shinohara_60_90_CoverPlanBook_AKK059.json" />
+    <None Include="Data\Rapida_84_108_CoverZMK001.json" />
+    <None Include="Data\Shinohara_60_90_CoverPlanBook_AKK059 - Copy.json" />
+    <None Include="Data\Shinohara_84_108_Stickers_ZMK001.json" />
     <None Include="Data\Zirkon_60_90_16_IBResult_AKK059.json" />
+    <None Include="Data\Miller_84_108_16_IBResult_ZMK001.json" />
     <None Include="Data_Old\CorosetPriceList.json" />
     <None Include="Data_Old\CorosetResult.json" />
     <None Include="Data_Old\RapidaPriceList.json" />
@@ -123,7 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PrintingPresses\Coroset\" />
-    <Folder Include="PrintingPresses\Rapida\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
