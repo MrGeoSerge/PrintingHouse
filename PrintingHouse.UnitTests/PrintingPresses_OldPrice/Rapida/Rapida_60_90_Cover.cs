@@ -7,12 +7,12 @@ using PrintingHouse.Domain.Entities.Paper;
 using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Rapida
 {
 	[TestFixture]
 	[Category("Rapida_60_90_Cover")]
-	public class Rapida_60_90_Cover : PrintingPressTestBase
-	{
+	public class Rapida_60_90_Cover : PrintingPressTestBase_OldPrice
+    {
 		[SetUp]
 		public override void Initialize()
 		{

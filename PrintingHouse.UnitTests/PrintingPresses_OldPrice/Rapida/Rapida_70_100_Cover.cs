@@ -1,20 +1,18 @@
 ﻿using NUnit.Framework;
 using PrintingHouse.Domain.Entities.PrintingPresses;
-using PrintingHouse.Domain.Specifications;
 using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Specifications;
 using PrintingHouse.Domain.Entities.Paper;
 using PrintingHouse.Domain.Entities.BookComponents;
 using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Rapida
 {
 	[TestFixture]
-	[Category("Rapida60_90_Insert")]
-	public class Rapida60_90_Insert : PrintingPressTestBase
-	{
-		// Вкладка
-
+	[Category("Rapida_70_100_Cover")]
+	public class Rapida_70_100_Cover : PrintingPressTestBase_OldPrice
+    {
 		//imposition - спуск
 		//impression - оттиск
 
@@ -23,14 +21,14 @@ namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
 		{
 			printingPress = new Rapida74_5(
 				new TaskToPrint(
-					new BookPart("Insert",
-						new IssueFormat(60, 90, 32), 
-						new PaperInSheets(PaperType.SelfAdhensivePaper, 80, 3.9758, "Unknown", 45, 64),
-						new IssueColors(4, 0), 
+					new BookPart("Cover",
+						new IssueFormat(70, 100, 16), 
+						new PaperInSheets(PaperType.FoldingBoxboard, 200, 3.172, "Умка", 70, 100),
+						new IssueColors(4, 1), 
 						4, PrintingPressType.Rapida), 
 					28000), new Get_Old_PathFolderString());
 
-			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Rapida_60_90_InsertResult");
+			printingPressResult = JsonHelper<PrintingPressResult>.ReadFromFile("Rapida_70_100_CoverResult");
 		}
 	}
 }

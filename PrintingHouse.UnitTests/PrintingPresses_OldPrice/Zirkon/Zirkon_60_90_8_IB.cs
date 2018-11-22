@@ -7,13 +7,13 @@ using PrintingHouse.Domain.Specifications;
 using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Zirkon
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Zirkon
 {
 
 	[TestFixture]
 	[Category("Zirkon_60_90_8_IB")]
-	public class Zirkon_60_90_8_IB : PrintingPressTestBase
-	{
+	public class Zirkon_60_90_8_IB : PrintingPressTestBase_OldPrice
+    {
 		// Z60908IB означает Rapida Format 60*90 Internal block 
 
 		//imposition - спуск

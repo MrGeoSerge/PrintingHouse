@@ -7,12 +7,12 @@ using PrintingHouse.Domain.Specifications;
 using PrintingHouse.UnitTests.Data;
 using PrintingHouse.UnitTests.VerificationResults;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Rapida
 {
 	[TestFixture]
 	[Category("Rapida_60_90_IB")]
-	public class Rapida_60_90_IB : PrintingPressTestBase
-	{
+	public class Rapida_60_90_IB : PrintingPressTestBase_OldPrice
+    {
 		//imposition - спуск
 		//impression - оттиск
 

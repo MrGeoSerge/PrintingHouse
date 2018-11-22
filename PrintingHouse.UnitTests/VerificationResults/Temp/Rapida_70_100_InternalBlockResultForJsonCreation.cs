@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrintingHouse.UnitTests.VerificationResults
+namespace PrintingHouse_OldPrice.UnitTests.VerificationResults
 {
 	public class Rapida_70_100_InternalBlockResultForJsonCreation
 	{

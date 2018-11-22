@@ -8,10 +8,10 @@ using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 using PrintingHouse.Domain.Entities.PrintingPresses.Abstract;
 
-namespace PrintingHouse.UnitTests.PrintingPresses
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses
 {
 	[TestFixture]
-	public abstract class PrintingPressTestBase
+	public abstract class PrintingPressTestBase_OldPrice
 	{
 		protected PrintingPress printingPress;
 		protected PrintingPressResult printingPressResult;

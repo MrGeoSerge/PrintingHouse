@@ -7,13 +7,13 @@ using PrintingHouse.Domain.Specifications;
 using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Coroset
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Coroset
 {
 
 	[TestFixture]
 	[Category("CorosetPlamag_84_108_InternalBlock")]
-	public class CorosetPlamag_84_108_InternalBlock : PrintingPressTestBase
-	{
+	public class CorosetPlamag_84_108_InternalBlock : PrintingPressTestBase_OldPrice
+    {
 		//imposition - спуск
 		//impression - оттиск
 

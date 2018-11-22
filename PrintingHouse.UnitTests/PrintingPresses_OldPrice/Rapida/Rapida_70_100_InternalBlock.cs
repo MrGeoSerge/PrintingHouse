@@ -7,12 +7,12 @@ using PrintingHouse.Domain.Entities.Paper;
 using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Rapida
 {
 	[TestFixture]
 	[Category("Rapida_70_100_InternalBlock")]
-	public class Rapida_70_100_InternalBlock : PrintingPressTestBase
-	{
+	public class Rapida_70_100_InternalBlock : PrintingPressTestBase_OldPrice
+    {
 		// R70IB означает Rapida Format 70*100 Internal block 
 		//imposition - спуск
 		//impression - оттиск

@@ -6,14 +6,13 @@ using PrintingHouse.Domain.Entities.Tasks;
 using PrintingHouse.Domain.Specifications;
 using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
-using PrintingHouse.UnitTests.PrintingPresses;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Shinohara
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Shinohara
 {
 	[TestFixture]
 	[Category("Shinohara")]
-	public class Shinohara_84_108_Cover : PrintingPressTestBase
-	{
+	public class Shinohara_84_108_Cover : PrintingPressTestBase_OldPrice
+    {
 
 		[SetUp]
 		public override void Initialize()

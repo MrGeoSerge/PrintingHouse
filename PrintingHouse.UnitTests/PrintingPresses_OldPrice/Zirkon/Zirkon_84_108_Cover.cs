@@ -7,13 +7,13 @@ using PrintingHouse.Domain.Specifications;
 using PrintingHouse.UnitTests.Data;
 using PrintingHouse.UnitTests.VerificationResults;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Zirkon
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Zirkon
 {
 
 	[TestFixture]
 	[Category("Zirkon_84_108_Cover")]
-	public class Zirkon_84_108_Cover : PrintingPressTestBase
-	{
+	public class Zirkon_84_108_Cover : PrintingPressTestBase_OldPrice
+    {
 		// Z80IС означает Rapida Format 84*108 Cover - типа обложка журнала, то есть его первые 4 стр
 
 		//imposition - спуск

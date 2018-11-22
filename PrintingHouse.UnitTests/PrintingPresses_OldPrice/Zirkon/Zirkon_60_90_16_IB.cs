@@ -8,13 +8,13 @@ using PrintingHouse.Domain.Specifications;
 using PrintingHouse.UnitTests.Data;
 using PrintingHouse.UnitTests.VerificationResults;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Zirkon
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Zirkon
 {
 
 	[TestFixture]
 	[Category("Zirkon_60_90_16_IB")]
-	public class Zirkon_60_90_16_IB : PrintingPressTestBase
-	{
+	public class Zirkon_60_90_16_IB : PrintingPressTestBase_OldPrice
+    {
 		PrintingPressReport pressReport;
 		//imposition - спуск
 		//impression - оттиск

@@ -7,12 +7,12 @@ using PrintingHouse.Domain.Entities.Paper;
 using PrintingHouse.UnitTests.VerificationResults;
 using PrintingHouse.UnitTests.Data;
 
-namespace PrintingHouse.UnitTests.PrintingPresses.Rapida
+namespace PrintingHouse_OldPrice.UnitTests.PrintingPresses.Rapida
 {
 	[TestFixture]
 	[Category("Rapida_70_100_CoverMagazine")]
-	public class Rapida_70_100_CoverMagazine : PrintingPressTestBase
-	{
+	public class Rapida_70_100_CoverMagazine : PrintingPressTestBase_OldPrice
+    {
 		//imposition - спуск
 		//impression - оттиск
 
