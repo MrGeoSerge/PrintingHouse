@@ -36,6 +36,7 @@ namespace PrintingHouse.WebUI.Models
         public bool VarnishingOrdered { get; set; }
 
         //stickers
+        public bool HasStickers { get; set; }
         public string StickerFormat { get; set; }
         public PaperFullType StickerPaper { get; set; }
         public string StickerColors { get; set; }
@@ -138,7 +139,7 @@ namespace PrintingHouse.WebUI.Models
 
             book.BookParts.Add(InternalBlock);
 			book.BookParts.Add(Cover);
-            if(StickerPages > 0)
+            if(StickerPages > 0 && HasStickers == true)
                 book.BookParts.Add(Stickers);
 
             //BookAssembly = new BookAssembly(BindingType.PerfectBinding, LaminationType.Glossy, true, PerforationType.withoutPerforation);

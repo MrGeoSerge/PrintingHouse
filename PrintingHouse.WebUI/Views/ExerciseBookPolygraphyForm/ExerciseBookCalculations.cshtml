@@ -86,7 +86,10 @@
             </div>
         </div>
 
-         <h4>Наклейки</h4>
+
+        <h4>Наклейки
+            @Html.CheckBoxFor(m => m.HasStickers, new { @class = "checkbox-inline", @checked = "checked" })
+        </h4>
         <div class="row">
             <div class="col-md-4">
                 <label for="StickerPaper" class="control-label col-md-4">Формат 1-й страницы наклеек</label>
