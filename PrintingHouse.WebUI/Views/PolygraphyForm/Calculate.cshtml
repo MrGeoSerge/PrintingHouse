@@ -11,31 +11,17 @@
     {
         <div class="row">
             <div class="form-group col-md-4">
-                <label for="publishId" class="control-label col-md-2">Код</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Id, new { @class = "form-control", id = "publishId", placeholder = "Код" })
-                </div>
-            </div>
-            <div class="form-group col-md-8">
-                <label for="bookName" class="control-label col-md-4">Название книги</label>
-                <div class="col-md-8">
-                    @Html.TextAreaFor(m => m.Name, new { @class = "form-control", id = "bookName", placeholder = "Название" })
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-4">
                 <label for="pagesNumber" class="control-label col-md-8">Количество страниц</label>
                 <div class="col-md-4">
                     @Html.TextBoxFor(m => m.PagesNumber, new { @class = "form-control", id = "pagesNumber", value = "160" })
-                    @*@Html.ValidationMessageFor(m => m.PagesNumber)*@
+                    @Html.ValidationMessageFor(m => m.PagesNumber)
                 </div>
             </div>
             <div class="form-group col-md-3">
                 <label for="printRun" class="control-label col-md-5">Тираж</label>
                 <div class="col-md-7">
                     @Html.TextBoxFor(m => m.PrintRun, new { @class = "form-control", id = "printRun", value = "1000" })
-                    @*@Html.ValidationMessageFor(m => m.PrintRun)*@
+                    @Html.ValidationMessageFor(m => m.PrintRun)
                 </div>
             </div>
         </div>
@@ -152,15 +138,11 @@
     </div>
     }
 
-    @*@if (ViewBag.Report != null)
-    {<div id="tabledata">
-    </div>
-    }*@
 
-    @*@section scripts*@
-@*{*@
+    @*@section scripts
+    {*@
         @*Ненавязивый JavaScript для выполнения запроса на сервер без полного обновления страницы*@
-        @*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     @*}*@
 
     @Html.ActionLink("Прайс печатных машин", "PressesPriceList", "PriceUpdate") <br />
