@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "ExerciseBookCalculations";
 }
-<h2>Расчет полиграфии тетради с наклейками</h2>
+<h3>Расчет полиграфии тетради с наклейками</h3>
 <div class="container">
     @using (Html.BeginForm("ExerciseBookCalculations", "ExerciseBookPolygraphyForm", FormMethod.Post, new { @class = "form-horizontal" }))
     {
@@ -189,8 +189,8 @@
 
     @if (ViewBag.Report != null)
     {<div id="tabledata">
-        @Html.Action("Calculations", "PolygraphyForm", @Model)
-        @Html.Action("DetailedCostReport", "PolygraphyForm", @Model)
+        @Html.Action("CostReport", "BookPolygraphyForm", @Model)
+        @Html.Action("DetailedCostReport", "BookPolygraphyForm", @Model)
     </div>
     }
 

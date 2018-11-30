@@ -77,7 +77,7 @@ namespace PrintingHouse.WebUI.Controllers
         }
 
 
-        public ActionResult Calculations(PostersModel postersModel)
+        public ActionResult CostReport(PostersModel postersModel)
         {
             if (ModelState.IsValid)
             {

@@ -9,12 +9,10 @@ using System.Web.Mvc;
 
 namespace PrintingHouse.WebUI.Controllers
 {
-	public class PolygraphyFormController : Controller
+	public class BookPolygraphyFormController : Controller
     {
-		// GET: PolygraphyForm
-		//здесь начало приложения
 		[HttpGet]
-		public ActionResult Calculate()
+		public ActionResult BookCalculations()
 		{
 			List<PaperItem> IB_PaperTypes = new List<PaperItem>()
 			{
@@ -35,7 +33,7 @@ namespace PrintingHouse.WebUI.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Calculate(BookModel bookModel)
+		public ActionResult BookCalculations(BookModel bookModel)
 		{
 			List<PaperItem> IB_PaperTypes = new List<Models.PaperItem>()
 			{
@@ -65,7 +63,7 @@ namespace PrintingHouse.WebUI.Controllers
 			return View();
 		}
 
-		public ActionResult Calculations(BookModel bookModel)
+		public ActionResult CostReport(BookModel bookModel)
 		{
 			if (ModelState.IsValid)
 			{

@@ -15,8 +15,8 @@ namespace PrintingHouse.WebUI
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "PolygraphyForm", action = "Calculate", id = UrlParameter.Optional }
+                url: "{controller}/{action}",
+                defaults: new { controller = "BookPolygraphyForm", action = "BookCalculations" }
             );
         }
     }

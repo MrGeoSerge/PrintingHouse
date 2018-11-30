@@ -11,8 +11,6 @@ namespace PrintingHouse.WebUI.Controllers
 {
 	public class ExerciseBookPolygraphyFormController : Controller
     {
-		// GET: PolygraphyForm
-		//здесь начало приложения
 		[HttpGet]
 		public ActionResult ExerciseBookCalculations()
 		{
