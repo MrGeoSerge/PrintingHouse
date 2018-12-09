@@ -2,13 +2,14 @@
 @using PrintingHouse.Domain;
 
 @{
-	ViewBag.Title = "BookCalculations";
+    ViewBag.Title = "BookCalculations";
+    Layout = "/Views/Shared/_Layout.cshtml";
+    AjaxOptions ajaxOptions = new AjaxOptions { UpdateTargetId = "tableData" };
 }
 
 <h3>Расчет полиграфии книги</h3>
 <div class="container">
-    @*@using (Ajax.BeginForm(new AjaxOptions { Url = Url.Action("Calculations"), UpdateTargetId = "tabledata" }))*@
-    @using (Html.BeginForm("BookCalculations", "BookPolygraphyForm", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Ajax.BeginForm("CostReport", ajaxOptions))
     {
         <h4>Страницы и тираж</h4>
         <div class="row">
@@ -130,18 +131,12 @@
         <input type="submit" name="button" value="Calculate" />
     }
 
-    @if (ViewBag.Report != null)
-    {<div id="tabledata">
+   
+    {<div id="tableData">
         @Html.Action("CostReport", @Model)
-        @Html.Action("DetailedCostReport", @Model)
     </div>
     }
 
 
-    @*@section scripts
-    {*@
-        @*Ненавязивый JavaScript для выполнения запроса на сервер без полного обновления страницы*@
-        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    @*}*@
     @Html.ActionLink("Прайс печатных машин", "PressesPriceList", "PriceUpdate") <br />
 </div>
