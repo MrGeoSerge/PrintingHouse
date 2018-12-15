@@ -64,26 +64,19 @@ namespace PrintingHouse.WebUI.Controllers
 
 		public PartialViewResult CostReport(BookModel bookModel)
 		{
-            try
-            {
-			    if (ModelState.IsValid)
+			    if (Request.IsAjaxRequest())
 			    {
 			    	Book theBook = bookModel.CreateBook();
 			    	DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
 			    	PolygraphyCostReport report = director.MakeBook();
 			    	return PartialView(report);
 			    }
-            }
-            catch
-            {
-
-            }
 			    return PartialView();
 		}
 
-		public ActionResult DetailedCostReport(BookModel bookModel)
+		public PartialViewResult DetailedCostReport(BookModel bookModel)
 		{
-			if (ModelState.IsValid)
+			if (Request.IsAjaxRequest())
 			{
 				// TODO: Unify these 4 lines into one class
 				Book theBook = bookModel.CreateBook();
@@ -91,7 +84,7 @@ namespace PrintingHouse.WebUI.Controllers
 				PolygraphyCostReport report = director.MakeBook();
 				return PartialView(report);
 			}
-			return new EmptyResult();
+			return new PartialViewResult();
 		}
 
 	}

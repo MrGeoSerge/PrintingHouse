@@ -1,1 +1,54 @@
-{"Form":126.0,"Fitting":400,"TechNeeds":{"1+1":4.7,"2+2":1.2},"Impressions":[{"LowerPrintRunBound":2001,"UpperPrintRunBound":3000,"ImpressionCost":0.24,"SurplusForAdditionalColor":0.0429,"IssueColorsRange":null},{"LowerPrintRunBound":3001,"UpperPrintRunBound":4000,"ImpressionCost":0.22,"SurplusForAdditionalColor":0.0429,"IssueColorsRange":null},{"LowerPrintRunBound":4001,"UpperPrintRunBound":5000,"ImpressionCost":0.2,"SurplusForAdditionalColor":0.0429,"IssueColorsRange":null},{"LowerPrintRunBound":5001,"UpperPrintRunBound":6000,"ImpressionCost":0.18,"SurplusForAdditionalColor":0.0429,"IssueColorsRange":null},{"LowerPrintRunBound":6001,"UpperPrintRunBound":7000,"ImpressionCost":0.16,"SurplusForAdditionalColor":0.0429,"IssueColorsRange":null},{"LowerPrintRunBound":7001,"UpperPrintRunBound":2147483647,"ImpressionCost":0.14,"SurplusForAdditionalColor":0.07,"IssueColorsRange":null}],"PrintRun_UpToWhichFixedPrintingCostApplyed":2000,"FixedPrintingCost":480.0}
+{
+  "Form": 126.0,
+  "Fitting": 400,
+  "TechNeeds": {
+    "1+1": 4.7,
+    "2+2": 1.2
+  },
+  "Impressions": [
+    {
+      "LowerPrintRunBound": 2001,
+      "UpperPrintRunBound": 3000,
+      "ImpressionCost": 0.24,
+      "SurplusForAdditionalColor": 0.0429,
+      "IssueColorsRange": null
+    },
+    {
+      "LowerPrintRunBound": 3001,
+      "UpperPrintRunBound": 4000,
+      "ImpressionCost": 0.22,
+      "SurplusForAdditionalColor": 0.0429,
+      "IssueColorsRange": null
+    },
+    {
+      "LowerPrintRunBound": 4001,
+      "UpperPrintRunBound": 5000,
+      "ImpressionCost": 0.2,
+      "SurplusForAdditionalColor": 0.0429,
+      "IssueColorsRange": null
+    },
+    {
+      "LowerPrintRunBound": 5001,
+      "UpperPrintRunBound": 6000,
+      "ImpressionCost": 0.18,
+      "SurplusForAdditionalColor": 0.0429,
+      "IssueColorsRange": null
+    },
+    {
+      "LowerPrintRunBound": 6001,
+      "UpperPrintRunBound": 7000,
+      "ImpressionCost": 0.16,
+      "SurplusForAdditionalColor": 0.0429,
+      "IssueColorsRange": null
+    },
+    {
+      "LowerPrintRunBound": 7001,
+      "UpperPrintRunBound": 2147483647,
+      "ImpressionCost": 0.14,
+      "SurplusForAdditionalColor": 0.07,
+      "IssueColorsRange": null
+    }
+  ],
+  "PrintRun_UpToWhichFixedPrintingCostApplyed": 2000,
+  "FixedPrintingCost": 480.0
+}

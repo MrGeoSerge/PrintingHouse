@@ -1,1 +1,99 @@
-{"Form":108.0,"Fitting":{"4+0":300.0,"4+1":300.0,"2+2":300.0,"4+2":350.0,"4+4":350.0},"TechNeeds":{"4999":0.0,"1000000":8.0},"Impressions":[{"LowerPrintRunBound":2001,"UpperPrintRunBound":2999,"ImpressionCost":0.061,"SurplusForAdditionalColor":0.0,"IssueColorsRange":[{"FrontColors":4,"BackColors":0},{"FrontColors":4,"BackColors":1},{"FrontColors":2,"BackColors":2}]},{"LowerPrintRunBound":3000,"UpperPrintRunBound":4999,"ImpressionCost":0.053,"SurplusForAdditionalColor":0.0,"IssueColorsRange":[{"FrontColors":4,"BackColors":0},{"FrontColors":4,"BackColors":1},{"FrontColors":2,"BackColors":2}]},{"LowerPrintRunBound":5000,"UpperPrintRunBound":9999,"ImpressionCost":0.047,"SurplusForAdditionalColor":0.0,"IssueColorsRange":[{"FrontColors":4,"BackColors":0},{"FrontColors":4,"BackColors":1},{"FrontColors":2,"BackColors":2}]},{"LowerPrintRunBound":10000,"UpperPrintRunBound":2147483647,"ImpressionCost":0.047,"SurplusForAdditionalColor":0.0,"IssueColorsRange":[{"FrontColors":4,"BackColors":0},{"FrontColors":4,"BackColors":1},{"FrontColors":2,"BackColors":2}]}],"PrintRun_UpToWhichFixedPrintingCostApplyed":2000,"FixedPrintingCost":488.0,"Varnishing":0.144}
+{
+  "Form": 108.0,
+  "Fitting": {
+    "4+0": 300.0,
+    "4+1": 300.0,
+    "2+2": 300.0,
+    "4+2": 350.0,
+    "4+4": 350.0
+  },
+  "TechNeeds": {
+    "4999": 0.0,
+    "1000000": 8.0
+  },
+  "Impressions": [
+    {
+      "LowerPrintRunBound": 2001,
+      "UpperPrintRunBound": 2999,
+      "ImpressionCost": 0.061,
+      "SurplusForAdditionalColor": 0.0,
+      "IssueColorsRange": [
+        {
+          "FrontColors": 4,
+          "BackColors": 0
+        },
+        {
+          "FrontColors": 4,
+          "BackColors": 1
+        },
+        {
+          "FrontColors": 2,
+          "BackColors": 2
+        }
+      ]
+    },
+    {
+      "LowerPrintRunBound": 3000,
+      "UpperPrintRunBound": 4999,
+      "ImpressionCost": 0.053,
+      "SurplusForAdditionalColor": 0.0,
+      "IssueColorsRange": [
+        {
+          "FrontColors": 4,
+          "BackColors": 0
+        },
+        {
+          "FrontColors": 4,
+          "BackColors": 1
+        },
+        {
+          "FrontColors": 2,
+          "BackColors": 2
+        }
+      ]
+    },
+    {
+      "LowerPrintRunBound": 5000,
+      "UpperPrintRunBound": 9999,
+      "ImpressionCost": 0.047,
+      "SurplusForAdditionalColor": 0.0,
+      "IssueColorsRange": [
+        {
+          "FrontColors": 4,
+          "BackColors": 0
+        },
+        {
+          "FrontColors": 4,
+          "BackColors": 1
+        },
+        {
+          "FrontColors": 2,
+          "BackColors": 2
+        }
+      ]
+    },
+    {
+      "LowerPrintRunBound": 10000,
+      "UpperPrintRunBound": 2147483647,
+      "ImpressionCost": 0.047,
+      "SurplusForAdditionalColor": 0.0,
+      "IssueColorsRange": [
+        {
+          "FrontColors": 4,
+          "BackColors": 0
+        },
+        {
+          "FrontColors": 4,
+          "BackColors": 1
+        },
+        {
+          "FrontColors": 2,
+          "BackColors": 2
+        }
+      ]
+    }
+  ],
+  "PrintRun_UpToWhichFixedPrintingCostApplyed": 2000,
+  "FixedPrintingCost": 488.0,
+  "Varnishing": 0.144
+}

@@ -22,26 +22,26 @@ namespace PrintingHouse.Domain.Processes.BookAssembly
 		public void MakeBinding()
 		{
 			TaskToBind taskToBind = new TaskToBind(book.BookParts[0].Format, book.BookParts[0].PagesNumber, book.PrintRun);
-			Binding binding = null;
-			switch (book.BookAssembly.BindingType)
-			{
-				case BindingType.PerfectBinding:
-					binding = new Perfect(taskToBind);
-					break;
+			Binding binding = new Binding(taskToBind.PagesNumber, taskToBind.PrintRun, book.BookParts[0].Format);
+			//switch (book.BookAssembly.BindingType)
+			//{
+			//	case BindingType.PerfectBinding:
+			//		binding = new Perfect(taskToBind);
+			//		break;
 
-				case BindingType.SaddleStitching:
-					binding = new SaddleStitching(taskToBind);
-					break;
+			//	case BindingType.SaddleStitching:
+			//		binding = new SaddleStitching(taskToBind);
+			//		break;
 
-				case BindingType.HardcoverBinding:
-					binding = new HardCover(taskToBind);
-					break;
-                case BindingType.WithoutBinding:
-                    binding = null;
-                    break;
-				default:
-					throw new Exception("неправильно указан переплет");
-			}
+			//	case BindingType.HardcoverBinding:
+			//		binding = new HardCover(taskToBind);
+			//		break;
+   //             case BindingType.WithoutBinding:
+   //                 binding = null;
+   //                 break;
+			//	default:
+			//		throw new Exception("неправильно указан переплет");
+			//}
 
             if (binding == null)
                 Report.AddCostOfBinding(0.0);
