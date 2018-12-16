@@ -59,7 +59,7 @@ namespace PrintingHouse.Domain.Entities.PrintingPresses
 
         public override double CostOfImpressions {
             get {
-                if (TaskToPrint.PrintRun < shinoharaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
+                if (TaskToPrint.PrintRun <= shinoharaPriceList.PrintRun_UpToWhichFixedPrintingCostApplyed)
                     return shinoharaPriceList.FixedPrintingCost * PrintingSheetsPerBook;
 
                 return base.CostOfImpressions;

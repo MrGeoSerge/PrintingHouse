@@ -50,23 +50,23 @@
     <Compile Include="Containers\SimpleContainer.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\Paper\PaperProvider.cs" />
-    <Compile Include="Entities\PriceLists\BindingPriceList.cs" />
+    <Compile Include="Entities\PriceLists\BindingPriceListItem.cs" />
     <Compile Include="Entities\PriceLists\CorosetPriceList.cs" />
     <Compile Include="Entities\PriceLists\Impression.cs" />
-    <Compile Include="Entities\PriceLists\PerfectBindingPriceList.cs" />
+    <Compile Include="Entities\PriceLists\BindingPriceList.cs" />
     <Compile Include="Entities\PriceLists\PriceListHelper.cs" />
     <Compile Include="Interfaces\IGetPathFolder.cs" />
     <Compile Include="Processes\BookAssembly\AssemblyDepartment.cs" />
     <Compile Include="Processes\BookAssembly\AssemblyDirector.cs" />
     <Compile Include="Entities\Reports\AssemblyReport.cs" />
-    <Compile Include="Processes\BookBinding\AbstractBinding.cs" />
-    <Compile Include="Processes\BookBinding\HardCover.cs" />
+    <Compile Include="Processes\BookBinding\Binding.cs" />
+    <Compile Include="Processes\BookBinding\HardCoverBinding.cs" />
     <Compile Include="Abstract\IAssemblyDepartment.cs" />
     <Compile Include="Processes\BookAssembly\Lamination.cs" />
     <Compile Include="Processes\BookAssembly\Packaging.cs" />
-    <Compile Include="Processes\BookBinding\Perfect.cs" />
+    <Compile Include="Processes\BookBinding\PerfectBinding.cs" />
     <Compile Include="Processes\BookAssembly\Perforation.cs" />
-    <Compile Include="Processes\BookBinding\SaddleStitching.cs" />
+    <Compile Include="Processes\BookBinding\SaddleStitchingBinding.cs" />
     <Compile Include="Entities\BookComponents\BookAssembly.cs" />
     <Compile Include="Entities\BookComponents\BookPart.cs" />
     <Compile Include="Entities\Reports\PolygraphyCostReport.cs" />
@@ -124,7 +124,15 @@
     <EmbeddedResource Include="Data\CorosetPriceList.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="Data\PerfectBindingPriceList.json" />
+    <EmbeddedResource Include="Data\HardCoverBindingPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\SaddleStitchingBindingPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\PerfectBindingPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -20,10 +20,10 @@ namespace PrintingHouse.Domain.Entities.PriceLists
             pathFolder = getPathFolder.GetPathFolder();
         }
 
-        public PriceListHelper()
-        {
-            pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
-        }
+        //public PriceListHelper()
+        //{
+        //    pathFolder = @"D:\MyApps\PrintingHouse\PrintingHouse.Domain\Data\";
+        //}
 
 		public void WriteToFile(T priceList, string fileName)
 		{

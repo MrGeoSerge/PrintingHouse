@@ -42,11 +42,11 @@ namespace BookProduction.UnitTests
             //director = new DirectorOfTypography(theBook);
             //report = director.MakeBook();
             taskToInnerBlock = new TaskToPrint(MkBook.BookParts[0], MkBook.PrintRun);
-            coroset = new CorosetPlamag(taskToInnerBlock, new Get_Old_PathFolderString());
+            coroset = new CorosetPlamag(taskToInnerBlock, new GetPathFolderString());
             IB_report = coroset.SendReport;
 
             taskToCover = new TaskToPrint(MkBook.BookParts[1], MkBook.PrintRun);
-            shinohara = new Shinohara52_2(taskToCover, new Get_Old_PathFolderString());
+            shinohara = new Shinohara52_2(taskToCover, new GetPathFolderString());
             Cov_report = shinohara.SendReport;
         }
 

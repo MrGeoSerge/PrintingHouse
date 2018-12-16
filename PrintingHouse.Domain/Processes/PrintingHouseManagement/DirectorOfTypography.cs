@@ -61,7 +61,7 @@ namespace PrintingHouse.Domain.Processes.PrintingHouseManagement
         //сборка книги
         public void AssembleBook()
         {
-            IAssemblyDepartment assemblyDepartment = new AssemblyDepartment(book);
+            IAssemblyDepartment assemblyDepartment = new AssemblyDepartment(book, getPathFolder);
             AssemblyDirector assemblyDirector = new AssemblyDirector(assemblyDepartment);
             assemblyDirector.Assemble();
             assemblyReport = assemblyDepartment.Report;

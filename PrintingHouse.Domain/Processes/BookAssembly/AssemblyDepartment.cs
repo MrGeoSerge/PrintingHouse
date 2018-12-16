@@ -2,6 +2,7 @@
 using PrintingHouse.Domain.Entities;
 using PrintingHouse.Domain.Entities.Reports;
 using PrintingHouse.Domain.Entities.Tasks;
+using PrintingHouse.Domain.Interfaces;
 using PrintingHouse.Domain.Processes.BookBinding;
 using PrintingHouse.Domain.Specifications;
 using System;
@@ -9,39 +10,42 @@ using System;
 namespace PrintingHouse.Domain.Processes.BookAssembly
 {
 	public class AssemblyDepartment : IAssemblyDepartment
-	{
-		Book book;
+    {
+        IGetPathFolder getPathFolder;
+
+        Book book;
 		public AssemblyReport Report { get; }
 
-		public AssemblyDepartment(Book book)
+		public AssemblyDepartment(Book book, IGetPathFolder _getPathFolder)
 		{
 			Report = new AssemblyReport();
 			this.book = book;
+            getPathFolder = _getPathFolder;
 		}
 
 		public void MakeBinding()
 		{
-			TaskToBind taskToBind = new TaskToBind(book.BookParts[0].Format, book.BookParts[0].PagesNumber, book.PrintRun);
-			Binding binding = new Binding(taskToBind.PagesNumber, taskToBind.PrintRun, book.BookParts[0].Format);
-			//switch (book.BookAssembly.BindingType)
-			//{
-			//	case BindingType.PerfectBinding:
-			//		binding = new Perfect(taskToBind);
-			//		break;
+			TaskToBind taskToBind = new TaskToBind(book.BookParts[0].Format, book.BookParts[0].PagesNumber, book.PrintRun, book.BookAssembly.BindingType);
+			Binding binding;
+            switch (book.BookAssembly.BindingType)
+            {
+                case BindingType.PerfectBinding:
+                    binding = new PerfectBinding(taskToBind, getPathFolder);
+                    break;
 
-			//	case BindingType.SaddleStitching:
-			//		binding = new SaddleStitching(taskToBind);
-			//		break;
+                case BindingType.SaddleStitching:
+                    binding = new SaddleStitchingBinding(taskToBind, getPathFolder);
+                    break;
 
-			//	case BindingType.HardcoverBinding:
-			//		binding = new HardCover(taskToBind);
-			//		break;
-   //             case BindingType.WithoutBinding:
-   //                 binding = null;
-   //                 break;
-			//	default:
-			//		throw new Exception("неправильно указан переплет");
-			//}
+                case BindingType.HardcoverBinding:
+                    binding = new HardCoverBinding(taskToBind, getPathFolder);
+                    break;
+                case BindingType.WithoutBinding:
+                    binding = null;
+                    break;
+                default:
+                    throw new Exception("неправильно указан переплет");
+            }
 
             if (binding == null)
                 Report.AddCostOfBinding(0.0);
