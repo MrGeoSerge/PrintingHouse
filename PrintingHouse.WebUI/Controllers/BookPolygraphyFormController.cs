@@ -74,18 +74,18 @@ namespace PrintingHouse.WebUI.Controllers
 			    return PartialView();
 		}
 
-		public PartialViewResult DetailedCostReport(BookModel bookModel)
-		{
-			if (Request.IsAjaxRequest())
-			{
-				// TODO: Unify these 4 lines into one class
-				Book theBook = bookModel.CreateBook();
-				DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
-				PolygraphyCostReport report = director.MakeBook();
-				return PartialView(report);
-			}
-			return new PartialViewResult();
-		}
+		//public PartialViewResult DetailedCostReport(BookModel bookModel)
+		//{
+		//	if (Request.IsAjaxRequest())
+		//	{
+		//		// TODO: Unify these 4 lines into one class
+		//		Book theBook = bookModel.CreateBook();
+		//		DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
+		//		PolygraphyCostReport report = director.MakeBook();
+		//		return PartialView(report);
+		//	}
+		//	return new PartialViewResult();
+		//}
 
 	}
 }

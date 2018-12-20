@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using PrintingHouse.XamarinForms.Model;
 using PrintingHouse.XamarinForms.Pages;
 
 namespace PrintingHouse.XamarinForms

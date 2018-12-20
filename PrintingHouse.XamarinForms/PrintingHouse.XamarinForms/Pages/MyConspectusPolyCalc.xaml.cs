@@ -1,5 +1,4 @@
-﻿using PrintingHouse.XamarinForms.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,10 +24,10 @@ namespace PrintingHouse.XamarinForms.Pages
 
             //resultsLabel.Text = (pagesQnt * printRun).ToString();
 
-            var getPathFolderString = new GetPa
+            //var getPathFolderString = new GetPa
 
-            CalculationsManager calculationsManager = new CalculationsManager();
-            resultsLabel.Text = calculationsManager.CalculateMyConspectusPrintingCost(pagesQnt, printRun);
+            //CalculationsManager calculationsManager = new CalculationsManager();
+            //resultsLabel.Text = calculationsManager.CalculateMyConspectusPrintingCost(pagesQnt, printRun);
 
         }
     }
