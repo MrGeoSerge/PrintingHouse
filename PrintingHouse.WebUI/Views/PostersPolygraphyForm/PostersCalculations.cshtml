@@ -1,10 +1,12 @@
 ﻿@model PrintingHouse.WebUI.Models.PostersModel
 @{
     ViewBag.Title = "PostersCalculations";
+    Layout = "/Views/Shared/_Layout.cshtml";
+    AjaxOptions ajaxOptions = new AjaxOptions { UpdateTargetId = "tableData" };
 }
 <h2>Расчет полиграфии плакатов</h2>
 <div class="container">
-    @using (Html.BeginForm("PostersCalculations", "PostersPolygraphyForm", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Ajax.BeginForm("CostReport", ajaxOptions))
     {
         <div class="row">
             <div class="form-group col-md-3">
@@ -137,12 +139,7 @@
         <input type="submit" name="button" value="Calculate" />
     }
 
-    @if (ViewBag.Report != null)
-    {<div id="tabledata">
+    <div id="tableData">
         @Html.Action("CostReport", "PostersPolygraphyForm", @Model)
-        @Html.Action("DetailedCostReport", "PostersPolygraphyForm", @Model)
     </div>
-    }
-
-
 </div>

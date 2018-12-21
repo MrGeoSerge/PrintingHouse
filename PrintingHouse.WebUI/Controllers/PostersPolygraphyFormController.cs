@@ -14,30 +14,10 @@ namespace PrintingHouse.WebUI.Controllers
 {
     public class PostersPolygraphyFormController : Controller
     {
-        // GET: PostersPolygraphyForm
-        [HttpGet]
 		public ActionResult PostersCalculations()
 		{
             FillViewBagWithDropDowns(ViewBag);
 			return View();
-		}
-
-		[HttpPost]
-		public ActionResult PostersCalculations(PostersModel postersModel)
-		{
-            FillViewBagWithDropDowns(ViewBag);
-
-			if (ModelState.IsValid)
-			{
-				// TODO: Unify these for lines into one class
-				Book theBook = postersModel.CreatePosters();
-
-				DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
-				PolygraphyCostReport report = director.MakeBook();
-				ViewBag.Report = report;
-				return View("PostersCalculations", postersModel);
-			}
-			return View("PostersCalculations");
 		}
 
         private void FillViewBagWithDropDowns(dynamic viewBag)
@@ -72,36 +52,18 @@ namespace PrintingHouse.WebUI.Controllers
                 new PrintingPressItem(){Id= PrintingPressType.Rapida, Name = "Рапида"}
             };
             viewBag.InsertPrintingPresses = InsertPressTypes;
-
-
         }
 
-
-        public ActionResult CostReport(PostersModel postersModel)
+        public PartialViewResult CostReport(PostersModel postersModel)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAjaxRequest())
             {
                 Book theBook = postersModel.CreatePosters();
                 DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
                 PolygraphyCostReport report = director.MakeBook();
                 return PartialView(report);
             }
-            return new EmptyResult();
+            return PartialView();
         }
-
-        public ActionResult DetailedCostReport(PostersModel postersModel)
-        {
-            if (ModelState.IsValid)
-            {
-                // TODO: Unify these 4 lines into one class
-                Book theBook = postersModel.CreatePosters();
-                DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
-                PolygraphyCostReport report = director.MakeBook();
-                return PartialView(report);
-            }
-            return new EmptyResult();
-        }
-
-
     }
 }
