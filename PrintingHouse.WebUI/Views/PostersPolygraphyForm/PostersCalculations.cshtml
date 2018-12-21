@@ -110,32 +110,6 @@
 
        <hr />
 
-        @*<h4>Сборка</h4>
-        <div class="row">
-            <div class="col-md-4">
-                <label for="Lamination" class="control-label col-md-6">Ламинация</label>
-                <div class="col-md-6">
-                    <div class="radio">
-                        <label>
-                            @Html.RadioButtonFor(m => m.Lamination, PrintingHouse.Domain.Specifications.LaminationType.Glossy, new { @checked = "checked" })
-                            Глянцевая
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            @Html.RadioButtonFor(m => m.Lamination, PrintingHouse.Domain.Specifications.LaminationType.Matte)
-                            Матовая
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            @Html.RadioButtonFor(m => m.Lamination, PrintingHouse.Domain.Specifications.LaminationType.withoutLamination, new { @checked = "checked" })
-                            Без ламинации
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>*@
         <input type="submit" name="button" value="Calculate" />
     }
 

@@ -20,6 +20,18 @@ namespace PrintingHouse.WebUI.Controllers
 			return View();
 		}
 
+        public PartialViewResult CostReport(PostersModel postersModel)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                Book theBook = postersModel.CreatePosters();
+                DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
+                PolygraphyCostReport report = director.MakeBook();
+                return PartialView(report);
+            }
+            return PartialView();
+        }
+
         private void FillViewBagWithDropDowns(dynamic viewBag)
         {
             List<PaperItem> PostersPaperTypes = new List<PaperItem>()
@@ -54,16 +66,5 @@ namespace PrintingHouse.WebUI.Controllers
             viewBag.InsertPrintingPresses = InsertPressTypes;
         }
 
-        public PartialViewResult CostReport(PostersModel postersModel)
-        {
-            if (Request.IsAjaxRequest())
-            {
-                Book theBook = postersModel.CreatePosters();
-                DirectorOfTypography director = new DirectorOfTypography(theBook, new GetPathFolderString());
-                PolygraphyCostReport report = director.MakeBook();
-                return PartialView(report);
-            }
-            return PartialView();
-        }
     }
 }
